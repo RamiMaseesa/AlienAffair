@@ -7,53 +7,60 @@ namespace AlienAffair.Sprints.Sprint1.FrameWorkScripts
 {
     public class GameObject
     {
-        protected string path;
-        protected float depth;
-        protected float rotation;
-        protected float deltaTime;
-        protected Vector2 scale;
-        protected Vector2 position;
-        protected Rectangle collider;
-        protected Color color;
-        protected KeyboardState kState;
-        protected Texture2D sprite;
+        public Vector2 position;
+        public Rectangle rectangle;
+        public Texture2D texture2D;
+        public float scale = 3;
+        public Color hitBoxColor;
+        public Color color = Color.White;
+        public Vector2 origin;
+        public Rectangle hitbox;
+        public bool objectActive = true;
 
-
-        public GameObject(Vector2 position, string path)
+        public GameObject(Vector2 pPosition, Rectangle pRectangle)
         {
-            this.position = position;
-            this.path = path;
+            position = pPosition;
+            rectangle = pRectangle;
         }
 
-        public GameObject(Vector2 position, string path, float depth, Color color)
+        //public void Initialize(Game1 pGame)
+        //{
+        //    _game1 = pGame;
+        //}
+
+        public virtual void Update(GameTime pGameTime)
         {
-            this.position = position;
-            this.path = path;
-            this.depth = depth;
-            this.color = color;
+            //Nothing
         }
 
-        protected internal virtual void Initialize(GraphicsDeviceManager graphics)
+        public virtual void Draw(SpriteBatch pSpriteBatch)
         {
-            depth = 0.0f;
-            rotation = 0.0f;
-            color = Color.White;
-            scale = new Vector2(1, 1);
+            DrawHitbox(pSpriteBatch);
+            DrawSprite(pSpriteBatch);
         }
-        protected internal virtual void LoadContent(ContentManager content, GraphicsDeviceManager graphics)
+
+        public virtual void DrawSprite(SpriteBatch pSpriteBatch)
         {
-            sprite = content.Load<Texture2D>(path);
+            origin = new Vector2(rectangle.Width / 2f, rectangle.Height / 2f);
+            pSpriteBatch.Draw(texture2D, position, rectangle, color, 0, origin, scale, SpriteEffects.None, 0.0f);
         }
-        protected internal virtual void Update(GameTime gameTime, GraphicsDeviceManager graphics)
+
+        public virtual void LoadSprite(ContentManager pContent)
         {
-            kState = Keyboard.GetState();
-            collider = new Rectangle((int)position.X, (int)position.Y, sprite.Width, sprite.Height);
-            deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
+            texture2D = pContent.Load<Texture2D>("Button");
         }
-        protected internal virtual void Draw(SpriteBatch spriteBatch)
+
+        public virtual void DrawHitbox(SpriteBatch pSpriteBatch)
         {
-            spriteBatch.Draw(sprite, position, null, color, rotation,
-            new Vector2(sprite.Width / 2, sprite.Height / 2), scale, SpriteEffects.None, depth);
+            //pSpriteBatch.Draw(pPixel, position, null, hitBoxColor, 0, new Vector2(1f, 1f), new Vector2(rectangle.Width * (scale / 2), rectangle.Height * (scale / 2)), SpriteEffects.None, 0.0f);
+            int scaledRectangleWidth = rectangle.Width * (int)scale;
+            int scaledRectangleHeight = rectangle.Height * (int)scale;
+            hitbox = new Rectangle((int)position.X - (scaledRectangleWidth / 2), (int)position.Y - (scaledRectangleHeight / 2), scaledRectangleWidth, scaledRectangleHeight);
+        }
+
+        public virtual void Collision()
+        {
+            System.Console.WriteLine("empty");
         }
     }
 }
