@@ -12,7 +12,10 @@ namespace AlienAffair.Sprints.Sprint1.GamePlayScripts.Elliot
         public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);
-            Content.RootDirectory = "Content";
+            _graphics.PreferredBackBufferWidth = 1920;
+            _graphics.PreferredBackBufferHeight = 1080;
+            _graphics.IsFullScreen = false;
+            Content.RootDirectory = "Content/Sprites";
             IsMouseVisible = true;
         }
 
