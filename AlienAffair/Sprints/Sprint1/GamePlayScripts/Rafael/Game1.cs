@@ -9,7 +9,7 @@ namespace AlienAffair.Sprints.Sprint1.GamePlayScripts.Rafael
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
-        Button button;
+        ButtonBase button;
         
 
         public Game1()
@@ -26,7 +26,7 @@ namespace AlienAffair.Sprints.Sprint1.GamePlayScripts.Rafael
         {
             // TODO: Add your initialization logic here
             base.Initialize();
-            button = new Button(new Vector2(100, 100), new Rectangle(0, 0, 64, 32), "Hello World!");
+            button = new ButtonBase(new Vector2(100, 100), new Rectangle(0, 0, 64, 32), "Hello World!");
             button.LoadSprite(this.Content);
         }
 
