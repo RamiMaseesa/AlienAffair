@@ -8,7 +8,7 @@ namespace AlienAffair.Sprints.Sprint1.GamePlayScripts.Elliot
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
-
+        private WantedMiniGame wantedMiniGame;
         public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);
@@ -29,7 +29,7 @@ namespace AlienAffair.Sprints.Sprint1.GamePlayScripts.Elliot
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
-
+            wantedMiniGame = new WantedMiniGame(Content);
             // TODO: use this.Content to load your game content here
         }
 
@@ -38,6 +38,8 @@ namespace AlienAffair.Sprints.Sprint1.GamePlayScripts.Elliot
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
+            wantedMiniGame.Update(gameTime);
+
             // TODO: Add your update logic here
 
             base.Update(gameTime);
@@ -45,7 +47,10 @@ namespace AlienAffair.Sprints.Sprint1.GamePlayScripts.Elliot
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.Black);
+            _spriteBatch.Begin();
+            wantedMiniGame.Draw(_spriteBatch);
+            _spriteBatch.End();
 
             // TODO: Add your drawing code here
 
