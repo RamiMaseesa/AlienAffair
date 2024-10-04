@@ -2,6 +2,8 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System.IO;
+using System.Text.Json;
 
 namespace AlienAffair.Sprints.Sprint1.GamePlayScripts.Rafael
 {
@@ -9,16 +11,18 @@ namespace AlienAffair.Sprints.Sprint1.GamePlayScripts.Rafael
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
-        ButtonBase button;
-        
+        Dialogue _currentDialogue;
+        Dialogue[] _allDialogue;
+        int index = 0;
+        SpriteFont _gameFont;
 
         public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);
-            _graphics.PreferredBackBufferWidth = 1920;
-            _graphics.PreferredBackBufferHeight = 1080;
+            _graphics.PreferredBackBufferWidth = 500; //_graphics.PreferredBackBufferWidth = 1920;
+            _graphics.PreferredBackBufferWidth = 500; //_graphics.PreferredBackBufferHeight = 1080;
             _graphics.IsFullScreen = false;
-            Content.RootDirectory = "Content/Sprites";
+            //Content.RootDirectory = "Content";
             IsMouseVisible = true;
         }
 
@@ -26,14 +30,17 @@ namespace AlienAffair.Sprints.Sprint1.GamePlayScripts.Rafael
         {
             // TODO: Add your initialization logic here
             base.Initialize();
-            button = new ButtonBase(new Vector2(100, 100), new Rectangle(0, 0, 64, 32), "Hello World!");
-            button.LoadSprite(this.Content);
+            
+            var jsonFile = File.ReadAllText("Sprints/Sprint1/GamePlayScripts/Rafael/Dialogue.json");
+            _allDialogue = JsonSerializer.Deserialize<Dialogue[]>(jsonFile);
+            
+            
         }
 
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
-
+            _gameFont = Content.Load<SpriteFont>("Content/Fonts/File");
             // TODO: use this.Content to load your game content here
         }
 
@@ -42,11 +49,17 @@ namespace AlienAffair.Sprints.Sprint1.GamePlayScripts.Rafael
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            button.Update(gameTime);
-
             // TODO: Add your update logic here
+            _currentDialogue = _allDialogue[index];
 
             base.Update(gameTime);
+            KeyboardState kstate = Keyboard.GetState();
+            if(kstate.IsKeyDown(Keys.Enter) && index < 1)
+            {
+                index++;
+            }
+            
+            
         }
 
         protected override void Draw(GameTime gameTime)
@@ -55,7 +68,7 @@ namespace AlienAffair.Sprints.Sprint1.GamePlayScripts.Rafael
 
             // TODO: Add your drawing code here
             _spriteBatch.Begin();
-                button.Draw(_spriteBatch);
+                _currentDialogue.DrawText(_spriteBatch, _gameFont);
             _spriteBatch.End();
             base.Draw(gameTime);
         }
