@@ -20,7 +20,7 @@ namespace AlienAffair.Sprints.Sprint1.GamePlayScripts.Rafael
         {
             _graphics = new GraphicsDeviceManager(this);
             _graphics.PreferredBackBufferWidth = 500; //_graphics.PreferredBackBufferWidth = 1920;
-            _graphics.PreferredBackBufferWidth = 500; //_graphics.PreferredBackBufferHeight = 1080;
+            _graphics.PreferredBackBufferWidth = 600; //_graphics.PreferredBackBufferHeight = 1080;
             _graphics.IsFullScreen = false;
             //Content.RootDirectory = "Content";
             IsMouseVisible = true;
@@ -31,7 +31,7 @@ namespace AlienAffair.Sprints.Sprint1.GamePlayScripts.Rafael
             // TODO: Add your initialization logic here
             base.Initialize();
             
-            var jsonFile = File.ReadAllText("Sprints/Sprint1/GamePlayScripts/Rafael/Dialogue.json");
+            var jsonFile = File.ReadAllText("Content/Json/Dialogue.json");
             _allDialogue = JsonSerializer.Deserialize<Dialogue[]>(jsonFile);
             
             
@@ -40,7 +40,7 @@ namespace AlienAffair.Sprints.Sprint1.GamePlayScripts.Rafael
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
-            _gameFont = Content.Load<SpriteFont>("Content/Fonts/File");
+            _gameFont = Content.Load<SpriteFont>("Content\\Fonts\\File");
             // TODO: use this.Content to load your game content here
         }
 

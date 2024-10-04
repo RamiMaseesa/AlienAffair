@@ -11,6 +11,8 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="Content/Json/Dialogue.json" />
+    <None Remove="Content/Json/global.json" />
     <None Remove="Icon.ico" />
     <None Remove="Icon.bmp" />
   </ItemGroup>
@@ -31,6 +33,11 @@
     <Folder Include="Sprints\Sprint1\GamePlayScripts\Rafael\" />
     <Folder Include="Sprints\Sprint1\GamePlayScripts\Rami\" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Json\*.json">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+</ItemGroup>
   <Target Name="RestoreDotnetTools" BeforeTargets="Restore">
     <Message Text="Restoring dotnet tools" Importance="High" />
     <Exec Command="dotnet tool restore" />
