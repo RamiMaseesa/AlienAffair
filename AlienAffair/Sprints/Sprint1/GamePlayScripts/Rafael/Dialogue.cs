@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 
 namespace AlienAffair.Sprints.Sprint1.GamePlayScripts.Rafael;
 
@@ -19,17 +20,31 @@ public class Dialogue
 
     }
     public Emotion currentEmotion { get; set; }
+    //public string[] text { get; set; }
     public string[] text { get; set; }
+
     string _printedText = "";
     int _characterIndex = 0;
     int _stringIndex = 0;
     float _elapsedTime;
     bool _typingFinished = false;
-    float charPrintDelay = 0.07f;
+    float charPrintDelay;
+
+    //temporary
+    KeyboardState kstate;
 
     public Dialogue()
     {
 
+    }
+
+    public void Update(GameTime pGameTime)
+    {
+        //temporary
+        kstate = Keyboard.GetState();
+        TypeWriterEffect(pGameTime);
+        FastForwardText();
+        SkipDialogue();
     }
 
     public void DrawText(SpriteBatch pSpriteBatch, SpriteFont pGameFont)
@@ -78,10 +93,48 @@ public class Dialogue
                 }
                 else
                 {
-                    System.Console.WriteLine("All text has been typed");
+                    Console.WriteLine("All text has been typed");
                     _typingFinished = true;
                 }
             }
         }
-    } 
+    }
+
+    /// <summary>
+    /// Speeds up the pace at how quick the letters appear
+    /// </summary>
+    public void FastForwardText()
+    {
+        if (kstate.IsKeyDown(Keys.Right))
+            charPrintDelay = 0.02f;
+        else
+            charPrintDelay = 0.08f;
+    }
+
+    /// <summary>
+    /// Prints allt eh dialogue at once
+    /// </summary>
+    public void SkipDialogue()
+    {
+        if (kstate.IsKeyDown(Keys.Enter) && !_typingFinished)
+        {
+            _printedText = string.Join("", text);
+            _stringIndex = text.Length - 1;
+            _characterIndex = text[_stringIndex].Length;
+            _typingFinished = true;
+            Console.WriteLine("Dialogue has been skipped");
+        }
+    }
+
+    /// <summary>
+    /// Makes the dialogue reset all the way
+    /// </summary>
+    public void ResetDialogue()
+    {
+        _printedText = "";
+        _characterIndex = 0;
+        _stringIndex = 0;
+        _typingFinished = false;
+        System.Console.WriteLine($"Dialogue {this} has been reset");
+    }
 }

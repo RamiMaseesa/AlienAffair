@@ -11,10 +11,25 @@ namespace AlienAffair.Sprints.Sprint1.GamePlayScripts.Rafael
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
-        Dialogue _currentDialogue;
+        //Dialogue _currentDialogue;
         Dialogue[] _allDialogue;
         int index = 0;
         SpriteFont _gameFont;
+
+        //Tutorial on https://www.tutlane.com/tutorial/csharp/csharp-properties-get-set
+        Dialogue _currentDialogue;
+        public Dialogue CurrentDialogue
+        {
+            get { return _currentDialogue; }
+            set
+            {
+                if (_currentDialogue != value)
+                {
+                    _currentDialogue = value;
+                    _currentDialogue.ResetDialogue();
+                }
+            }
+        }
 
         public Game1()
         {
@@ -22,7 +37,6 @@ namespace AlienAffair.Sprints.Sprint1.GamePlayScripts.Rafael
             _graphics.PreferredBackBufferWidth = 500; //_graphics.PreferredBackBufferWidth = 1920;
             _graphics.PreferredBackBufferWidth = 600; //_graphics.PreferredBackBufferHeight = 1080;
             _graphics.IsFullScreen = false;
-            //Content.RootDirectory = "Content";
             IsMouseVisible = true;
         }
 
@@ -30,11 +44,12 @@ namespace AlienAffair.Sprints.Sprint1.GamePlayScripts.Rafael
         {
             // TODO: Add your initialization logic here
             base.Initialize();
-            
+
+            //load this in the dialogue class itself (Maybe)?
             var jsonFile = File.ReadAllText("Content/Json/Dialogue.json");
             _allDialogue = JsonSerializer.Deserialize<Dialogue[]>(jsonFile);
-            
-            
+
+
         }
 
         protected override void LoadContent()
@@ -50,17 +65,20 @@ namespace AlienAffair.Sprints.Sprint1.GamePlayScripts.Rafael
                 Exit();
 
             // TODO: Add your update logic here
-            _currentDialogue = _allDialogue[index];
+            CurrentDialogue = _allDialogue[index];
 
             base.Update(gameTime);
             KeyboardState kstate = Keyboard.GetState();
-            if(kstate.IsKeyDown(Keys.Enter) && index < 1)
-            {
+
+            if (kstate.IsKeyDown(Keys.E) && index < 1)
                 index++;
-            }
-            _currentDialogue.TypeWriterEffect(gameTime);
-            
-            
+            else if (kstate.IsKeyDown(Keys.Q))
+                index = 0;
+            //else if (kstate.IsKeyDown(Keys.R))
+                //_currentDialogue.ResetDialogue();
+            _currentDialogue.Update(gameTime);
+
+
         }
 
         protected override void Draw(GameTime gameTime)
@@ -69,7 +87,7 @@ namespace AlienAffair.Sprints.Sprint1.GamePlayScripts.Rafael
 
             // TODO: Add your drawing code here
             _spriteBatch.Begin();
-                _currentDialogue.DrawText(_spriteBatch, _gameFont);
+            _currentDialogue.DrawText(_spriteBatch, _gameFont);
             _spriteBatch.End();
             base.Draw(gameTime);
         }
