@@ -58,6 +58,7 @@ namespace AlienAffair.Sprints.Sprint1.GamePlayScripts.Rafael
             {
                 index++;
             }
+            _currentDialogue.TypeWriterEffect(gameTime);
             
             
         }

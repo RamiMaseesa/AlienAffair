@@ -12,7 +12,6 @@
   </PropertyGroup>
   <ItemGroup>
     <None Remove="Content/Json/Dialogue.json" />
-    <None Remove="Content/Json/global.json" />
     <None Remove="Icon.ico" />
     <None Remove="Icon.bmp" />
   </ItemGroup>
