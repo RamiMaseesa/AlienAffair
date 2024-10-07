@@ -82,6 +82,8 @@ public class Dialogue
                     _printedText += text[_stringIndex][_characterIndex];
                     _characterIndex++;
                     _elapsedTime = 0;
+                    //put your logic per letter here
+                    PerLetterLogic();
                 }
             }
             else
@@ -136,5 +138,13 @@ public class Dialogue
         _stringIndex = 0;
         _typingFinished = false;
         System.Console.WriteLine($"Dialogue {this} has been reset");
+    }
+
+    /// <summary>
+    /// This method plays per letter displayed on screen
+    /// </summary>
+    public void PerLetterLogic()
+    {
+        System.Console.WriteLine("Per letter Logic");
     }
 }

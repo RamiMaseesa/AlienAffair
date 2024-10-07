@@ -35,7 +35,7 @@ namespace AlienAffair.Sprints.Sprint1.GamePlayScripts.Rafael
         {
             _graphics = new GraphicsDeviceManager(this);
             _graphics.PreferredBackBufferWidth = 500; //_graphics.PreferredBackBufferWidth = 1920;
-            _graphics.PreferredBackBufferWidth = 600; //_graphics.PreferredBackBufferHeight = 1080;
+            _graphics.PreferredBackBufferWidth = 500; //_graphics.PreferredBackBufferHeight = 1080;
             _graphics.IsFullScreen = false;
             IsMouseVisible = true;
         }
