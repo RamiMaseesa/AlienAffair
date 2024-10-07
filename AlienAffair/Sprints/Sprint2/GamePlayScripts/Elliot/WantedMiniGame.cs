@@ -21,25 +21,29 @@ namespace AlienAffair.Sprints.Sprint2.GamePlayScripts.Elliot
         private void Initialize(ContentManager pContent)
         {
             Random rnd = new Random();
-            wantedAlien = new AlienObjectWanted(new Vector2(rnd.Next(0, 1921), rnd.Next(1081)), "Alien Head");
+            wantedAlien = new AlienObjectWanted(new Vector2(500, 500), new Rectangle(0, 0, 64, 64));
+            wantedAlien.LoadSprite(pContent);
 
             for (int i = 0; i < alienAmount; i++)
             {
-                AlienObjectWanted alien = new AlienObjectWanted(new Vector2(rnd.Next(0, 1921), rnd.Next(1081)), "Alien Head");
-                aliensInScene.Add(alien);
+                AlienObjectWanted alien = new AlienObjectWanted(new Vector2(0 + 100 * i, 0 + 100 * i), new Rectangle(0, 0, 64, 64)); //(new Vector2(rnd.Next(0, 1921), rnd.Next(0, 1081)
                 alien.LoadSprite(pContent);
+                aliensInScene.Add(alien);
             }
         }
 
         public void Update(GameTime pGameTime)
         {
+            wantedAlien.Update(pGameTime);
             foreach (AlienObjectWanted alien in aliensInScene)
             {
-                alien.Update(pGameTime);
+               alien.Update(pGameTime);
             }
         }
         public void Draw(SpriteBatch pSpriteBatch)
         {
+
+            wantedAlien.Draw(pSpriteBatch);
             foreach (AlienObjectWanted alien in aliensInScene)
             {
                 alien.Draw(pSpriteBatch);

@@ -1,22 +1,19 @@
 ﻿using AlienAffair.Sprints.Sprint1.FrameWorkScripts;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Content;
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
 using System;
 
 namespace AlienAffair.Sprints.Sprint2.GamePlayScripts.Elliot
 {
     public class AlienObjectWanted : GameObject
     {
-        Vector2 alienPosition;
         Vector2 direction;
         float speed;
 
-        public AlienObjectWanted(Vector2 pPosition, string pPathToImage) : base(pPosition, pPathToImage)
+        public AlienObjectWanted(Vector2 pPosition, Rectangle pRectangle) : base(pPosition, pRectangle)
         {
-            path = pPathToImage;
-            position = pPosition;
+            position = pPosition; 
+            path = "Alien Head";
+            scale = 1;
             Initialize();
         }
 
@@ -34,7 +31,7 @@ namespace AlienAffair.Sprints.Sprint2.GamePlayScripts.Elliot
 
         private void MoveSprite(GameTime pGameTime)
         {
-            position = direction * (speed * (float)pGameTime.ElapsedGameTime.TotalSeconds);
+            position += direction * (speed * (float)pGameTime.ElapsedGameTime.TotalSeconds);
         }
 
         public void FlipDirectionX()
