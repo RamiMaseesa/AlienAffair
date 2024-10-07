@@ -11,7 +11,10 @@ namespace AlienAffair.Sprints.Sprint2.GamePlayScripts.Elliot
         List<Texture2D> alienSpriteList;
         List<AlienObjectWanted> aliensInScene = new List<AlienObjectWanted>();
         AlienObjectWanted wantedAlien;
-        int alienAmount = 50;
+        PlayerCircle playerCircle;
+        int alienAmount = 100;
+
+        Rectangle gameScreen;
 
         public WantedMiniGame(ContentManager pContent)
         {
@@ -20,34 +23,57 @@ namespace AlienAffair.Sprints.Sprint2.GamePlayScripts.Elliot
 
         private void Initialize(ContentManager pContent)
         {
+            gameScreen = new Rectangle(50, 50, 750, 750);
+
             Random rnd = new Random();
-            wantedAlien = new AlienObjectWanted(new Vector2(500, 500), new Rectangle(0, 0, 64, 64));
+            wantedAlien = new AlienObjectWanted(new Vector2(rnd.Next(gameScreen.X + 64, gameScreen.Width - 64), rnd.Next(gameScreen.Y + 64, gameScreen.Height - 64)), "Alien Head", Color.Blue, new Rectangle(0, 0, 64, 64));
             wantedAlien.LoadSprite(pContent);
+            aliensInScene.Add(wantedAlien);
 
             for (int i = 0; i < alienAmount; i++)
             {
-                AlienObjectWanted alien = new AlienObjectWanted(new Vector2(0 + 100 * i, 0 + 100 * i), new Rectangle(0, 0, 64, 64)); //(new Vector2(rnd.Next(0, 1921), rnd.Next(0, 1081)
+                AlienObjectWanted alien = new AlienObjectWanted(new Vector2(rnd.Next(gameScreen.X + 64, gameScreen.Width - 64), rnd.Next(gameScreen.Y + 64, gameScreen.Height - 64)), "Alien Head", Color.White, new Rectangle(0, 0, 64, 64));
                 alien.LoadSprite(pContent);
                 aliensInScene.Add(alien);
             }
+
+            playerCircle = new PlayerCircle(new Vector2(gameScreen.Width / 2, gameScreen.Height / 2), "White Circle", Color.White * 0.40f, new Rectangle(0, 0, 64, 64));
+            playerCircle.LoadSprite(pContent);
         }
 
         public void Update(GameTime pGameTime)
         {
-            wantedAlien.Update(pGameTime);
             foreach (AlienObjectWanted alien in aliensInScene)
             {
-               alien.Update(pGameTime);
+                alien.Update(pGameTime);
+            }
+
+            playerCircle.MoveCircle(pGameTime, gameScreen);
+            CheckWallCollision();
+        }
+
+        private void CheckWallCollision()
+        {
+            foreach (AlienObjectWanted alien in aliensInScene)
+            {
+                if (alien.position.Y + 64 > gameScreen.Height || alien.position.Y - 64 < gameScreen.Y)
+                {
+                    alien.FlipDirectionY();
+                }
+                else if (alien.position.X + 64 > gameScreen.Width || alien.position.X - 64 < gameScreen.X)
+                {
+                    alien.FlipDirectionX();
+                }
             }
         }
+
         public void Draw(SpriteBatch pSpriteBatch)
         {
-
-            wantedAlien.Draw(pSpriteBatch);
             foreach (AlienObjectWanted alien in aliensInScene)
             {
                 alien.Draw(pSpriteBatch);
             }
+            playerCircle.Draw(pSpriteBatch);
         }
     }
 }
