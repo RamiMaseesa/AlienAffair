@@ -1,15 +1,15 @@
 [
   {
-    "_currentEmotion": 2,
-    "_text": [
+    "currentEmotion": 2,
+    "text": [
       "Ik heb me teen gestoten\n",
       "dat doet erg veel pijn"
     ]
   },
   {
     
-    "_currentEmotion": 3,
-    "_text": [
+    "currentEmotion": 3,
+    "text": [
       "Dit is jouw schuld\n",
       "Elliot jij bommeling"
     ]

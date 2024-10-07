@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework.Input;
 using System.IO;
 using System.Text.Json;
 
-namespace AlienAffair.Sprints.Sprint1.GamePlayScripts.Rafael
+namespace AlienAffair.Sprints.Sprint2.GamePlayScripts.Rafael
 {
     public class Game1 : Game
     {

@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
-namespace AlienAffair.Sprints.Sprint1.GamePlayScripts.Rafael;
+namespace AlienAffair.Sprints.Sprint2.GamePlayScripts.Rafael;
 
 public class Dialogue
 {
