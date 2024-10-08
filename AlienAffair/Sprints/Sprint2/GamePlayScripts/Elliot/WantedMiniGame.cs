@@ -34,7 +34,7 @@ namespace AlienAffair.Sprints.Sprint2.GamePlayScripts.Elliot
             {
                 AlienObjectWanted alien = new AlienObjectWanted(new Vector2(rnd.Next(gameScreen.X + 64, gameScreen.Width - 64), rnd.Next(gameScreen.Y + 64, gameScreen.Height - 64)), "Alien Head", Color.White, new Rectangle(0, 0, 64, 64));
                 alien.LoadSprite(pContent);
-                aliensInScene.Add(alien);
+                //aliensInScene.Add(alien);
             }
 
             playerCircle = new PlayerCircle(new Vector2(gameScreen.Width / 2, gameScreen.Height / 2), "White Circle", Color.White * 0.40f, new Rectangle(0, 0, 64, 64));
@@ -49,6 +49,7 @@ namespace AlienAffair.Sprints.Sprint2.GamePlayScripts.Elliot
             }
 
             playerCircle.MoveCircle(pGameTime, gameScreen);
+            playerCircle.DetectWanted(wantedAlien, pGameTime);
             CheckWallCollision();
         }
 

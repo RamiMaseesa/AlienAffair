@@ -14,7 +14,7 @@ namespace AlienAffair.Sprints.Sprint2.GamePlayScripts.Elliot
         {
             _graphics = new GraphicsDeviceManager(this);
             _graphics.PreferredBackBufferWidth = 1920;
-            _graphics.PreferredBackBufferHeight = 1080;
+            _graphics.PreferredBackBufferHeight = 750;
             _graphics.IsFullScreen = false;
             Content.RootDirectory = "Content/Sprites";
             IsMouseVisible = true;

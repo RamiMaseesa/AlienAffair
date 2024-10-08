@@ -1,6 +1,7 @@
 ﻿using AlienAffair.Sprints.Sprint1.FrameWorkScripts;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
+using System;
 
 namespace AlienAffair.Sprints.Sprint2.GamePlayScripts.Elliot
 {
@@ -8,7 +9,8 @@ namespace AlienAffair.Sprints.Sprint2.GamePlayScripts.Elliot
     {
         float speed = 50f;
         bool buttonIsDown = false;
-        float radius = 64 * 1.75f;
+        float radius = 64;
+        float timeInCircle = 0;
 
         enum speedValues
         {
@@ -60,6 +62,27 @@ namespace AlienAffair.Sprints.Sprint2.GamePlayScripts.Elliot
             position += translation;
         }
 
+        public void DetectWanted(AlienObjectWanted pWantedAlien, GameTime pGameTime)
+        {
+            radius = texture2D.Width + Math.Abs(texture2D.Width * (2 - scale));
+
+            if ((pWantedAlien.position - position).Length() <= radius)
+            {
+                Console.WriteLine("nu heb ik je");
+                timeInCircle += (float)pGameTime.ElapsedGameTime.TotalSeconds;
+            }
+            else
+            {
+                timeInCircle = 0;
+            }
+
+            if (timeInCircle > 3f)
+            {
+                pWantedAlien.color = Color.Red;
+            }
+            Console.WriteLine(timeInCircle);
+        }
+
         public void ChangeSpeed()
         {
             if (Keyboard.GetState().IsKeyDown(Keys.Space) && buttonIsDown == false)
@@ -69,17 +92,22 @@ namespace AlienAffair.Sprints.Sprint2.GamePlayScripts.Elliot
                 {
                     case speedValues.Snail:
                         currentSpeed = speedValues.Slow;
+                        speed = 50;
                         break;
                     case speedValues.Slow:
+                        speed = 75;
                         currentSpeed = speedValues.Medium;
                         break;
                     case speedValues.Medium:
+                        speed = 100;
                         currentSpeed = speedValues.Fast;
                         break;
                     case speedValues.Fast:
+                        speed = 200;
                         currentSpeed = speedValues.Turbo;
                         break;
                     case speedValues.Turbo:
+                        speed = 325;
                         currentSpeed = speedValues.Snail;
                         break;
                 }
@@ -87,25 +115,6 @@ namespace AlienAffair.Sprints.Sprint2.GamePlayScripts.Elliot
             if (Keyboard.GetState().IsKeyUp(Keys.Space))
             {
                 buttonIsDown = false;
-
-            }
-            switch (currentSpeed)
-            {
-                case speedValues.Snail:
-                    speed = 50;
-                    break;
-                case speedValues.Slow:
-                    speed = 75;
-                    break;
-                case speedValues.Medium:
-                    speed = 100;
-                    break;
-                case speedValues.Fast:
-                    speed = 200;
-                    break;
-                case speedValues.Turbo:
-                    speed = 325;
-                    break;
             }
         }
     }
