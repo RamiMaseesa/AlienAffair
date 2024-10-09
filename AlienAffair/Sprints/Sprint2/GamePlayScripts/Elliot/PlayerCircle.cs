@@ -64,9 +64,9 @@ namespace AlienAffair.Sprints.Sprint2.GamePlayScripts.Elliot
 
         public void DetectWanted(AlienObjectWanted pWantedAlien, GameTime pGameTime)
         {
-            radius = texture2D.Width + Math.Abs(texture2D.Width * (2 - scale));
+            radius = texture2D.Width * scale / 2;
 
-            if ((pWantedAlien.position - position).Length() <= radius)
+            if ((pWantedAlien.position - position).Length() - texture2D.Width / 2 <= radius)
             {
                 Console.WriteLine("nu heb ik je");
                 timeInCircle += (float)pGameTime.ElapsedGameTime.TotalSeconds;
