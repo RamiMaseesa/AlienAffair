@@ -8,56 +8,73 @@ namespace AlienAffair.Sprints.Sprint2.GamePlayScripts.Elliot
 {
     public class WantedMiniGame
     {
+        SpriteFont font;
+
+        ContentManager Content;
+        Texture2D background;
+        Color sceneColor = Color.White;
+
         int[] faceSprites = { 0, 64, 128 };
+        int humanAmount = 100;
         List<AlienObjectWanted> aliensInScene = new List<AlienObjectWanted>();
+
         AlienObjectWanted wantedAlien;
-        AlienObjectWanted wantedAlienSprite;
+        Texture2D wantedAlienSprite;
+        int drawWantedPosX;
+        int drawWantedPosY;
+
         PlayerCircle playerCircle;
-        int alienAmount = 150;
+
+        float timeLeft = 90f;
+        int timesWon = 0;
 
         Rectangle gameScreen;
 
         public WantedMiniGame(ContentManager pContent)
         {
-            Initialize(pContent);
+            Content = pContent;
+            Initialize();
         }
 
-        private void Initialize(ContentManager pContent)
+        private void Initialize()
         {
-            gameScreen = new Rectangle(50, 50, 750, 750);
+            aliensInScene.Clear();
+            background = Content.Load<Texture2D>("Content\\Sprites\\Background Wanted");
+            font = Content.Load<SpriteFont>("Content\\Fonts\\WantedGameFont");
+
+
+            gameScreen = new Rectangle(300, 160, 1075, 925);
 
             Random rnd = new Random();
 
-            int drawWantedPosX = faceSprites[rnd.Next(0, 3)];
-            int drawWantedPosY = faceSprites[rnd.Next(0, 3)];
+            drawWantedPosX = faceSprites[rnd.Next(0, 3)];
+            drawWantedPosY = faceSprites[rnd.Next(0, 3)];
 
-            wantedAlien = new AlienObjectWanted(new Vector2(rnd.Next(gameScreen.X + 64, gameScreen.Width - 64), rnd.Next(gameScreen.Y + 64, gameScreen.Height - 64)), "FaceSpriteSheet", Color.White, new Rectangle(drawWantedPosX, drawWantedPosY, 64, 64));
-            wantedAlien.LoadSprite(pContent);
+            wantedAlien = new AlienObjectWanted(new Vector2(rnd.Next(gameScreen.X + 64, gameScreen.Width - 64), rnd.Next(gameScreen.Y + 64, gameScreen.Height - 64)), "Content\\Sprites\\FaceSpriteSheet", sceneColor, new Rectangle(drawWantedPosX, drawWantedPosY, 63, 63));
+            wantedAlien.LoadSprite(Content);
             aliensInScene.Add(wantedAlien);
 
+            wantedAlienSprite = wantedAlien.texture2D;
 
-            wantedAlienSprite = new AlienObjectWanted(new Vector2(1000, 500), "FaceSpriteSheet", Color.White, new Rectangle(drawWantedPosX, drawWantedPosY, 64, 64));
-            wantedAlienSprite.LoadSprite(pContent);
-
-            for (int i = 0; i < alienAmount; i++)
+            for (int i = 0; i < humanAmount; i++)
             {
                 int drawPosX = faceSprites[rnd.Next(0, 3)];
                 int drawPosY = faceSprites[rnd.Next(0, 3)];
 
                 if (drawPosX != drawWantedPosX || drawPosY != drawWantedPosY)
                 {
-                    AlienObjectWanted alien = new AlienObjectWanted(new Vector2(rnd.Next(gameScreen.X + 64, gameScreen.Width - 64), rnd.Next(gameScreen.Y + 64, gameScreen.Height - 64)), "FaceSpriteSheet", Color.White, new Rectangle(drawPosX, drawPosY, 64, 64));
-                    alien.LoadSprite(pContent);
+                    AlienObjectWanted alien = new AlienObjectWanted(new Vector2(rnd.Next(gameScreen.X + 64, gameScreen.Width - 64), rnd.Next(gameScreen.Y + 64, gameScreen.Height - 64)), "Content\\Sprites\\FaceSpriteSheet", sceneColor, new Rectangle(drawPosX, drawPosY, 63, 63));
+                    alien.LoadSprite(Content);
                     aliensInScene.Add(alien);
-                } 
+                }
                 else
                 {
                     i--;
                 }
             }
 
-            playerCircle = new PlayerCircle(new Vector2(gameScreen.Width / 2, gameScreen.Height / 2), "White Circle", Color.White * 0.40f, new Rectangle(0, 0, 64, 64));
-            playerCircle.LoadSprite(pContent);
+            playerCircle = new PlayerCircle(new Vector2((gameScreen.X + gameScreen.Width) / 2, (gameScreen.Y + gameScreen.Height) / 2), "Content\\Sprites\\White Circle", sceneColor * 0.40f, new Rectangle(0, 0, 64, 64));
+            playerCircle.LoadSprite(Content);
         }
 
         public void Update(GameTime pGameTime)
@@ -67,19 +84,48 @@ namespace AlienAffair.Sprints.Sprint2.GamePlayScripts.Elliot
                 alien.Update(pGameTime);
             }
 
+            if (playerCircle.DetectWanted(wantedAlien, pGameTime) == true)
+            {
+                timeLeft += 15;
+                timesWon++;
+                Initialize();
+            }
+            else
+            {
+                timeLeft -= (float)pGameTime.ElapsedGameTime.TotalSeconds;
+            }
+
             playerCircle.MoveCircle(pGameTime, gameScreen);
             playerCircle.DetectWanted(wantedAlien, pGameTime);
             CheckWallCollision();
         }
+
         public void Draw(SpriteBatch pSpriteBatch)
         {
-            wantedAlienSprite.Draw(pSpriteBatch);
-
-            foreach (AlienObjectWanted alien in aliensInScene)
+            if (timesWon >= 5)
             {
-                alien.Draw(pSpriteBatch);
+                pSpriteBatch.DrawString(font, "You Win!", new Vector2(960, 540), Color.Green, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 1f);
             }
-            playerCircle.Draw(pSpriteBatch);
+            else if (timeLeft > 0)
+            {
+                pSpriteBatch.Draw(background, new Vector2(0, 0), sceneColor);
+
+                pSpriteBatch.DrawString(font, Math.Floor(timeLeft).ToString(), new Vector2(688, 0), Color.Yellow, 0f, new Vector2(32, 0), 1f, SpriteEffects.None, 1f);
+
+                pSpriteBatch.DrawString(font, "Found:" + timesWon.ToString(), new Vector2(1609, 233), Color.Yellow, 0f, new Vector2(32, 0), 1f, SpriteEffects.None, 1f);
+
+                pSpriteBatch.Draw(wantedAlienSprite, new Vector2(1609, 433), new Rectangle(drawWantedPosX, drawWantedPosY, 63, 63), sceneColor, 0f, new Vector2(0, 0), 1.95f, SpriteEffects.None, 1f);
+
+                foreach (AlienObjectWanted alien in aliensInScene)
+                {
+                    alien.Draw(pSpriteBatch);
+                }
+                playerCircle.Draw(pSpriteBatch);
+            } 
+            else if (timeLeft <= 0)
+            {
+                pSpriteBatch.DrawString(font, "You Lose!", new Vector2(960, 540), Color.Red, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 1f);
+            }
         }
 
         private void CheckWallCollision()

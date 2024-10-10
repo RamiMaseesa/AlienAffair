@@ -1,7 +1,9 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
+using System.IO;
 
 namespace AlienAffair.Sprints.Sprint2.GamePlayScripts.Elliot
 {
@@ -14,9 +16,9 @@ namespace AlienAffair.Sprints.Sprint2.GamePlayScripts.Elliot
         {
             _graphics = new GraphicsDeviceManager(this);
             _graphics.PreferredBackBufferWidth = 1920;
-            _graphics.PreferredBackBufferHeight = 750;
+            _graphics.PreferredBackBufferHeight = 1080;
             _graphics.IsFullScreen = false;
-            Content.RootDirectory = "Content/Sprites";
+           // Content.RootDirectory = "Content/Sprites";
             IsMouseVisible = true;
         }
 

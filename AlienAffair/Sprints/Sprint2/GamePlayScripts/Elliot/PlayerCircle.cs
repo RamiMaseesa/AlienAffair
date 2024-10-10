@@ -62,13 +62,12 @@ namespace AlienAffair.Sprints.Sprint2.GamePlayScripts.Elliot
             position += translation;
         }
 
-        public void DetectWanted(AlienObjectWanted pWantedAlien, GameTime pGameTime)
+        public bool DetectWanted(AlienObjectWanted pWantedAlien, GameTime pGameTime)
         {
             radius = texture2D.Width * scale / 2;
 
             if ((pWantedAlien.position - position).Length() - texture2D.Width / 2 <= radius)
             {
-                Console.WriteLine("nu heb ik je");
                 timeInCircle += (float)pGameTime.ElapsedGameTime.TotalSeconds;
             }
             else
@@ -79,8 +78,10 @@ namespace AlienAffair.Sprints.Sprint2.GamePlayScripts.Elliot
             if (timeInCircle > 3f)
             {
                 pWantedAlien.color = Color.Red;
+                return true;
             }
-            Console.WriteLine(timeInCircle);
+
+            return false;
         }
 
         public void ChangeSpeed()
