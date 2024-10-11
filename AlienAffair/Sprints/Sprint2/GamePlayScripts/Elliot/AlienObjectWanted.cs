@@ -9,10 +9,11 @@ namespace AlienAffair.Sprints.Sprint2.GamePlayScripts.Elliot
         Vector2 direction;
         float speed;
 
-        public AlienObjectWanted(Vector2 pPosition, Rectangle pRectangle) : base(pPosition, pRectangle)
+        public AlienObjectWanted(Vector2 pPosition, string pPath, Color pColor, Rectangle pRectangle) : base(pPosition, pRectangle)
         {
             position = pPosition; 
-            path = "Alien Head";
+            path = pPath;
+            color = pColor;
             scale = 1;
             Initialize();
         }
@@ -20,8 +21,10 @@ namespace AlienAffair.Sprints.Sprint2.GamePlayScripts.Elliot
         private void Initialize()
         {
             Random rnd = new Random();
-            direction = new Vector2(rnd.Next(-1, 2), rnd.Next(-1, 2));
-            speed = rnd.Next(25, 100);
+            direction = new Vector2(rnd.Next(-1, 2) + (float)rnd.Next(0, 100) / 100, rnd.Next(-1, 2) + (float)rnd.Next(0, 100) / 100);
+            direction.Normalize();
+            speed = rnd.Next(50, 100);
+            Console.WriteLine(direction);
         }
 
         public override void Update(GameTime pGameTime)
