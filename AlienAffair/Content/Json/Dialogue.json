@@ -1,17 +1,36 @@
 [
   {
-    "currentEmotion": 2,
+    "currentEmotion": 1,
     "text": [
-      "Ik heb me teen gestoten\n",
-      "dat doet erg veel pijn"
+      "*You were taking a leisurely stroll through the park...*\n",
+      "A sudden, ear-splitting roar filled the air\n",
+      "louder than thunder but with an odd mechanical edge to it\n",
+      "The sky seemed to tear open as something massive and metallic\n",
+      "hurtled out of the clouds,"
     ]
   },
   {
-    
-    "currentEmotion": 3,
+    "currentEmotion": 1,
     "text": [
-      "Dit is jouw schuld\n",
-      "Elliot jij bommeling"
+      "I approached cautiously,\n",
+      "drawn to the strange glow from the nearby forest,\n", 
+      "where the ufo seemingly had landed.\n",
+      "The air felt thick, almost electric. The ship, sleek and alien,\n", 
+      "A hatch was partially open, emitting a faint blue light."
+    ]
+  },
+  {
+    "currentEmotion": 1,
+    "text": [
+      "i will destroy the earth"
+    ],
+    "dialogueOptions": [
+      {
+        "answerText": "I will prove you wrong"
+      },
+      {
+        "answerText": "I'd Rather continue my walk"
+      }
     ]
   }
 ]

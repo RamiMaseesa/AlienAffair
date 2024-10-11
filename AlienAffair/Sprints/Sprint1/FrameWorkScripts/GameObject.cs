@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework;
+using AlienAffair.Sprints.Sprint2.GamePlayScripts.Rafael;
 
 namespace AlienAffair.Sprints.Sprint1.FrameWorkScripts
 {

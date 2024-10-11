@@ -1,13 +1,12 @@
 using System;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
 namespace AlienAffair.Sprints.Sprint2.GamePlayScripts.Rafael;
 
-public class Dialogue
+public class Dialogue : UiObject
 {
     public enum Emotion
     {
@@ -20,45 +19,59 @@ public class Dialogue
 
     }
     public Emotion currentEmotion { get; set; }
-    //public string[] text { get; set; }
     public string[] text { get; set; }
 
-    string _printedText = "";
     int _characterIndex = 0;
     int _stringIndex = 0;
     float _elapsedTime;
     bool _typingFinished = false;
     float charPrintDelay;
+    SoundEffect soundEffect;
+
+    public DialogueOption[] dialogueOptions { get; set; }
 
     //temporary
     KeyboardState kstate;
 
     public Dialogue()
     {
-
+        position = new Vector2(100, 475);
+        backgroundPosition = new Vector2(0, 450);
+        backgroundSize = new Vector2(700, 100);
+        backGroundOrigin = new Vector2(0, 0);
     }
 
-    public void Update(GameTime pGameTime)
+    public override void Update(GameTime pGameTime)
     {
         //temporary
         kstate = Keyboard.GetState();
         TypeWriterEffect(pGameTime);
         FastForwardText();
         SkipDialogue();
+        if (dialogueOptions != null)
+        {
+            for (int i = dialogueOptions.Length - 1; i >= 0; i--)
+            {
+                dialogueOptions[i].Update(pGameTime);
+            }
+        }
+
     }
 
-    public void DrawText(SpriteBatch pSpriteBatch, SpriteFont pGameFont)
+    public override void Draw(SpriteBatch pSpriteBatch, SpriteFont pGameFont)
     {
-        pSpriteBatch.DrawString(pGameFont, _printedText, new Vector2(10, 250), Color.White);
+        pSpriteBatch.Draw(pixel, new Vector2(backgroundPosition.X, backgroundPosition.Y - 4), null, Color.White, 0f, backGroundOrigin, new Vector2(backgroundSize.X, backgroundSize.Y + 4), SpriteEffects.None, 0f);
+        pSpriteBatch.Draw(pixel, backgroundPosition, null, new Color(76, 90, 107), 0f, backGroundOrigin, backgroundSize, SpriteEffects.None, 0f);
+        base.Draw(pSpriteBatch, pGameFont);
+        DisplayOptions(pSpriteBatch);
     }
-
 
     /// <summary>
     /// typewriter effect so the dialogue prints per letter.
     ///     Uitleg:
     ///     Checks if the letters printed on screen is not less than the letters in the sentence in the array.
     ///         Checks if the 0.5 seconds have passed to add the next letter.
-    ///             Character gets added to the string that gets printed on screen. <see cref="_printedText"/>
+    ///             Character gets added to the string that gets printed on screen. <see cref="printedText"/>
     ///             CharacterIndex gets increased (next character in the string).
     ///             time gets reset.
     ///     Else, the Dialogue goes to the next sentence.
@@ -79,7 +92,7 @@ public class Dialogue
             {
                 if (_elapsedTime >= charPrintDelay)
                 {
-                    _printedText += text[_stringIndex][_characterIndex];
+                    printedText += text[_stringIndex][_characterIndex];
                     _characterIndex++;
                     _elapsedTime = 0;
                     //put your logic per letter here
@@ -95,7 +108,7 @@ public class Dialogue
                 }
                 else
                 {
-                    Console.WriteLine("All text has been typed");
+                    EndOfTextLogic();
                     _typingFinished = true;
                 }
             }
@@ -120,11 +133,12 @@ public class Dialogue
     {
         if (kstate.IsKeyDown(Keys.Enter) && !_typingFinished)
         {
-            _printedText = string.Join("", text);
+            printedText = string.Join("", text);
             _stringIndex = text.Length - 1;
             _characterIndex = text[_stringIndex].Length;
             _typingFinished = true;
             Console.WriteLine("Dialogue has been skipped");
+            EndOfTextLogic();
         }
     }
 
@@ -133,11 +147,19 @@ public class Dialogue
     /// </summary>
     public void ResetDialogue()
     {
-        _printedText = "";
+        printedText = "";
         _characterIndex = 0;
         _stringIndex = 0;
         _typingFinished = false;
         System.Console.WriteLine($"Dialogue {this} has been reset");
+        if (dialogueOptions != null)
+        {
+            for (int i = 0; i < dialogueOptions.Length; i++)
+            {
+                dialogueOptions[i].objectActive = false;
+            }
+        }
+
     }
 
     /// <summary>
@@ -146,5 +168,35 @@ public class Dialogue
     public void PerLetterLogic()
     {
         System.Console.WriteLine("Per letter Logic");
+    }
+
+    public void EndOfTextLogic()
+    {
+        Console.WriteLine("All text has been typed");
+        if (dialogueOptions != null)
+        {
+            for (int i = 0; i < dialogueOptions.Length; i++)
+            {
+                dialogueOptions[i].objectActive = true;
+            }
+        }
+    }
+
+    public void DisplayOptions(SpriteBatch pSpriteBatch)
+    {
+        if (dialogueOptions != null)
+        {
+            for (int i = 0; i < dialogueOptions.Length; i++)
+            {
+                dialogueOptions[i].position.Y = 200 + (100 * i);
+                dialogueOptions[i].SetTexture(pixel);
+                dialogueOptions[i].Draw(pSpriteBatch, gameFont);
+            }
+        }
+    }
+
+    public void SetSoundEffect(SoundEffect pSoundEffect)
+    {
+        soundEffect = pSoundEffect;
     }
 }

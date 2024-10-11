@@ -1,10 +1,11 @@
 using System;
+using AlienAffair.Sprints.Sprint2.GamePlayScripts.Rafael;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 namespace AlienAffair.Sprints.Sprint1.FrameWorkScripts
 {
-    public class ButtonBase : GameObject
+    public class ButtonBase : UiObject
     {
         //Enum for every state a button can find itself in, if you want to have extra states add them here!
         public enum ButtonStatus
@@ -13,44 +14,51 @@ namespace AlienAffair.Sprints.Sprint1.FrameWorkScripts
             pressed,
             normal,
         }
+        
         /// <summary>The currentState of the button, most of the Buttons scripts logic is based on this variable</summary>
-            ButtonStatus _buttonState;
+        ButtonStatus _buttonState;
 
         #region mousebehaviour
-            /// <summary>the position of the mouse on the screen</summary>
-                Point _mousePoint;
-            /// <summary> The mousestate checks what you do with the mouse, like clicking </summary>
-                MouseState _mouseState;
+        /// <summary>the position of the mouse on the screen</summary>
+        Point _mousePoint;
+        /// <summary> The mousestate checks what you do with the mouse, like clicking </summary>
+        MouseState _mouseState;
         #endregion
 
         /// <summary> Text that will appear on the button </summary>
-            string _buttonText;
+        public string buttonText;
 
         /// <summary>Position of the Text on the button (This doesn't have any other logic attached to it except that it's connected to the button position)</summary>
-            Vector2 _textPosition;
+        Vector2 _textPosition;
 
         #region Constructors
-            /// <summary>
-            /// Button with text
-            /// </summary>
-            /// <param name="pPosition"></param>
-            /// <param name="pRectangle"></param>
-            /// <param name="pButtonText"></param>
-            public ButtonBase(Vector2 pPosition, Rectangle pRectangle, string pButtonText) : base(pPosition, pRectangle)
-            {
-                _buttonText = pButtonText;
-                path = "Button";
-            }
+        /// <summary>
+        /// Button with text
+        /// </summary>
+        /// <param name="pPosition"></param>
+        /// <param name="pRectangle"></param>
+        /// <param name="pButtonText"></param>
+        public ButtonBase(Vector2 pPosition, Rectangle pRectangle, string pButtonText) : base(pPosition, pRectangle)
+        {
+            buttonText = pButtonText;
+            path = "pixel";
+        }
 
-            /// <summary>
-            /// Button without text
-            /// </summary>
-            /// <param name="pPosition"></param>
-            /// <param name="pRectangle"></param>
-            public ButtonBase(Vector2 pPosition, Rectangle pRectangle) : base(pPosition, pRectangle)
-            {
-                path = "Button";
-            }
+        /// <summary>
+        /// Button without text
+        /// </summary>
+        /// <param name="pPosition"></param>
+        /// <param name="pRectangle"></param>
+        public ButtonBase(Vector2 pPosition, Rectangle pRectangle) : base(pPosition, pRectangle)
+        {
+            path = "pixel";
+        }
+
+        public ButtonBase()
+        {
+
+        }
+        
         #endregion
 
         /// <summary> Original method: <see cref="GameObject.Update"/>
@@ -81,12 +89,6 @@ namespace AlienAffair.Sprints.Sprint1.FrameWorkScripts
             }
         }
 
-        public override void Draw(SpriteBatch pSpriteBatch)
-        {
-            base.Draw(pSpriteBatch);
-            //pSpriteBatch.DrawString(gameFont, _buttonText , position ,Color.Black, 0f, new Vector2(0f, 0f), 1f, SpriteEffects.None, 0.0f);
-        }
-
         /// <summary> Normal
         /// When the button is not interacted with this method plays,
         ///     The variable <see cref="GameObject.color"/> is set to white. 
@@ -97,7 +99,6 @@ namespace AlienAffair.Sprints.Sprint1.FrameWorkScripts
         /// </summary>
         protected virtual void Normal()
         {
-            color = Color.White;
             rectangle = new Rectangle(0, 0, 64, 32);
             _textPosition = position;
             if (hitBox.Contains(_mousePoint))
@@ -116,7 +117,6 @@ namespace AlienAffair.Sprints.Sprint1.FrameWorkScripts
         /// </summary>
         protected virtual void Hovering()
         {
-            color = Color.LightGray;
             if (!hitBox.Contains(_mousePoint))
             {
                 _buttonState = ButtonStatus.normal;
