@@ -3,6 +3,7 @@ using AlienAffair.Sprints.Sprint2.GamePlayScripts.Rafael;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+
 namespace AlienAffair.Sprints.Sprint2.FrameWorkScripts
 {
     public class ButtonBase : UiObject

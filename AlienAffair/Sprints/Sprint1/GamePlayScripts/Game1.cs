@@ -6,7 +6,7 @@ namespace AlienAffair.Sprints.Sprint1.GamePlayScripts
 {
     public class Game1 : Game
     {
-        private GraphicsDeviceManager _graphics;
+        public GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
 
         public Game1()

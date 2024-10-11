@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using AlienAffair.Sprints.Sprint1.GamePlayScripts;
+using AlienAffair.Sprints.Sprint2.GamePlayScripts.Rafael;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -13,7 +13,7 @@ namespace AlienAffair.Sprints.Sprint2.FrameWorkScripts
         public List<GameObject> sceneContent = new List<GameObject>();
 
         /// <summary>Refference to the game1</summary>
-        Game1 _game;
+        public Game1 _game;
 
         /// <summary>
         /// New Normal Scene
