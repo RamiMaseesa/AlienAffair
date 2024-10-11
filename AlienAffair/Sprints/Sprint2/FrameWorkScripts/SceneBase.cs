@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using AlienAffair.Sprints.Sprint2.GamePlayScripts.Rafael;
+using AlienAffair.Sprints.Sprint2.GamePlayScripts.Elliot;
+using AlienAffair.Sprints.Sprint2.GamePlayScripts;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;

@@ -1,11 +1,10 @@
 using System;
-using AlienAffair.Sprints.Sprint2.GamePlayScripts.Rafael;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 namespace AlienAffair.Sprints.Sprint1.FrameWorkScripts
 {
-    public class ButtonBase : UiObject
+    public class ButtonBase : GameObject
     {
         //Enum for every state a button can find itself in, if you want to have extra states add them here!
         public enum ButtonStatus
@@ -52,11 +51,6 @@ namespace AlienAffair.Sprints.Sprint1.FrameWorkScripts
         public ButtonBase(Vector2 pPosition, Rectangle pRectangle) : base(pPosition, pRectangle)
         {
             path = "pixel";
-        }
-
-        public ButtonBase()
-        {
-
         }
         
         #endregion

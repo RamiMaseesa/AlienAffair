@@ -2,7 +2,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace AlienAffair.Sprints.Sprint2.GamePlayScripts.Rafael;
+namespace AlienAffair.Sprints.Sprint2.FrameWorkScripts;
 
 public class UiObject
 {

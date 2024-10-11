@@ -1,5 +1,4 @@
 using System;
-using AlienAffair.Sprints.Sprint2.GamePlayScripts.Rafael;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -48,6 +47,11 @@ namespace AlienAffair.Sprints.Sprint2.FrameWorkScripts
         {
             _buttonText = pButtonText;
             path = "Button";
+        }
+
+        public ButtonBase()
+        {
+            
         }
 
         /// <summary>
