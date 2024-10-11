@@ -32,7 +32,7 @@ namespace AlienAffair.Sprints.Sprint2.GamePlayScripts.Elliot
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
-            wantedMiniGame = new WantedMiniGame(Content);
+            wantedMiniGame = new WantedMiniGame(Content, this);
             // TODO: use this.Content to load your game content here
         }
 
