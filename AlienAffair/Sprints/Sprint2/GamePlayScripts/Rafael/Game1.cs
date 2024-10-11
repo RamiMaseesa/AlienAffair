@@ -18,7 +18,7 @@ namespace AlienAffair.Sprints.Sprint2.GamePlayScripts.Rafael
 
         SpriteFont _gameFont;
         Texture2D _pixel;
-        SoundEffect soundEffect;
+        //SoundEffect soundEffect;
         bool keyPressed = false;
         bool keyPressed2 = false;
 
@@ -35,7 +35,7 @@ namespace AlienAffair.Sprints.Sprint2.GamePlayScripts.Rafael
                     _currentDialogue.ResetDialogue();
                     _currentDialogue.SetPixel(_pixel);
                     _currentDialogue.SetSpriteFont(_gameFont);
-                    _currentDialogue.SetSoundEffect(soundEffect);
+                    //_currentDialogue.SetSoundEffect(soundEffect);
                 }
             }
         }
@@ -70,7 +70,7 @@ namespace AlienAffair.Sprints.Sprint2.GamePlayScripts.Rafael
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             _gameFont = Content.Load<SpriteFont>("Content\\Fonts\\File");
             _pixel = Content.Load<Texture2D>("Content\\Sprites\\Pixel");
-            soundEffect = Content.Load<SoundEffect>("Content\\Sound\\Er (copy)");
+            //soundEffect = Content.Load<SoundEffect>("Content\\Sound\\Er (copy)");
             // TODO: use this.Content to load your game content here
         }
 
