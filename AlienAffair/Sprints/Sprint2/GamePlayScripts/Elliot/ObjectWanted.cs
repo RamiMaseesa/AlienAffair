@@ -1,15 +1,15 @@
-﻿using AlienAffair.Sprints.Sprint1.FrameWorkScripts;
+﻿using AlienAffair.Sprints.Sprint2.FrameWorkScripts;
 using Microsoft.Xna.Framework;
 using System;
 
 namespace AlienAffair.Sprints.Sprint2.GamePlayScripts.Elliot
 {
-    public class AlienObjectWanted : GameObject
+    public class ObjectWanted : GameObject
     {
         Vector2 direction;
         float speed;
 
-        public AlienObjectWanted(Vector2 pPosition, string pPath, Color pColor, Rectangle pRectangle) : base(pPosition, pRectangle)
+        public ObjectWanted(Vector2 pPosition, string pPath, Color pColor, Rectangle pRectangle) : base(pPosition, pRectangle)
         {
             position = pPosition; 
             path = pPath;

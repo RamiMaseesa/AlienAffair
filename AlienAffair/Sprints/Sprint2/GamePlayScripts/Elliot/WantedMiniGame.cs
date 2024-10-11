@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using AlienAffair.Sprints.Sprint2.FrameWorkScripts;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 
 namespace AlienAffair.Sprints.Sprint2.GamePlayScripts.Elliot
 {
-    public class WantedMiniGame
+    public class WantedMiniGame : SceneBase
     {
         SpriteFont font;
 
@@ -16,10 +17,9 @@ namespace AlienAffair.Sprints.Sprint2.GamePlayScripts.Elliot
 
         int[] faceSprites = { 0, 64, 128 };
         int humanAmount = 100;
-        List<AlienObjectWanted> aliensInScene = new List<AlienObjectWanted>();
 
-        AlienObjectWanted wantedAlien;
-        Texture2D wantedAlienSprite;
+        ObjectWanted wantedPerson;
+        Texture2D wantedSprite;
         int drawWantedPosX;
         int drawWantedPosY;
 
@@ -30,15 +30,15 @@ namespace AlienAffair.Sprints.Sprint2.GamePlayScripts.Elliot
 
         Rectangle gameScreen;
 
-        public WantedMiniGame(ContentManager pContent)
+        public WantedMiniGame(ContentManager pContent, Game1 pGame1) : base(pGame1)
         {
             Content = pContent;
-            Initialize();
+            CreateObjects();
         }
 
-        private void Initialize()
+        protected override void CreateObjects()
         {
-            aliensInScene.Clear();
+            sceneContent.Clear();
             background = Content.Load<Texture2D>("Content\\Sprites\\Background Wanted");
             font = Content.Load<SpriteFont>("Content\\Fonts\\WantedGameFont");
 
@@ -50,11 +50,11 @@ namespace AlienAffair.Sprints.Sprint2.GamePlayScripts.Elliot
             drawWantedPosX = faceSprites[rnd.Next(0, 3)];
             drawWantedPosY = faceSprites[rnd.Next(0, 3)];
 
-            wantedAlien = new AlienObjectWanted(new Vector2(rnd.Next(gameScreen.X + 64, gameScreen.Width - 64), rnd.Next(gameScreen.Y + 64, gameScreen.Height - 64)), "Content\\Sprites\\FaceSpriteSheet", sceneColor, new Rectangle(drawWantedPosX, drawWantedPosY, 63, 63));
-            wantedAlien.LoadSprite(Content);
-            aliensInScene.Add(wantedAlien);
+            wantedPerson = new ObjectWanted(new Vector2(rnd.Next(gameScreen.X + 64, gameScreen.Width - 64), rnd.Next(gameScreen.Y + 64, gameScreen.Height - 64)), "Content\\Sprites\\FaceSpriteSheet", sceneColor, new Rectangle(drawWantedPosX, drawWantedPosY, 63, 63));
+            wantedPerson.LoadSprite(Content);
+            sceneContent.Add(wantedPerson);
 
-            wantedAlienSprite = wantedAlien.texture2D;
+            wantedSprite = wantedPerson.texture2D;
 
             for (int i = 0; i < humanAmount; i++)
             {
@@ -63,9 +63,9 @@ namespace AlienAffair.Sprints.Sprint2.GamePlayScripts.Elliot
 
                 if (drawPosX != drawWantedPosX || drawPosY != drawWantedPosY)
                 {
-                    AlienObjectWanted alien = new AlienObjectWanted(new Vector2(rnd.Next(gameScreen.X + 64, gameScreen.Width - 64), rnd.Next(gameScreen.Y + 64, gameScreen.Height - 64)), "Content\\Sprites\\FaceSpriteSheet", sceneColor, new Rectangle(drawPosX, drawPosY, 63, 63));
+                    ObjectWanted alien = new ObjectWanted(new Vector2(rnd.Next(gameScreen.X + 64, gameScreen.Width - 64), rnd.Next(gameScreen.Y + 64, gameScreen.Height - 64)), "Content\\Sprites\\FaceSpriteSheet", sceneColor, new Rectangle(drawPosX, drawPosY, 63, 63));
                     alien.LoadSprite(Content);
-                    aliensInScene.Add(alien);
+                    sceneContent.Add(alien);
                 }
                 else
                 {
@@ -77,18 +77,15 @@ namespace AlienAffair.Sprints.Sprint2.GamePlayScripts.Elliot
             playerCircle.LoadSprite(Content);
         }
 
-        public void Update(GameTime pGameTime)
+        public override void Update(GameTime pGameTime)
         {
-            foreach (AlienObjectWanted alien in aliensInScene)
-            {
-                alien.Update(pGameTime);
-            }
+            base.Update(pGameTime);
 
-            if (playerCircle.DetectWanted(wantedAlien, pGameTime) == true)
+            if (playerCircle.DetectWanted(wantedPerson, pGameTime) == true)
             {
                 timeLeft += 15;
                 timesWon++;
-                Initialize();
+                CreateObjects();
             }
             else
             {
@@ -96,11 +93,11 @@ namespace AlienAffair.Sprints.Sprint2.GamePlayScripts.Elliot
             }
 
             playerCircle.MoveCircle(pGameTime, gameScreen);
-            playerCircle.DetectWanted(wantedAlien, pGameTime);
+            playerCircle.DetectWanted(wantedPerson, pGameTime);
             CheckWallCollision();
         }
 
-        public void Draw(SpriteBatch pSpriteBatch)
+        public override void Draw(SpriteBatch pSpriteBatch)
         {
             if (timesWon >= 5)
             {
@@ -114,14 +111,12 @@ namespace AlienAffair.Sprints.Sprint2.GamePlayScripts.Elliot
 
                 pSpriteBatch.DrawString(font, "Found:" + timesWon.ToString(), new Vector2(1609, 233), Color.Yellow, 0f, new Vector2(32, 0), 1f, SpriteEffects.None, 1f);
 
-                pSpriteBatch.Draw(wantedAlienSprite, new Vector2(1609, 433), new Rectangle(drawWantedPosX, drawWantedPosY, 63, 63), sceneColor, 0f, new Vector2(0, 0), 1.95f, SpriteEffects.None, 1f);
+                pSpriteBatch.Draw(wantedSprite, new Vector2(1609, 433), new Rectangle(drawWantedPosX, drawWantedPosY, 63, 63), sceneColor, 0f, new Vector2(0, 0), 1.95f, SpriteEffects.None, 1f);
 
-                foreach (AlienObjectWanted alien in aliensInScene)
-                {
-                    alien.Draw(pSpriteBatch);
-                }
+
+                base.Draw(pSpriteBatch);
                 playerCircle.Draw(pSpriteBatch);
-            } 
+            }
             else if (timeLeft <= 0)
             {
                 pSpriteBatch.DrawString(font, "You Lose!", new Vector2(960, 540), Color.Red, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 1f);
@@ -130,7 +125,7 @@ namespace AlienAffair.Sprints.Sprint2.GamePlayScripts.Elliot
 
         private void CheckWallCollision()
         {
-            foreach (AlienObjectWanted alien in aliensInScene)
+            foreach (ObjectWanted alien in sceneContent)
             {
                 if (alien.position.Y + 64 > gameScreen.Height || alien.position.Y - 64 < gameScreen.Y)
                 {

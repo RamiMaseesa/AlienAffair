@@ -1,5 +1,6 @@
+using System;
 using System.Collections.Generic;
-using AlienAffair.Sprints.Sprint1.GamePlayScripts;
+using AlienAffair.Sprints.Sprint2.GamePlayScripts.Elliot;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -56,6 +57,7 @@ namespace AlienAffair.Sprints.Sprint2.FrameWorkScripts
         /// <param name="pSpriteBatch"></param>
         public virtual void Draw(SpriteBatch pSpriteBatch)
         {
+            Console.WriteLine(sceneContent[1]);
             foreach (GameObject gameObject in sceneContent)
             {
                 gameObject.Draw(pSpriteBatch);
