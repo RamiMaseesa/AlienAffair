@@ -20,10 +20,11 @@ public class DialogueOption : ButtonBase
         position = new Vector2(500, 200);
         
         //Rectangle of the sprite
-        rectangle = new Rectangle((int)position.X, (int)position.Y, 0, 2);
+        //rectangle = new Rectangle((int)position.X, (int)position.Y, 0, 2);
+        rectangle = new Rectangle(0, 0, 2, 2);
         
         //Size of the Button
-        scale = new Vector2(7, 1);
+        scale = new Vector2(250, 15);
         color = new Color(198, 33, 30);
     }
 

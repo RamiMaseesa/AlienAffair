@@ -51,7 +51,6 @@ namespace AlienAffair.Sprints.Sprint2.FrameWorkScripts
 
         public ButtonBase()
         {
-            
         }
 
         /// <summary>
@@ -109,8 +108,6 @@ namespace AlienAffair.Sprints.Sprint2.FrameWorkScripts
         /// </summary>
         protected virtual void Normal()
         {
-            color = Color.White;
-            rectangle = new Rectangle(0, 0, 64, 32);
             _textPosition = position;
             if (hitBox.Contains(_mousePoint))
             {
@@ -128,7 +125,6 @@ namespace AlienAffair.Sprints.Sprint2.FrameWorkScripts
         /// </summary>
         protected virtual void Hovering()
         {
-            color = Color.LightGray;
             if (!hitBox.Contains(_mousePoint))
             {
                 _buttonState = ButtonStatus.normal;
@@ -154,7 +150,6 @@ namespace AlienAffair.Sprints.Sprint2.FrameWorkScripts
         /// </summary>
         protected virtual void Pressed()
         {
-            rectangle = new Rectangle(64, 0, 64, 32);
             if (_mouseState.LeftButton == ButtonState.Released)
             {
                 if (hitBox.Contains(_mousePoint))
