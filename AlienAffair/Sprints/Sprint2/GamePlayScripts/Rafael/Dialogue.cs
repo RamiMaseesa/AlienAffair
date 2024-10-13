@@ -17,8 +17,8 @@ public class Dialogue : UiObject
         angry,
         confused,
         Annoyed
-
     }
+
     public Emotion currentEmotion { get; set; }
     public string[] text { get; set; }
 
@@ -96,6 +96,7 @@ public class Dialogue : UiObject
                     printedText += text[_stringIndex][_characterIndex];
                     _characterIndex++;
                     _elapsedTime = 0;
+                    
                     //put your logic per letter here
                     PerLetterLogic();
                 }

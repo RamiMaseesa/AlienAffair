@@ -6,8 +6,10 @@ namespace AlienAffair.Sprints.Sprint2.GamePlayScripts
 {
     public class Game1 : Game
     {
-        private GraphicsDeviceManager _graphics;
-        private SpriteBatch _spriteBatch;
+        protected GraphicsDeviceManager _graphics;
+        protected SpriteBatch _spriteBatch;
+
+        public Game1 game1Refference;
 
         public Game1()
         {
@@ -15,21 +17,20 @@ namespace AlienAffair.Sprints.Sprint2.GamePlayScripts
             _graphics.PreferredBackBufferWidth = 1920;
             _graphics.PreferredBackBufferHeight = 1080;
             _graphics.IsFullScreen = false;
-            Content.RootDirectory = "Content/Sprites";
+            //Content.RootDirectory = "Content/Sprites";
             IsMouseVisible = true;
         }
 
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-
             base.Initialize();
+            game1Refference = this;
         }
 
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
-
             // TODO: use this.Content to load your game content here
         }
 
@@ -45,10 +46,6 @@ namespace AlienAffair.Sprints.Sprint2.GamePlayScripts
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
-
-            // TODO: Add your drawing code here
-
             base.Draw(gameTime);
         }
     }

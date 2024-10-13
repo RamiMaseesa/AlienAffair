@@ -1,25 +1,20 @@
 ﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using System;
-using System.IO;
+using AlienAffair.Sprints.Sprint2.FrameWorkScripts;
 
 namespace AlienAffair.Sprints.Sprint2.GamePlayScripts.Elliot
 {
-    public class Game1 : Game
+    public class ElliotGame1 : Game1
     {
-        private GraphicsDeviceManager _graphics;
-        private SpriteBatch _spriteBatch;
         private WantedMiniGame wantedMiniGame;
-        public Game1()
+        public ElliotGame1()
         {
-            _graphics = new GraphicsDeviceManager(this);
             _graphics.PreferredBackBufferWidth = 1920;
             _graphics.PreferredBackBufferHeight = 1080;
             _graphics.IsFullScreen = false;
-           // Content.RootDirectory = "Content/Sprites";
             IsMouseVisible = true;
+            _graphics.ApplyChanges();
         }
 
         protected override void Initialize()
@@ -32,7 +27,7 @@ namespace AlienAffair.Sprints.Sprint2.GamePlayScripts.Elliot
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
-            wantedMiniGame = new WantedMiniGame(Content, this);
+            wantedMiniGame = new WantedMiniGame(Content, game1Refference);
             // TODO: use this.Content to load your game content here
         }
 

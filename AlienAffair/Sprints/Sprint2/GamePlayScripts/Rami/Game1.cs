@@ -4,12 +4,12 @@ using Microsoft.Xna.Framework.Input;
 
 namespace AlienAffair.Sprints.Sprint2.GamePlayScripts.Rami
 {
-    public class Game1 : Game
+    public class RamiGame1 : Game
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
 
-        public Game1()
+        public RamiGame1()
         {
             _graphics = new GraphicsDeviceManager(this);
             _graphics.PreferredBackBufferWidth = 1920;
