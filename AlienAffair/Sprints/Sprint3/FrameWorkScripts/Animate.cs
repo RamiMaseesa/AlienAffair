@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace AlienAffair.Sprints.Sprint3.GamePlayScripts.Elliot
+namespace AlienAffair.Sprints.Sprint3.FrameWorkScripts
 {
     public class Animate
     {

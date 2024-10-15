@@ -22,7 +22,7 @@ namespace AlienAffair.Sprints.Sprint3.GamePlayScripts.Elliot
         {
             base.LoadContent(pContent);
             jaguarSprite = pContent.Load<Texture2D>("Content\\Sprites\\JaguarSpriteSheet");
-            jaguarAnimation = new Animate(0.1f, 1, 3, jaguarSprite);
+            jaguarAnimation = new Animate(0.2f, 1, 3, jaguarSprite);
         }
 
         public override void Update(GameTime pGameTime)
