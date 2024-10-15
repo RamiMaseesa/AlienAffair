@@ -8,6 +8,8 @@ namespace AlienAffair.Sprints.Sprint3.GamePlayScripts.Elliot
     public class ElliotGame1 : Game1
     {
         private WantedMiniGame wantedMiniGame;
+
+        private DodgeMinigame dodgeMiniGame;
         public ElliotGame1()
         {
             _graphics.PreferredBackBufferWidth = 1920;
@@ -27,7 +29,9 @@ namespace AlienAffair.Sprints.Sprint3.GamePlayScripts.Elliot
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
-            wantedMiniGame = new WantedMiniGame(Content, game1Refference);
+            //wantedMiniGame = new WantedMiniGame(Content, game1Refference);
+
+            dodgeMiniGame = new DodgeMinigame(Content, game1Refference);
             // TODO: use this.Content to load your game content here
         }
 
@@ -36,8 +40,8 @@ namespace AlienAffair.Sprints.Sprint3.GamePlayScripts.Elliot
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            wantedMiniGame.Update(gameTime);
-
+            //wantedMiniGame.Update(gameTime);
+            dodgeMiniGame.Update(gameTime);
             // TODO: Add your update logic here
 
             base.Update(gameTime);
@@ -45,9 +49,10 @@ namespace AlienAffair.Sprints.Sprint3.GamePlayScripts.Elliot
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.Black);
+            GraphicsDevice.Clear(Color.Snow);
             _spriteBatch.Begin();
-            wantedMiniGame.Draw(_spriteBatch);
+            dodgeMiniGame.Draw(_spriteBatch);
+            //wantedMiniGame.Draw(_spriteBatch);
             _spriteBatch.End();
 
             // TODO: Add your drawing code here
