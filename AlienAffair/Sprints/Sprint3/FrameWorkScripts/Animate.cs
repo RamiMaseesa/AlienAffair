@@ -39,7 +39,7 @@ namespace AlienAffair.Sprints.Sprint3.FrameWorkScripts
             pixelAmountAdderY = spriteSheet.Height / spriteAmountY;
         }
 
-        public int[] PlayAnimation(GameTime pGameTime)
+        public Rectangle PlayAnimation(GameTime pGameTime)
         {
             animateTimer += (float)pGameTime.ElapsedGameTime.TotalSeconds;
 
@@ -63,7 +63,7 @@ namespace AlienAffair.Sprints.Sprint3.FrameWorkScripts
             drawPos[1] = currentSpriteAmountY;
 
             //Console.WriteLine(drawPos[0] + "     " + drawPos[1]);
-            return drawPos;
+            return new Rectangle(drawPos[0], drawPos[1], pixelAmountAdderX, pixelAmountAdderY);
         }
     }
 }

@@ -27,15 +27,13 @@ namespace AlienAffair.Sprints.Sprint3.GamePlayScripts.Elliot
 
         public override void Update(GameTime pGameTime)
         {
-            drawPosJaguar = jaguarAnimation.PlayAnimation(pGameTime);
-            Console.WriteLine(drawPosJaguar[0] + "    " + drawPosJaguar[1]);
-            jaguarRec = new Rectangle(drawPosJaguar[0], drawPosJaguar[1], 128, 64);
+            jaguarRec = jaguarAnimation.PlayAnimation(pGameTime);
             //base.Update(pGameTime);
         }
 
         public override void Draw(SpriteBatch pSpriteBatch)
         {
-            pSpriteBatch.Draw(jaguarSprite, new Vector2(500, 500), jaguarRec, Color.White, 0, new Vector2(0, 0), 5f, SpriteEffects.None, 0.0f);
+            pSpriteBatch.Draw(jaguarSprite, new Vector2(500, 500), jaguarRec, Color.White, 0, new Vector2(0, 0), 2f, SpriteEffects.None, 0.0f);
             //base.Draw(pSpriteBatch);
         }
     }
