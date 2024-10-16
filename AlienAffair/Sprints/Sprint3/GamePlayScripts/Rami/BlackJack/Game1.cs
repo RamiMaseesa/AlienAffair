@@ -1,6 +1,8 @@
-﻿using Microsoft.Xna.Framework;
+﻿using AlienAffair.Sprints.Sprint3.GamePlayScripts.Rami.BlackJack;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System.Runtime.InteropServices;
 
 namespace AlienAffair.Sprints.Sprint3.GamePlayScripts.Rami
 {
@@ -8,6 +10,9 @@ namespace AlienAffair.Sprints.Sprint3.GamePlayScripts.Rami
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
+
+        private Table table;
+        private Carpet carpet;
 
         public BlackJackGame1()
         {
@@ -17,6 +22,9 @@ namespace AlienAffair.Sprints.Sprint3.GamePlayScripts.Rami
             _graphics.IsFullScreen = false;
             Content.RootDirectory = "Content/Sprites";
             IsMouseVisible = true;
+
+            table = new Table(new Vector2(_graphics.PreferredBackBufferWidth / 2, _graphics.PreferredBackBufferHeight / 2), "tafel");
+            carpet = new Carpet(new Vector2(_graphics.PreferredBackBufferWidth / 2, _graphics.PreferredBackBufferHeight / 2), "tapijt");
         }
 
         protected override void Initialize()
@@ -29,7 +37,8 @@ namespace AlienAffair.Sprints.Sprint3.GamePlayScripts.Rami
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
-
+            table.LoadSprite(Content);
+            carpet.LoadSprite(Content);
             // TODO: use this.Content to load your game content here
         }
 
@@ -46,8 +55,10 @@ namespace AlienAffair.Sprints.Sprint3.GamePlayScripts.Rami
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
-
-            // TODO: Add your drawing code here
+            _spriteBatch.Begin(samplerState: SamplerState.PointClamp);
+            carpet.DrawSprite(_spriteBatch);
+            table.DrawSprite(_spriteBatch);
+            _spriteBatch.End();
 
             base.Draw(gameTime);
         }
