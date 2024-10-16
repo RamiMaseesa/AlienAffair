@@ -13,6 +13,7 @@ namespace AlienAffair.Sprints.Sprint3.GamePlayScripts.Rami
 
         private Table table;
         private Carpet carpet;
+        private CardBase card;
 
         public BlackJackGame1()
         {
@@ -25,6 +26,7 @@ namespace AlienAffair.Sprints.Sprint3.GamePlayScripts.Rami
 
             table = new Table(new Vector2(_graphics.PreferredBackBufferWidth / 2, _graphics.PreferredBackBufferHeight / 2), "tafel");
             carpet = new Carpet(new Vector2(_graphics.PreferredBackBufferWidth / 2, _graphics.PreferredBackBufferHeight / 2), "tapijt");
+            card = new CardBase(new Vector2(_graphics.PreferredBackBufferWidth / 2, _graphics.PreferredBackBufferHeight / 2), new string[] { "PokerClover", "PokerClubs", "PokerDiamand", "PokerHart" });
         }
 
         protected override void Initialize()
@@ -39,6 +41,7 @@ namespace AlienAffair.Sprints.Sprint3.GamePlayScripts.Rami
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             table.LoadSprite(Content);
             carpet.LoadSprite(Content);
+            card.LoadSprite(Content);
             // TODO: use this.Content to load your game content here
         }
 
@@ -58,6 +61,7 @@ namespace AlienAffair.Sprints.Sprint3.GamePlayScripts.Rami
             _spriteBatch.Begin(samplerState: SamplerState.PointClamp);
             carpet.DrawSprite(_spriteBatch);
             table.DrawSprite(_spriteBatch);
+            card.DrawSprite(_spriteBatch);
             _spriteBatch.End();
 
             base.Draw(gameTime);
