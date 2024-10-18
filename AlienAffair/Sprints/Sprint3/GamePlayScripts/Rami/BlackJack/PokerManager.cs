@@ -14,6 +14,8 @@ namespace AlienAffair.Sprints.Sprint3.GamePlayScripts.Rami.BlackJack
         private List<CardBase> cards = new List<CardBase>();
         private GraphicsDeviceManager graphics;
         private ContentManager content;
+        private int playerPoints = 0;
+        private int AIPoints = 0;
 
         private int AICardHeight = 200;
         private int PlayerCardHeight = 600;
@@ -43,7 +45,38 @@ namespace AlienAffair.Sprints.Sprint3.GamePlayScripts.Rami.BlackJack
 
         public virtual void Update(GameTime gameTime)
         {
+            int sumAI = 0;
+            int sumPlayer = 0;
 
+            foreach (CardBase cardBase in cards)
+            {
+                if (cardBase is AICard) sumAI += cardBase.value;
+                if (cardBase is PlayerCard) sumPlayer += cardBase.value;
+            }
+
+            if (sumPlayer > 21)
+            {
+                cards.Clear();
+                OnGameStart();
+            }
+            else if (sumAI > 21) 
+            {
+                cards.Clear();
+                OnGameStart();
+            }
+
+            if (sumAI < 17) return;
+
+            if (sumPlayer == sumAI)
+            {
+                cards.Clear();
+                OnGameStart();
+            }
+            else if (sumPlayer > sumAI)
+            {
+                cards.Clear();
+                OnGameStart();
+            }
         }
 
         public virtual void Draw(SpriteBatch pSpriteBatch)
@@ -56,6 +89,7 @@ namespace AlienAffair.Sprints.Sprint3.GamePlayScripts.Rami.BlackJack
 
         public void OnHit()
         {
+
             int amountOfPlayerCards = 0;
             foreach (CardBase cardBase in cards)
             {
@@ -71,6 +105,12 @@ namespace AlienAffair.Sprints.Sprint3.GamePlayScripts.Rami.BlackJack
         {
             int sum = 0;
 
+            foreach (CardBase cardBase in cards)
+            {
+                if (cardBase is AICard) sum += cardBase.value;
+            }
+
+            if (sum >= 17) return;
             do {
                 int amountOfAICards = 0;
                 foreach (CardBase cardBase in cards)
