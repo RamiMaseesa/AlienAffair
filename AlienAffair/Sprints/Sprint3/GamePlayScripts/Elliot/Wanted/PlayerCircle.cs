@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using System;
 
-namespace AlienAffair.Sprints.Sprint3.GamePlayScripts.Elliot
+namespace AlienAffair.Sprints.Sprint3.GamePlayScripts.Elliot.Wanted
 {
     public class PlayerCircle : GameObject
     {

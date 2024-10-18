@@ -2,7 +2,7 @@
 using Microsoft.Xna.Framework;
 using System;
 
-namespace AlienAffair.Sprints.Sprint3.GamePlayScripts.Elliot
+namespace AlienAffair.Sprints.Sprint3.GamePlayScripts.Elliot.Wanted
 {
     public class ObjectWanted : GameObject
     {
@@ -11,7 +11,7 @@ namespace AlienAffair.Sprints.Sprint3.GamePlayScripts.Elliot
 
         public ObjectWanted(Vector2 pPosition, string pPath, Color pColor, Rectangle pRectangle) : base(pPosition, pRectangle)
         {
-            position = pPosition; 
+            position = pPosition;
             path = pPath;
             color = pColor;
             scale = 1;

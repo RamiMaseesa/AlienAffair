@@ -2,14 +2,16 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using AlienAffair.Sprints.Sprint3.FrameWorkScripts;
+using AlienAffair.Sprints.Sprint3.GamePlayScripts.Elliot.Dodge;
 
 namespace AlienAffair.Sprints.Sprint3.GamePlayScripts.Elliot
 {
     public class ElliotGame1 : Game1
     {
-        private WantedMiniGame wantedMiniGame;
+        //private WantedMiniGame wantedMiniGame;
 
         private DodgeMinigame dodgeMiniGame;
+
         public ElliotGame1()
         {
             _graphics.PreferredBackBufferWidth = 1920;
@@ -17,6 +19,7 @@ namespace AlienAffair.Sprints.Sprint3.GamePlayScripts.Elliot
             _graphics.IsFullScreen = false;
             IsMouseVisible = true;
             _graphics.ApplyChanges();
+            //Initialize();
         }
 
         protected override void Initialize()
