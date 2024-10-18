@@ -11,6 +11,7 @@ public class DialogueLine
     public float textSize { get; set; } = 1f;
     public int[] _rgbValues { get; set; }
     public Color textColor;
+    public float linespacing { get; set; } = 0f;
 
     public string printedText = "";
 
@@ -90,8 +91,8 @@ public class DialogueLine
 
     public Vector2 GetPrintedTextSize(SpriteFont pGameFont)
     {
-        Vector2 textSize = pGameFont.MeasureString(printedText);
-        return textSize;
+        Vector2 stringSize = pGameFont.MeasureString(printedText);
+        return stringSize;
     }
 
     public void SkipDialogue()

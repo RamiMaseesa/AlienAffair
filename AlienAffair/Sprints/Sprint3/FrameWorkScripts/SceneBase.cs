@@ -11,6 +11,7 @@ namespace AlienAffair.Sprints.Sprint3.FrameWorkScripts
     {
         /// <summary>List that keeps track of all the GameObjects in a scene</summary>
         public List<GameObject> sceneContent = new List<GameObject>();
+        public List<UiObject> UiSceneContent = new List<UiObject>();
 
         /// <summary>Refference to the game1</summary>
         public Game1 _game;
@@ -36,6 +37,11 @@ namespace AlienAffair.Sprints.Sprint3.FrameWorkScripts
                 GameObject gameObject = sceneContent[i];
                 gameObject.Update(pGameTime);
             }
+            for (int i = UiSceneContent.Count - 1; i >= 0; i--)
+            {
+                UiObject gameObject = UiSceneContent[i];
+                gameObject.Update(pGameTime);
+            }
         }
 
         /// <summary>
@@ -48,6 +54,10 @@ namespace AlienAffair.Sprints.Sprint3.FrameWorkScripts
             {
                 gameObject.LoadSprite(pContent);
             }
+            foreach (UiObject gameObject in UiSceneContent)
+            {
+                gameObject.LoadSprite(pContent);
+            }
         }
 
         /// <summary>
@@ -57,6 +67,10 @@ namespace AlienAffair.Sprints.Sprint3.FrameWorkScripts
         public virtual void Draw(SpriteBatch pSpriteBatch)
         {
             foreach (GameObject gameObject in sceneContent)
+            {
+                gameObject.Draw(pSpriteBatch);
+            }
+            foreach (UiObject gameObject in UiSceneContent)
             {
                 gameObject.Draw(pSpriteBatch);
             }

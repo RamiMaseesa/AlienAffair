@@ -14,15 +14,8 @@ namespace AlienAffair.Sprints.Sprint3.FrameWorkScripts
 {
     public class TextWriterScene : SceneBase
     {
-        //Dialogue _currentDialogue;
-        //Dictionary<string, Dialogue> _allDialogue;
-        int index = 0;
-
         SpriteFont _gameFont;
         Texture2D _pixel;
-        //SoundEffect soundEffect;
-        bool keyPressed = false;
-        bool keyPressed2 = false;
 
         //Tutorial on https://www.tutlane.com/tutorial/csharp/csharp-properties-get-set
         Dialogue _currentDialogue;

@@ -2,15 +2,13 @@
   "start": {
     "Text": [
       {
-        "line": "VERY BIG SLOW TEXT!\n",
+        "line": "VERY BIG SLOW TEXT!",
         "textSize": 3,
-        "_rgbValues": [255, 255, 255, 255],
-        "delaySpeed": 1
+        "delaySpeed": 0.6
       },
       {
         "line": "(Faster smaller blue text)",
-        "textSize": 1,
-        "_rgbValues": [0, 0, 255, 255] ,
+        "_rgbValues": [88, 164, 255, 255] ,
         "delaySpeed": 0.08
       }
     ],
@@ -20,7 +18,7 @@
         "next": "4Lines"
       },
       {
-        "answerText": "Run away",
+        "answerText": "Does it work?",
         "next": "neutral"
       }
     ]
@@ -32,7 +30,7 @@
       },
       {
         "line": "line 2 turned red for some reason?",
-        "_rgbValues": [225, 0, 0, 255]
+        "_rgbValues": [255, 44, 44, 255]
       },
       {
         "line": "Line 3 has 2 lines that is in one string!\nLine 3 continues down here!"

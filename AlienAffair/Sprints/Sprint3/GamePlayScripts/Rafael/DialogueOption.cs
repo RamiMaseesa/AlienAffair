@@ -43,17 +43,17 @@ public class DialogueOption : ButtonBase
 
     protected override void Normal()
     {
-        color = new Color(76, 90, 100);
+        color = new Color(71, 93, 225);
         base.Normal();
     }
     protected override void Hovering()
     {
-        color = new Color(64, 76, 85);
+        color = new Color(53, 70, 174);
         base.Hovering();
     }
     protected override void Pressed()
     {
-        color = new Color(76, 90, 100);
+        color = new Color(71, 93, 225);
         base.Pressed();
     }
 
