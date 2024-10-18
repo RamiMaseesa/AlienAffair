@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using AlienAffair.Sprints.Sprint3.GamePlayScripts.Rafael;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -8,8 +10,9 @@ public class UiObject
     public SpriteFont gameFont;
     public Texture2D pixel;
 
-
-    public string printedText;
+    public string printedText = "";
+    //
+    //public List<PrintedLine> printedLines = new List<PrintedLine>();
     public Vector2 backgroundPosition;
     public Vector2 backgroundSize;
     public Vector2 backGroundOrigin;

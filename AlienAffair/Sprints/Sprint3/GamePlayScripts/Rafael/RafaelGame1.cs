@@ -11,7 +11,7 @@ namespace AlienAffair.Sprints.Sprint3.GamePlayScripts.Rafael
     {
 
         public List<SceneBase> scenes = new List<SceneBase>();
-        SceneBase _currentScene;
+        TextWriterScene _currentScene;
 
         public RafaelGame1()
         {
@@ -26,6 +26,7 @@ namespace AlienAffair.Sprints.Sprint3.GamePlayScripts.Rafael
         {
             // TODO: Add your initialization logic here
             base.Initialize();
+           // _currentScene.DialogueManager("Content/Json/Chapter2.json", "Chapter1");
             
         }
 
@@ -48,16 +49,8 @@ namespace AlienAffair.Sprints.Sprint3.GamePlayScripts.Rafael
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            KeyboardState kstate = Keyboard.GetState();
-
-            /*if(kstate.IsKeyDown(Keys.F))
-            {
-                _currentScene = new WantedMiniGame(Content, game1Refference);
-                _graphics.PreferredBackBufferWidth = 1920;
-                _graphics.PreferredBackBufferHeight = 1080;
-                _graphics.ApplyChanges();
-            }*/    
-
+            KeyboardState kstate = Keyboard.GetState(); 
+           
             _currentScene.Update(gameTime);
         }
 
@@ -65,7 +58,7 @@ namespace AlienAffair.Sprints.Sprint3.GamePlayScripts.Rafael
         {
             base.Draw(gameTime);
             GraphicsDevice.Clear(Color.DimGray);
-            _spriteBatch.Begin();
+            _spriteBatch.Begin(samplerState: SamplerState.PointClamp);
             _currentScene.Draw(_spriteBatch);
             _spriteBatch.End();
             base.Draw(gameTime);
