@@ -12,7 +12,9 @@ namespace AlienAffair.Sprints.Sprint3.GamePlayScripts.Rami
 
         private Table table;
         private Carpet carpet;
-        private CardBase card;
+        private PokerManager pokerManager;
+        private ButtonStand buttonStand;
+        private ButtonHit buttonHit;
 
         public RamiGame1()
         {
@@ -25,13 +27,14 @@ namespace AlienAffair.Sprints.Sprint3.GamePlayScripts.Rami
 
             table = new Table(new Vector2(_graphics.PreferredBackBufferWidth / 2, _graphics.PreferredBackBufferHeight / 2), "Sprites\\tafel");
             carpet = new Carpet(new Vector2(_graphics.PreferredBackBufferWidth / 2, _graphics.PreferredBackBufferHeight / 2), "Sprites\\tapijt");
-            card = new CardBase(new Vector2(_graphics.PreferredBackBufferWidth / 2, _graphics.PreferredBackBufferHeight / 2), new string[] { "Sprites\\PokerClover", "Sprites\\PokerClubs", "Sprites\\PokerDiamand", "Sprites\\PokerHart" });
+            pokerManager = new PokerManager(_graphics, Content);
+
         }
 
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-
+            pokerManager.OnGameStart();
             base.Initialize();
         }
 
@@ -40,7 +43,8 @@ namespace AlienAffair.Sprints.Sprint3.GamePlayScripts.Rami
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             table.LoadSprite(Content);
             carpet.LoadSprite(Content);
-            card.LoadSprite(Content);
+            buttonStand = new ButtonStand(new Vector2(150, 200), Content.Load<Texture2D>("Sprites\\Button"), "STAND", pokerManager);
+            buttonHit = new ButtonHit(new Vector2(_graphics.PreferredBackBufferWidth - 150, 200), Content.Load<Texture2D>("Sprites\\Button"), "HIT", pokerManager);
             // TODO: use this.Content to load your game content here
         }
 
@@ -49,7 +53,9 @@ namespace AlienAffair.Sprints.Sprint3.GamePlayScripts.Rami
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            // TODO: Add your update logic here
+            pokerManager.Update(gameTime);
+            buttonStand.Update(gameTime);
+            buttonHit.Update(gameTime);
 
             base.Update(gameTime);
         }
@@ -61,7 +67,9 @@ namespace AlienAffair.Sprints.Sprint3.GamePlayScripts.Rami
             _spriteBatch.Begin(samplerState: SamplerState.PointClamp);
             carpet.DrawSprite(_spriteBatch);
             table.DrawSprite(_spriteBatch);
-            card.DrawSprite(_spriteBatch);
+            pokerManager.Draw(_spriteBatch);
+            buttonStand.Draw(_spriteBatch, Content.Load<SpriteFont>("Fonts/File"));
+            buttonHit.Draw(_spriteBatch, Content.Load<SpriteFont>("Fonts/File"));
             _spriteBatch.End();
 
             base.Draw(gameTime);

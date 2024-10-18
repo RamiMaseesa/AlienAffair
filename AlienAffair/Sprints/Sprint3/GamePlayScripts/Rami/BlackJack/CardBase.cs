@@ -16,11 +16,14 @@ namespace AlienAffair.Sprints.Sprint3.GamePlayScripts.Rami.BlackJack
         private string[] paths;
         private SpriteFont cardFont;
         public int value;
-        public CardBase(Vector2 pPosition, string[] pPathToImage) : base(pPosition, pPathToImage[0])
+        private List<CardBase> cards;
+        public CardBase(Vector2 pPosition, string[] pPathToImage, List<CardBase> cards) : base(pPosition, pPathToImage[0])
         {
             position = pPosition;
             rectangle = new Rectangle(0, 0, 80, 120);
             paths = pPathToImage;
+            scale = 2.5f;
+            this.cards = cards;
         }
 
         public override void LoadSprite(ContentManager pContent)
@@ -35,8 +38,7 @@ namespace AlienAffair.Sprints.Sprint3.GamePlayScripts.Rami.BlackJack
             Random rnd = new Random();
 
             texture2D = sprites[rnd.Next(0, paths.Length)];
-            value = rnd.Next(1,11);
-            Console.WriteLine(value);
+            value = rnd.Next(1,11);;
 
             cardFont = pContent.Load<SpriteFont>("Fonts/File");
         }
@@ -45,13 +47,18 @@ namespace AlienAffair.Sprints.Sprint3.GamePlayScripts.Rami.BlackJack
         {
             base.DrawSprite(pSpriteBatch);
 
-            Vector2 scale = new Vector2(2f, 2f);
+            Vector2 scale = new Vector2(1.5f, 1.5f);
 
             pSpriteBatch.DrawString(cardFont, value.ToString(), position + new Vector2(-80, -150), Color.Black,
                                     0f, Vector2.Zero, scale, SpriteEffects.None, 0f);
 
-            pSpriteBatch.DrawString(cardFont, value.ToString(), position + new Vector2(70, 100), Color.Black,
+            pSpriteBatch.DrawString(cardFont, value.ToString(), position + new Vector2(60, 100), Color.Black,
                                     0f, Vector2.Zero, scale, SpriteEffects.None, 0f);
+        }
+
+        public override void Update(GameTime pGameTime)
+        {
+            base.Update(pGameTime);
         }
     }
 }

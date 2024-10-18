@@ -9,9 +9,11 @@ namespace AlienAffair.Sprints.Sprint3.GamePlayScripts.Rami.BlackJack
 {
     public class AICard : CardBase
     {
-        public AICard(Vector2 pPosition, string[] pPathToImage) : base(pPosition, pPathToImage)
+        public AICard(Vector2 pPosition, string[] pPathToImage, List<CardBase> cards) : base(pPosition, pPathToImage, cards)
         {
 
         }
+
+
     }
 }
