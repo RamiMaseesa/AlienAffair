@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
-namespace AlienAffair.Sprints.Sprint3.GamePlayScripts.Rami
+namespace AlienAffair.Sprints.Sprint3.GamePlayScripts.BlackJack.RamiGame1Poker
 {
     public class RamiGame1Poker : Game
     {
