@@ -17,6 +17,7 @@ namespace AlienAffair.Sprints.Sprint3.GamePlayScripts.Elliot.Dodge
         int maxObjectCount = 3;
         List<Obstacle> obstaclesInScene = new List<Obstacle>();
         float[] lanePos = new float[3];
+        float objectSpawnTimer = 1f;
 
         public DodgeMinigame(ContentManager pContent, Game1 pGame1) : base(pGame1)
         {
@@ -51,7 +52,7 @@ namespace AlienAffair.Sprints.Sprint3.GamePlayScripts.Elliot.Dodge
         public override void Update(GameTime pGameTime)
         {
             base.Update(pGameTime);
-            //SpawnObjectsL();
+            SpawnObjects(pGameTime);
         }
 
         public override void Draw(SpriteBatch pSpriteBatch)
@@ -59,107 +60,21 @@ namespace AlienAffair.Sprints.Sprint3.GamePlayScripts.Elliot.Dodge
             base.Draw(pSpriteBatch);
         }
 
-        private void SpawnObjects()
+        private void SpawnObjects(GameTime pGameTime)
         {
+            objectSpawnTimer -= (float)pGameTime.ElapsedGameTime.TotalSeconds;
+            
             Random rnd = new Random();
             int spawnPos = rnd.Next(0, 3);
 
-            if (obstaclesInScene.Count == 0)
+            if (objectSpawnTimer < 0)
             {
                 Obstacle obstacle = new Obstacle(new Vector2(_game.Window.ClientBounds.Width, (int)lanePos[spawnPos]), "Content\\Sprites\\Obstacles", Color.White, 75);
                 obstacle.LoadSprite(contentManager);
                 sceneContent.Add(obstacle);
                 obstaclesInScene.Add(obstacle);
-            }
 
-            if (obstaclesInScene.Count < maxObjectCount)
-            {
-                Rectangle spawnBox = new Rectangle(_game.Window.ClientBounds.Width, (int)lanePos[spawnPos], 64, 64);
-
-                for (int i = 0; i < obstaclesInScene.Count; ++i)
-                {
-                    if (!obstaclesInScene[i].hitBox.Intersects(spawnBox))
-                    {
-                        Obstacle obstacle = new Obstacle(new Vector2(_game.Window.ClientBounds.Width, lanePos[spawnPos]), "Content\\Sprites\\Obstacles", Color.White, 75);
-                        obstacle.LoadSprite(contentManager);
-                        sceneContent.Add(obstacle);
-                        obstaclesInScene.Add(obstacle);
-                    }
-                    else
-                    {
-                        i--;
-                    }
-
-                }
-            }
-        }
-
-
-
-
-
-
-
-
-
-
-
-        private void SpawnObjectsL()
-        {
-
-            if (obstaclesInScene.Count < maxObjectCount)
-            {
-                Random rnd = new Random();
-                int spawnPos = rnd.Next(0, 3);
-                bool canSpawn = false;
-
-                if (obstaclesInScene.Count > 0)
-                {
-                    Rectangle spawnBox = new Rectangle(_game.Window.ClientBounds.Width, (int)lanePos[spawnPos], 64, 64);
-                    Point point = new Point(_game.Window.ClientBounds.Width, (int)lanePos[spawnPos]);
-
-                    //Console.WriteLine(point.X + "    " + point.Y);
-
-                    for (int i = 0; i < obstaclesInScene.Count; i++)
-                    {
-                        int distance = (int)obstaclesInScene[i].position.Y - spawnBox.Y;
-
-                        Console.WriteLine(" distance" + distance);
-                        Console.WriteLine("1   " + spawnBox.X + ", " + spawnBox.Y + "   " + obstaclesInScene[i].position.X + "   " + obstaclesInScene[i].position.Y);
-
-                        if (!obstaclesInScene[i].hitBox.Intersects(spawnBox))
-                        {
-                            Console.WriteLine("2   " + spawnBox.X + ", " + spawnBox.Y + "   " + obstaclesInScene[i].position.X + "   " + obstaclesInScene[i].position.Y);
-                            canSpawn = true;
-                        }
-                        else
-                        {
-                            Console.WriteLine("niet werken?" + obstaclesInScene.Count);
-                            canSpawn = false;
-                        }
-                    }
-
-                    if (canSpawn == true)
-                    {
-                        Obstacle obstacle = new Obstacle(new Vector2(_game.Window.ClientBounds.Width, lanePos[spawnPos]), "Content\\Sprites\\Obstacles", Color.White, 75);
-                        obstacle.LoadSprite(contentManager);
-                        sceneContent.Add(obstacle);
-                        obstaclesInScene.Add(obstacle);
-                    }
-                    else if(canSpawn == false)
-                    {
-                        Console.WriteLine("NUH UH");
-                    }
-
-                }
-                else
-                {
-                    Obstacle obstacle = new Obstacle(new Vector2(_game.Window.ClientBounds.Width, lanePos[spawnPos]), "Content\\Sprites\\Obstacles", Color.White, 75);
-                    obstacle.LoadSprite(contentManager);
-                    sceneContent.Add(obstacle);
-                    obstaclesInScene.Add(obstacle);
-
-                }
+                objectSpawnTimer = rnd.Next(3, 5);
             }
         }
     }

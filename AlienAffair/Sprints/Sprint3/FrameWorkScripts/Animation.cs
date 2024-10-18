@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace AlienAffair.Sprints.Sprint3.FrameWorkScripts
 {
-    public class Animate
+    public class Animation
     {
         private Texture2D spriteSheet;
 
@@ -21,7 +21,7 @@ namespace AlienAffair.Sprints.Sprint3.FrameWorkScripts
         private int pixelAmountAdderX = 0;
         private int pixelAmountAdderY = 0;
 
-        public Animate(float pAnimateSpeed, int pSpriteAmountX, int pSpriteAmountY, Texture2D pTexture)
+        public Animation(float pAnimateSpeed, int pSpriteAmountX, int pSpriteAmountY, Texture2D pTexture)
         {
             animateSpeed = pAnimateSpeed;
 
@@ -29,10 +29,10 @@ namespace AlienAffair.Sprints.Sprint3.FrameWorkScripts
             spriteAmountY = pSpriteAmountY;
             spriteSheet = pTexture;
 
-            LoadContent();
+            SpriteSize();
         }
 
-        private void LoadContent()
+        private void SpriteSize()
         {
 
             pixelAmountAdderX = spriteSheet.Width / spriteAmountX;

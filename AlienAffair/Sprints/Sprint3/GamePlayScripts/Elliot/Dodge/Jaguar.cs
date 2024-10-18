@@ -7,7 +7,7 @@ namespace AlienAffair.Sprints.Sprint3.GamePlayScripts.Elliot.Dodge
 {
     public class Jaguar : GameObject
     {
-        Animate jaguarAnimation;
+        Animation jaguarAnimation;
         Rectangle jaguarRec;
 
         Player playerReference;
@@ -21,7 +21,7 @@ namespace AlienAffair.Sprints.Sprint3.GamePlayScripts.Elliot.Dodge
 
         public void Initialize()
         {
-            jaguarAnimation = new Animate(0.2f, 1, 3, texture2D);
+            jaguarAnimation = new Animation(0.2f, 1, 3, texture2D);
         }
 
         public override void Update(GameTime pGameTime)
