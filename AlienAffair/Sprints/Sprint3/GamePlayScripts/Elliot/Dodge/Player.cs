@@ -6,7 +6,7 @@ namespace AlienAffair.Sprints.Sprint3.GamePlayScripts.Elliot.Dodge
 {
     public class Player : GameObject
     {
-        Animate manAnimation;
+        Animation manAnimation;
         float[] lanePos = new float[3];
         float destinationPos;
         float clickCoolDown = 1f;
@@ -30,7 +30,7 @@ namespace AlienAffair.Sprints.Sprint3.GamePlayScripts.Elliot.Dodge
 
         public void Initialize()
         {
-            manAnimation = new Animate(0.2f, 2, 3, texture2D);
+            manAnimation = new Animation(0.2f, 2, 3, texture2D);
         }
 
         public override void Update(GameTime pGameTime)
