@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
+using AlienAffair.Sprints.Sprint3.GamePlayScripts;
 
 namespace AlienAffair.Sprints.Sprint3.FrameWorkScripts
 {
@@ -35,14 +36,17 @@ namespace AlienAffair.Sprints.Sprint3.FrameWorkScripts
 
         /// <summary>Variable that decides if the object is drawn on screen and has a hitbox or not</summary>
             public bool objectActive = true;
+            
+            
+            public Game1 game;
 
         #region Constructors
-            /// <summary>
-            /// Constructor for a GameObject with a SpriteSheet 
-            /// </summary>
-            /// <param name="pPosition"></param>
-            /// <param name="pRectangle"></param>
-                public GameObject(Vector2 pPosition, Rectangle pRectangle)
+        /// <summary>
+        /// Constructor for a GameObject with a SpriteSheet 
+        /// </summary>
+        /// <param name="pPosition"></param>
+        /// <param name="pRectangle"></param>
+        public GameObject(Vector2 pPosition, Rectangle pRectangle)
                 {
                     position = pPosition;
                     rectangle = pRectangle;
@@ -116,12 +120,9 @@ namespace AlienAffair.Sprints.Sprint3.FrameWorkScripts
             hitBox = new Rectangle((int)position.X - (scaledRectangleWidth / 2), (int)position.Y - (scaledRectangleHeight / 2), scaledRectangleWidth, scaledRectangleHeight);
         }
 
-        /// <summary>
-        /// I don't know if this method will be applicable with the gameplay
-        /// </summary>
-        // public virtual void Collision()
-        // {
-        //     System.Console.WriteLine("empty");
-        // }
+        public void Initialize(Game1 game1refference) 
+        {
+            game = game1refference;
+        }
     }
 }

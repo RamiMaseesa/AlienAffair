@@ -1,4 +1,6 @@
+using AlienAffair.Sprints.Sprint3.GamePlayScripts;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace AlienAffair.Sprints.Sprint3.FrameWorkScripts;
@@ -8,8 +10,9 @@ public class UiObject
     public SpriteFont gameFont;
     public Texture2D pixel;
 
-
-    public string printedText;
+    public string printedText = "";
+    //
+    //public List<PrintedLine> printedLines = new List<PrintedLine>();
     public Vector2 backgroundPosition;
     public Vector2 backgroundSize;
     public Vector2 backGroundOrigin;
@@ -40,6 +43,8 @@ public class UiObject
 
     /// <summary>Variable that decides if the object is drawn on screen and has a hitbox or not</summary>
     public bool objectActive = true;
+    
+    public Game1 game;
 
     /// <summary>
     /// Constructor for a GameObject with a SpriteSheet 
@@ -58,10 +63,11 @@ public class UiObject
     }
 
     /// <summary>
-    /// Constructor for a Sprite with single sprite file
+    /// Constructor for object with one sprite
     /// </summary>
     /// <param name="pPosition"></param>
-    /// <param name="pPathToImage"></param>
+    /// <param name="pSprite"></param>
+    /// <param name="pButtonText"></param>
     public UiObject(Vector2 pPosition, Texture2D pSprite, string pButtonText)
     {
         position = pPosition;
@@ -100,6 +106,11 @@ public class UiObject
         }
     }
 
+    public virtual void LoadSprite(ContentManager pContent)
+    {
+        texture2D = pContent.Load<Texture2D>(path);
+    }
+
     /// <summary>
     /// assigns the <see cref="origin"/> of the GameObject.
     /// draws the GameObject in the scene.
@@ -133,5 +144,10 @@ public class UiObject
     public void SetPixel(Texture2D pPixel)
     {
         pixel = pPixel;
+    }
+
+    public void Initialize(Game1 game1refference)
+    {
+        game = game1refference;
     }
 }

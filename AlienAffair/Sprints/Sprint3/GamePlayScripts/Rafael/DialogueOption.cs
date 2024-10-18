@@ -1,4 +1,5 @@
 using System;
+using System.Data.Common;
 using System.Text.Json.Serialization;
 using AlienAffair.Sprints.Sprint3.FrameWorkScripts;
 using Microsoft.Xna.Framework;
@@ -8,9 +9,9 @@ namespace AlienAffair.Sprints.Sprint3.GamePlayScripts.Rafael;
 
 public class DialogueOption : ButtonBase
 {
-
     public string answerText { get; set; }
-    public string answerOutcome {get; set;}
+    public string next {get; set;}
+    public DialogueManager dialogueManager;
 
     public DialogueOption()
     {
@@ -20,7 +21,6 @@ public class DialogueOption : ButtonBase
         position = new Vector2(500, 200);
         
         //Rectangle of the sprite
-        //rectangle = new Rectangle((int)position.X, (int)position.Y, 0, 2);
         rectangle = new Rectangle(0, 0, 2, 2);
         
         //Size of the Button
@@ -43,28 +43,35 @@ public class DialogueOption : ButtonBase
 
     protected override void Normal()
     {
-        color = new Color(76, 90, 100);
+        color = new Color(71, 93, 225);
         base.Normal();
     }
     protected override void Hovering()
     {
-        color = new Color(64, 76, 85);
+        color = new Color(53, 70, 174);
         base.Hovering();
     }
     protected override void Pressed()
     {
-        color = new Color(76, 90, 100);
+        color = new Color(71, 93, 225);
         base.Pressed();
     }
 
     public override void ButtonBehaviour()
     {
         base.ButtonBehaviour();
+        dialogueManager.ChangeDialogueData(next);
+        
     }
 
     public void SetTexture(Texture2D backgroundSprite)
     {
         pixel = backgroundSprite;
         texture2D = pixel;
+    }
+
+    public void SetDialogueManager(DialogueManager pDialogueManager)
+    {
+        dialogueManager = pDialogueManager;
     }
 }
