@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using AlienAffair.Sprints.Sprint3.FrameWorkScripts;
 using AlienAffair.Sprints.Sprint3.GamePlayScripts.Elliot.Dodge;
+using AlienAffair.Sprints.Sprint3.GamePlayScripts.Elliot.LevelSelector;
 
 namespace AlienAffair.Sprints.Sprint3.GamePlayScripts.Elliot
 {
@@ -10,7 +11,9 @@ namespace AlienAffair.Sprints.Sprint3.GamePlayScripts.Elliot
     {
         //private WantedMiniGame wantedMiniGame;
 
-        private DodgeMinigame dodgeMiniGame;
+        //private DodgeMinigame dodgeMiniGame;
+
+        private LevelSelect levelSelect;
 
         public ElliotGame1()
         {
@@ -34,7 +37,9 @@ namespace AlienAffair.Sprints.Sprint3.GamePlayScripts.Elliot
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             //wantedMiniGame = new WantedMiniGame(Content, game1Refference);
 
-            dodgeMiniGame = new DodgeMinigame(Content, game1Refference);
+            //dodgeMiniGame = new DodgeMinigame(Content, game1Refference);
+
+            levelSelect = new LevelSelect(game1Refference);
             // TODO: use this.Content to load your game content here
         }
 
@@ -44,7 +49,7 @@ namespace AlienAffair.Sprints.Sprint3.GamePlayScripts.Elliot
                 Exit();
 
             //wantedMiniGame.Update(gameTime);
-            dodgeMiniGame.Update(gameTime);
+            //dodgeMiniGame.Update(gameTime);
             // TODO: Add your update logic here
 
             base.Update(gameTime);
@@ -54,8 +59,10 @@ namespace AlienAffair.Sprints.Sprint3.GamePlayScripts.Elliot
         {
             GraphicsDevice.Clear(Color.Snow);
             _spriteBatch.Begin();
-            dodgeMiniGame.Draw(_spriteBatch);
+            //dodgeMiniGame.Draw(_spriteBatch);
             //wantedMiniGame.Draw(_spriteBatch);
+
+
             _spriteBatch.End();
 
             // TODO: Add your drawing code here
