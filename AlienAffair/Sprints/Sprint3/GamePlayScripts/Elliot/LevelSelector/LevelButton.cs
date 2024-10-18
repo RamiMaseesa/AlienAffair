@@ -1,5 +1,9 @@
 ﻿using AlienAffair.Sprints.Sprint3.FrameWorkScripts;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
+using System;
+using System.Collections.Generic;
 
 namespace AlienAffair.Sprints.Sprint3.GamePlayScripts.Elliot.LevelSelector
 {
@@ -8,7 +12,7 @@ namespace AlienAffair.Sprints.Sprint3.GamePlayScripts.Elliot.LevelSelector
         SceneBase returnScene;
         Game1 game1;
 
-        public LevelButton(SceneBase pReturnScene, Game1 pGame1)
+        public LevelButton(SceneBase pReturnScene, Game1 pGame1, Vector2 pPos, Rectangle pRectangle, string pText) : base(pPos, pRectangle, pText)
         {
             returnScene = pReturnScene;
             game1 = pGame1;
@@ -22,8 +26,7 @@ namespace AlienAffair.Sprints.Sprint3.GamePlayScripts.Elliot.LevelSelector
         public override void ButtonBehaviour()
         {
             base.ButtonBehaviour();
-            game1.ChangeScene(returnScene);
-
+            //game1.ChangeScene(returnScene);
         }
     }
 }

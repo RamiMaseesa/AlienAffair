@@ -11,8 +11,6 @@ namespace AlienAffair.Sprints.Sprint3.GamePlayScripts.Elliot
 {
     public class ElliotGame1 : Game1
     {
-        List<SceneBase> scenes;
-
         private SceneBase currentScene;
 
         private WantedMiniGame wantedMiniGame;
@@ -44,10 +42,8 @@ namespace AlienAffair.Sprints.Sprint3.GamePlayScripts.Elliot
             wantedMiniGame = new WantedMiniGame(Content, game1Refference);
             dodgeMiniGame = new DodgeMinigame(Content, game1Refference);
 
-            scenes.Add(wantedMiniGame);
-            scenes.Add(dodgeMiniGame);
 
-            levelSelect = new LevelSelect(game1Refference, scenes);
+           // levelSelect = new LevelSelect(game1Refference);
 
             currentScene = levelSelect;
             // TODO: use this.Content to load your game content here
