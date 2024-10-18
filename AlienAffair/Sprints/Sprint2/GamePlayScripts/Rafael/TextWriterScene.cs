@@ -85,7 +85,7 @@ namespace AlienAffair.Sprints.Sprint2.FrameWorkScripts
             _gameFont = pContent.Load<SpriteFont>("Content\\Fonts\\File");
             _pixel = pContent.Load<Texture2D>("Content\\Sprites\\Pixel");
 
-            var jsonFile = File.ReadAllText("Content/Json/Dialogue.json");
+            var jsonFile = File.ReadAllText("Content/Json/Chapter1.json");
             _allDialogue = JsonSerializer.Deserialize<Dialogue[]>(jsonFile);
 
             for (int i = 0; i < _allDialogue.Length; i++)

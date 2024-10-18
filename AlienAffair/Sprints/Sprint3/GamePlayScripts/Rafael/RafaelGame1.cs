@@ -26,17 +26,27 @@ namespace AlienAffair.Sprints.Sprint3.GamePlayScripts.Rafael
         {
             // TODO: Add your initialization logic here
             base.Initialize();
-            
+            for (int i = scenes.Count - 1; i >= 0; i--)
+            {
+                foreach (GameObject gameObject in scenes[i].sceneContent)
+                {
+                    gameObject.Initialize(game1Refference);
+                }
+                foreach (UiObject uiGameObject in scenes[i].UiSceneContent)
+                {
+                    uiGameObject.Initialize(game1Refference);
+                }
+            }
         }
 
         protected override void LoadContent()
         {
             base.LoadContent();
             _spriteBatch = new SpriteBatch(GraphicsDevice);
-            _currentScene = new TextWriterScene(game1Refference);
+            _currentScene = new MenuScene(game1Refference);
             _currentScene.LoadContent(Content);
-            
-            foreach(SceneBase scene in scenes)
+
+            foreach (SceneBase scene in scenes)
             {
                 scene.LoadContent(Content);
             }
@@ -50,22 +60,14 @@ namespace AlienAffair.Sprints.Sprint3.GamePlayScripts.Rafael
 
             KeyboardState kstate = Keyboard.GetState();
 
-            /*if(kstate.IsKeyDown(Keys.F))
-            {
-                _currentScene = new WantedMiniGame(Content, game1Refference);
-                _graphics.PreferredBackBufferWidth = 1920;
-                _graphics.PreferredBackBufferHeight = 1080;
-                _graphics.ApplyChanges();
-            }*/    
-
             _currentScene.Update(gameTime);
         }
 
         protected override void Draw(GameTime gameTime)
         {
             base.Draw(gameTime);
-            GraphicsDevice.Clear(Color.DimGray);
-            _spriteBatch.Begin();
+            GraphicsDevice.Clear(Color.DarkGoldenrod);
+            _spriteBatch.Begin(samplerState: SamplerState.PointClamp);
             _currentScene.Draw(_spriteBatch);
             _spriteBatch.End();
             base.Draw(gameTime);
