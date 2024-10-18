@@ -3,15 +3,21 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using AlienAffair.Sprints.Sprint3.FrameWorkScripts;
 using AlienAffair.Sprints.Sprint3.GamePlayScripts.Elliot.Dodge;
+using AlienAffair.Sprints.Sprint3.GamePlayScripts.Elliot.Wanted;
 using AlienAffair.Sprints.Sprint3.GamePlayScripts.Elliot.LevelSelector;
+using System.Collections.Generic;
 
 namespace AlienAffair.Sprints.Sprint3.GamePlayScripts.Elliot
 {
     public class ElliotGame1 : Game1
     {
-        //private WantedMiniGame wantedMiniGame;
+        List<SceneBase> scenes;
 
-        //private DodgeMinigame dodgeMiniGame;
+        private SceneBase currentScene;
+
+        private WantedMiniGame wantedMiniGame;
+
+        private DodgeMinigame dodgeMiniGame;
 
         private LevelSelect levelSelect;
 
@@ -35,11 +41,15 @@ namespace AlienAffair.Sprints.Sprint3.GamePlayScripts.Elliot
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
-            //wantedMiniGame = new WantedMiniGame(Content, game1Refference);
+            wantedMiniGame = new WantedMiniGame(Content, game1Refference);
+            dodgeMiniGame = new DodgeMinigame(Content, game1Refference);
 
-            //dodgeMiniGame = new DodgeMinigame(Content, game1Refference);
+            scenes.Add(wantedMiniGame);
+            scenes.Add(dodgeMiniGame);
 
-            levelSelect = new LevelSelect(game1Refference);
+            levelSelect = new LevelSelect(game1Refference, scenes);
+
+            currentScene = levelSelect;
             // TODO: use this.Content to load your game content here
         }
 
@@ -47,7 +57,7 @@ namespace AlienAffair.Sprints.Sprint3.GamePlayScripts.Elliot
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
-
+            currentScene.Update(gameTime);
             //wantedMiniGame.Update(gameTime);
             //dodgeMiniGame.Update(gameTime);
             // TODO: Add your update logic here
@@ -61,13 +71,18 @@ namespace AlienAffair.Sprints.Sprint3.GamePlayScripts.Elliot
             _spriteBatch.Begin();
             //dodgeMiniGame.Draw(_spriteBatch);
             //wantedMiniGame.Draw(_spriteBatch);
-
+            currentScene.Draw(_spriteBatch);
 
             _spriteBatch.End();
 
             // TODO: Add your drawing code here
 
             base.Draw(gameTime);
+        }
+
+        public void ChangeScene(SceneBase pChangeToScene)
+        {
+            currentScene = pChangeToScene;
         }
     }
 }

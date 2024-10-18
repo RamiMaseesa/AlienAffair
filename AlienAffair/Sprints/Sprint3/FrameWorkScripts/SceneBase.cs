@@ -11,6 +11,7 @@ namespace AlienAffair.Sprints.Sprint3.FrameWorkScripts
     {
         /// <summary>List that keeps track of all the GameObjects in a scene</summary>
         public List<GameObject> sceneContent = new List<GameObject>();
+        public List<UiObject> UiSceneContent = new List<UiObject>();
 
         /// <summary>Refference to the game1</summary>
         public Game1 _game;
