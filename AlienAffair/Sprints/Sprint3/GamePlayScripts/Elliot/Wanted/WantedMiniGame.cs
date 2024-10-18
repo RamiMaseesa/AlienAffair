@@ -5,13 +5,13 @@ using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 
-namespace AlienAffair.Sprints.Sprint3.GamePlayScripts.Elliot
+namespace AlienAffair.Sprints.Sprint3.GamePlayScripts.Elliot.Wanted
 {
     public class WantedMiniGame : SceneBase
     {
         SpriteFont font;
 
-        ContentManager Content;
+        ContentManager contentManager;
         Texture2D background;
         Color sceneColor = Color.White;
 
@@ -32,15 +32,15 @@ namespace AlienAffair.Sprints.Sprint3.GamePlayScripts.Elliot
 
         public WantedMiniGame(ContentManager pContent, Game1 pGame1) : base(pGame1)
         {
-            Content = pContent;
+            contentManager = pContent;
             CreateObjects();
         }
 
         protected override void CreateObjects()
         {
             sceneContent.Clear();
-            background = Content.Load<Texture2D>("Content\\Sprites\\Background Wanted");
-            font = Content.Load<SpriteFont>("Content\\Fonts\\WantedGameFont");
+            background = contentManager.Load<Texture2D>("Content\\Sprites\\Background Wanted");
+            font = contentManager.Load<SpriteFont>("Content\\Fonts\\WantedGameFont");
 
 
             gameScreen = new Rectangle(300, 160, 1075, 925);
@@ -51,7 +51,7 @@ namespace AlienAffair.Sprints.Sprint3.GamePlayScripts.Elliot
             drawWantedPosY = faceSprites[rnd.Next(0, 3)];
 
             wantedPerson = new ObjectWanted(new Vector2(rnd.Next(gameScreen.X + 64, gameScreen.Width - 64), rnd.Next(gameScreen.Y + 64, gameScreen.Height - 64)), "Content\\Sprites\\FaceSpriteSheet", sceneColor, new Rectangle(drawWantedPosX, drawWantedPosY, 63, 63));
-            wantedPerson.LoadSprite(Content);
+            wantedPerson.LoadSprite(contentManager);
             sceneContent.Add(wantedPerson);
 
             wantedSprite = wantedPerson.texture2D;
@@ -64,7 +64,7 @@ namespace AlienAffair.Sprints.Sprint3.GamePlayScripts.Elliot
                 if (drawPosX != drawWantedPosX || drawPosY != drawWantedPosY)
                 {
                     ObjectWanted alien = new ObjectWanted(new Vector2(rnd.Next(gameScreen.X + 64, gameScreen.Width - 64), rnd.Next(gameScreen.Y + 64, gameScreen.Height - 64)), "Content\\Sprites\\FaceSpriteSheet", sceneColor, new Rectangle(drawPosX, drawPosY, 63, 63));
-                    alien.LoadSprite(Content);
+                    alien.LoadSprite(contentManager);
                     sceneContent.Add(alien);
                 }
                 else
@@ -74,7 +74,7 @@ namespace AlienAffair.Sprints.Sprint3.GamePlayScripts.Elliot
             }
 
             playerCircle = new PlayerCircle(new Vector2((gameScreen.X + gameScreen.Width) / 2, (gameScreen.Y + gameScreen.Height) / 2), "Content\\Sprites\\White Circle", sceneColor * 0.40f, new Rectangle(0, 0, 64, 64));
-            playerCircle.LoadSprite(Content);
+            playerCircle.LoadSprite(contentManager);
         }
 
         public override void Update(GameTime pGameTime)

@@ -111,6 +111,18 @@
 /processorParam:TextureFormat=Color
 /build:Sprites/JaguarSpriteSheet.png
 
+#begin Sprites/Obstacles.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sprites/Obstacles.png
+
 #begin Sprites/OptionWheel.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -135,6 +147,7 @@
 /processorParam:TextureFormat=Color
 /build:Sprites/Pixel.png
 
+#begin Sprites/RunningManSpriteSheet.png
 #begin Sprites/PokerClover.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -145,6 +158,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
+/build:Sprites/RunningManSpriteSheet.png
 /build:Sprites/PokerClover.png
 
 #begin Sprites/PokerClubs.png
