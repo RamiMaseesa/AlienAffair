@@ -19,13 +19,14 @@ namespace AlienAffair.Sprints.Sprint3.GamePlayScripts
             _graphics.IsFullScreen = false;
             //Content.RootDirectory = "Content/Sprites";
             IsMouseVisible = true;
+            game1Refference = this;
         }
 
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
             base.Initialize();
-            game1Refference = this;
+            
         }
 
         protected override void LoadContent()

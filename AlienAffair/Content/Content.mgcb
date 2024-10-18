@@ -13,6 +13,30 @@
 
 #---------------------------------- Content ---------------------------------#
 
+#begin ../../../../Sprites/tafel.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../../../Sprites/tafel.png;Sprites/tafel.png
+
+#begin ../../../../Sprites/tapijt.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../../../Sprites/tapijt.png;Sprites/tapijt.png
+
 #begin Fonts/File.spritefont
 /importer:FontDescriptionImporter
 /processor:FontDescriptionProcessor
@@ -39,7 +63,7 @@
 /processorParam:TextureFormat=Color
 /build:Sprites/Alien Head.png
 
-#begin Sprites/Background Wanted.png
+#begin Sprites/JaguarSpriteSheet.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -75,7 +99,7 @@
 /processorParam:TextureFormat=Color
 /build:Sprites/FaceSpriteSheet.png
 
-#begin Sprites/OptionWheel.png
+#begin Sprites/PokerClubs.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -97,7 +121,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Sprites/Pixel.png
+/build:Sprites/PokerHart.png
 
 #begin Sprites/White block.png
 /importer:TextureImporter
