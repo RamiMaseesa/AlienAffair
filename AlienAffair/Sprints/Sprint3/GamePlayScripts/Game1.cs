@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using AlienAffair.Sprints.Sprint3.GamePlayScripts.Elliot.Dodge;
+using AlienAffair.Sprints.Sprint3.GamePlayScripts.Elliot.LevelSelector;
 
 namespace AlienAffair.Sprints.Sprint3.GamePlayScripts
 {
@@ -18,6 +19,8 @@ namespace AlienAffair.Sprints.Sprint3.GamePlayScripts
         SceneBase _currentScene;
 
         TextWriterScene textWriterScene;
+        MenuScene menuScene;
+        LevelSelect levelSelect;
         Elliot.Wanted.WantedMiniGame wantedMiniGame;
         DodgeMinigame dodgeMinigame;
 
@@ -35,6 +38,12 @@ namespace AlienAffair.Sprints.Sprint3.GamePlayScripts
         {
             // TODO: Add your initialization logic here
             base.Initialize();
+        }
+
+        protected override void LoadContent()
+        {
+            base.LoadContent();
+            ResetScenes();
             for (int i = scenes.Count - 1; i >= 0; i--)
             {
                 foreach (GameObject gameObject in scenes[i].sceneContent)
@@ -46,12 +55,6 @@ namespace AlienAffair.Sprints.Sprint3.GamePlayScripts
                     uiGameObject.Initialize(game1Refference);
                 }
             }
-        }
-
-        protected override void LoadContent()
-        {
-            base.LoadContent();
-            ResetScenes();
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             //_currentScene = new MenuScene(game1Refference);
             _currentScene.LoadContent(Content);
@@ -85,9 +88,9 @@ namespace AlienAffair.Sprints.Sprint3.GamePlayScripts
             base.Draw(gameTime);
         }
 
-        protected virtual void ChangeScene()
+        public virtual void ChangeScene(SceneBase returnScene)
         {
-
+            _currentScene = returnScene;
         }
 
         private void ResetScenes()
@@ -97,8 +100,10 @@ namespace AlienAffair.Sprints.Sprint3.GamePlayScripts
             textWriterScene = new TextWriterScene(game1Refference);
             wantedMiniGame = new Elliot.Wanted.WantedMiniGame(Content, game1Refference);
             dodgeMinigame = new DodgeMinigame(Content, game1Refference);
+            menuScene = new MenuScene(game1Refference);
+            levelSelect = new LevelSelect(game1Refference, scenes);
 
-            _currentScene = textWriterScene;
+            _currentScene = menuScene;
             for (int i = scenes.Count - 1; i >= 0; i--)
             {
                 foreach (GameObject gameObject in scenes[i].sceneContent)

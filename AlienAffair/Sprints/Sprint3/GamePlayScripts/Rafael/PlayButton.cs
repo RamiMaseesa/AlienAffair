@@ -8,6 +8,10 @@ public class PlayButton : ButtonBase
 {
     public PlayButton(Vector2 pPosition, Rectangle pRectangle) : base(pPosition, pRectangle)
     {
+    }
+
+    public PlayButton(Vector2 pPosition, Rectangle pRectangle, string pButtonText) : base(pPosition, pRectangle, pButtonText)
+    {
         path = "Content/Sprites/Button";
         scale = new Vector2(4f, 4f);
         printedText = "Play";

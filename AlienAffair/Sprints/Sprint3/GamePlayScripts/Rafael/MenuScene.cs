@@ -16,8 +16,8 @@ public class MenuScene : SceneBase
         {
             base.CreateObjects();
 
-            UiSceneContent.Add(new PlayButton(new Vector2(500, 300), new Rectangle(3, 35, 58, 26)));
-            UiSceneContent.Add(new PlayButton(new Vector2(500, 450), new Rectangle(3, 35, 58, 26)));
-            UiSceneContent.Add(new ExitButton(new Vector2(500, 600), new Rectangle(3, 35, 58, 26)));
+            UiSceneContent.Add(new PlayButton(new Vector2(500, 300), new Rectangle(3, 35, 58, 26), "Play"));
+            UiSceneContent.Add(new PlayButton(new Vector2(500, 450), new Rectangle(3, 35, 58, 26), "Minigames"));
+            UiSceneContent.Add(new ExitButton(new Vector2(500, 600), new Rectangle(3, 35, 58, 26), "Exit"));
         }
 }

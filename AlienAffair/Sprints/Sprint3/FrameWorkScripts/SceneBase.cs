@@ -23,7 +23,7 @@ namespace AlienAffair.Sprints.Sprint3.FrameWorkScripts
         public SceneBase(Game1 pGame)
         {
             _game = pGame;
-            //_game.scenes.Add(this);
+            _game.scenes.Add(this);
         }
 
         /// <summary>

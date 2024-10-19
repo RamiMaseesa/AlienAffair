@@ -25,13 +25,8 @@ namespace AlienAffair.Sprints.Sprint3.FrameWorkScripts
         MouseState _mouseState;
         #endregion
 
-        /// <summary> Text that will appear on the button </summary>
-        string _buttonText;
-
-        /// <summary>Position of the Text on the button (This doesn't have any other logic attached to it except that it's connected to the button position)</summary>
-        Vector2 _textPosition;
-
         #region Constructors
+        
         /// <summary>
         /// Button with text
         /// </summary>
@@ -40,13 +35,13 @@ namespace AlienAffair.Sprints.Sprint3.FrameWorkScripts
         /// <param name="pButtonText"></param>
         public ButtonBase(Vector2 pPosition, Rectangle pRectangle, string pButtonText) : base(pPosition, pRectangle)
         {
-            _buttonText = pButtonText;
+            printedText = pButtonText;
             path = "Button";
         }
 
         public ButtonBase(Vector2 pPosition, Texture2D pSprite, string pButtonText) : base(pPosition, pSprite, pButtonText)
         {
-            _buttonText = pButtonText;
+            printedText = pButtonText;
             path = "Button";
         }
 
@@ -109,7 +104,6 @@ namespace AlienAffair.Sprints.Sprint3.FrameWorkScripts
         /// </summary>
         protected virtual void Normal()
         {
-            _textPosition = position;
             if (hitBox.Contains(_mousePoint))
             {
                 _buttonState = ButtonStatus.hovered;
