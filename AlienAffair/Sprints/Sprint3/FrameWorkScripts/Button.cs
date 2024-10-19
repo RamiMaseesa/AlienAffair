@@ -36,13 +36,13 @@ namespace AlienAffair.Sprints.Sprint3.FrameWorkScripts
         public ButtonBase(Vector2 pPosition, Rectangle pRectangle, string pButtonText) : base(pPosition, pRectangle)
         {
             printedText = pButtonText;
-            path = "Button";
+            path = "Sprites\\Button";
         }
 
         public ButtonBase(Vector2 pPosition, Texture2D pSprite, string pButtonText) : base(pPosition, pSprite, pButtonText)
         {
             printedText = pButtonText;
-            path = "Button";
+            path = "Sprites\\Button";
         }
 
         public ButtonBase()
@@ -56,7 +56,7 @@ namespace AlienAffair.Sprints.Sprint3.FrameWorkScripts
         /// <param name="pRectangle"></param>
         public ButtonBase(Vector2 pPosition, Rectangle pRectangle) : base(pPosition, pRectangle)
         {
-            path = "Button";
+            path = "Sprites\\Button";
         }
         #endregion
 

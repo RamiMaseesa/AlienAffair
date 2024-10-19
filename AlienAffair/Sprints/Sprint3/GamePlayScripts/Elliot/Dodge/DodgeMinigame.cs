@@ -22,18 +22,17 @@ namespace AlienAffair.Sprints.Sprint3.GamePlayScripts.Elliot.Dodge
         public DodgeMinigame(ContentManager pContent, Game1 pGame1) : base(pGame1)
         {
             contentManager = pContent;
-
             CreateObjects();
         }
 
         protected override void CreateObjects()
         {
-            lanePos[0] = _game.Window.ClientBounds.Height * 0.3f;
-            lanePos[1] = _game.Window.ClientBounds.Height * 0.5f;
-            lanePos[2] = _game.Window.ClientBounds.Height * 0.7f;
+            lanePos[0] = game.Window.ClientBounds.Height * 0.3f;
+            lanePos[1] = game.Window.ClientBounds.Height * 0.5f;
+            lanePos[2] = game.Window.ClientBounds.Height * 0.7f;
 
-            man = new Player(new Vector2(900, lanePos[1]), "Content\\Sprites\\RunningManSpriteSheet", Color.White, lanePos);
-            jaguar = new Jaguar(new Vector2(450, lanePos[1]), "Content\\Sprites\\JaguarSpriteSheet", Color.White, man);
+            man = new Player(new Vector2(900, lanePos[1]), "Sprites\\RunningManSpriteSheet", Color.White, lanePos);
+            jaguar = new Jaguar(new Vector2(450, lanePos[1]), "Sprites\\JaguarSpriteSheet", Color.White, man);
 
             sceneContent.Add(jaguar);
             sceneContent.Add(man);
@@ -69,7 +68,7 @@ namespace AlienAffair.Sprints.Sprint3.GamePlayScripts.Elliot.Dodge
 
             if (objectSpawnTimer < 0)
             {
-                Obstacle obstacle = new Obstacle(new Vector2(_game.Window.ClientBounds.Width, (int)lanePos[spawnPos]), "Content\\Sprites\\Obstacles", Color.White, 75);
+                Obstacle obstacle = new Obstacle(new Vector2(game.Window.ClientBounds.Width, (int)lanePos[spawnPos]), "Sprites\\Obstacles", Color.White, 75);
                 obstacle.LoadSprite(contentManager);
                 sceneContent.Add(obstacle);
                 obstaclesInScene.Add(obstacle);

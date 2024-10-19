@@ -6,15 +6,14 @@ namespace AlienAffair.Sprints.Sprint3.GamePlayScripts.Elliot.LevelSelector
 {
     public class LevelButton : ButtonBase
     {
-        SceneBase returnScene;
+        GameStates _returnScene;
 
-        public LevelButton(SceneBase pToScene,Vector2 pPosition, Rectangle pRectangle) : base(pPosition, pRectangle)
+        public LevelButton(GameStates pToScene,Vector2 pPosition, Rectangle pRectangle, string pButtonText) : base(pPosition, pRectangle, pButtonText)
         {
-            path = "Content/Sprites/Button";
+            path = "Sprites/Button";
             scale = new Vector2(4f, 4f);
-            //printedText = pPrintedText;
             rectangle = new Rectangle(0, 0, 64, 32);
-            returnScene = pToScene;
+            _returnScene = pToScene;
         }
 
         public override void Draw(SpriteBatch pSpriteBatch, SpriteFont pGameFont)
@@ -25,7 +24,7 @@ namespace AlienAffair.Sprints.Sprint3.GamePlayScripts.Elliot.LevelSelector
         public override void ButtonBehaviour()
         {
             base.ButtonBehaviour();
-            game.ChangeScene(returnScene);
+            game.ChangeScene(_returnScene);
 
         }
     }

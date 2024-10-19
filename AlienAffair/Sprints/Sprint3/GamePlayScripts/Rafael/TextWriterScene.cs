@@ -14,9 +14,6 @@ namespace AlienAffair.Sprints.Sprint3.FrameWorkScripts
 {
     public class TextWriterScene : SceneBase
     {
-        SpriteFont _gameFont;
-        Texture2D _pixel;
-
         //Tutorial on https://www.tutlane.com/tutorial/csharp/csharp-properties-get-set
         Dialogue _currentDialogue;
         DialogueManager dialogueManager;
@@ -31,8 +28,8 @@ namespace AlienAffair.Sprints.Sprint3.FrameWorkScripts
                 {
                     _currentDialogue = value;
                     _currentDialogue.ResetDialogue();
-                    _currentDialogue.SetPixel(_pixel);
-                    _currentDialogue.SetSpriteFont(_gameFont);
+                    _currentDialogue.SetPixel(game.pixel);
+                    _currentDialogue.SetSpriteFont(game.gameFont);
                     _currentDialogue.GetDialogueManager(dialogueManager);
                     for (int i = 0; i < _currentDialogue.Text.Length; i++)
                     {
@@ -62,14 +59,13 @@ namespace AlienAffair.Sprints.Sprint3.FrameWorkScripts
         public override void Draw(SpriteBatch pSpriteBatch)
         {
             base.Draw(pSpriteBatch);
-            _currentDialogue.Draw(pSpriteBatch, _gameFont);
+            _currentDialogue.Draw(pSpriteBatch, game.gameFont);
         }
 
         public override void LoadContent(ContentManager pContent)
         {
             base.LoadContent(pContent);
-            _gameFont = pContent.Load<SpriteFont>("Content\\Fonts\\File");
-            _pixel = pContent.Load<Texture2D>("Content\\Sprites\\Pixel");
+            CurrentDialogue = dialogueManager.dialogueData;
 
             var jsonFile = File.ReadAllText("Content/Json/Chapter1.json");
         }

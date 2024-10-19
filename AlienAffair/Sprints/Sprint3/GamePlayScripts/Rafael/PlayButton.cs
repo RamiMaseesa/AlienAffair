@@ -12,15 +12,15 @@ public class PlayButton : ButtonBase
 
     public PlayButton(Vector2 pPosition, Rectangle pRectangle, string pButtonText) : base(pPosition, pRectangle, pButtonText)
     {
-        path = "Content/Sprites/Button";
+        path = "Sprites/Button";
         scale = new Vector2(4f, 4f);
-        printedText = "Play";
         rectangle = new Rectangle(0, 0, 64, 32);
     }
 
     public override void ButtonBehaviour()
     {
         base.ButtonBehaviour();
+        game.ChangeScene(GameStates.textWriterScene);
     }
 
 

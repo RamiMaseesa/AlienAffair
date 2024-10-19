@@ -9,7 +9,7 @@ public class ExitButton : ButtonBase
 {
     public ExitButton(Vector2 pPosition, Rectangle pRectangle, string pButtonText) : base(pPosition, pRectangle, pButtonText)
     {
-        path = "Content/Sprites/Button";
+        path = "Sprites/Button";
         scale = new Vector2(4f, 4f);
         rectangle = new Rectangle(0, 0, 64, 32);
     }

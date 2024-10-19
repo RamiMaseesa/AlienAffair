@@ -38,9 +38,9 @@ namespace AlienAffair.Sprints.Sprint3.GamePlayScripts.Rami.BlackJack
             Random rnd = new Random();
 
             texture2D = sprites[rnd.Next(0, paths.Length)];
-            value = rnd.Next(1,11);;
+            value = rnd.Next(1, 11); ;
 
-            cardFont = pContent.Load<SpriteFont>("Fonts/File");
+            cardFont = pContent.Load<SpriteFont>("Fonts\\File");
         }
 
         public override void DrawSprite(SpriteBatch pSpriteBatch)

@@ -16,7 +16,7 @@ namespace AlienAffair.Sprints.Sprint3.FrameWorkScripts
         public List<UiObject> UiSceneContent = new List<UiObject>();
 
         /// <summary>Refference to the game1</summary>
-        public Game1 _game;
+        public Game1 game;
 
         /// <summary>
         /// New Normal Scene
@@ -24,8 +24,8 @@ namespace AlienAffair.Sprints.Sprint3.FrameWorkScripts
         /// <param name="pGame"></param>
         public SceneBase(Game1 pGame)
         {
-            _game = pGame;
-            _game.scenes.Add(this);
+            game = pGame;
+            game.scenes.Add(this);
         }
 
         /// <summary>
@@ -74,7 +74,7 @@ namespace AlienAffair.Sprints.Sprint3.FrameWorkScripts
             }
             foreach (UiObject gameObject in UiSceneContent)
             {
-                gameObject.Draw(pSpriteBatch);
+                gameObject.Draw(pSpriteBatch, game.gameFont);
             }
         }
 
@@ -84,11 +84,6 @@ namespace AlienAffair.Sprints.Sprint3.FrameWorkScripts
         protected virtual void CreateObjects()
         {
             //empty
-        }
-
-        public static implicit operator SceneBase(RamiGame1Poker v)
-        {
-            throw new NotImplementedException();
         }
     }
 }

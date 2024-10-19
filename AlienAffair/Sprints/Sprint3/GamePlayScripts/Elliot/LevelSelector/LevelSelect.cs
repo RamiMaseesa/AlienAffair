@@ -8,20 +8,20 @@ namespace AlienAffair.Sprints.Sprint3.GamePlayScripts.Elliot.LevelSelector
 {
     public class LevelSelect : SceneBase
     {
-        public LevelSelect(Game1 pGame1, List<SceneBase> pScenes) : base(pGame1)
+        public LevelSelect(Game1 pGame1) : base(pGame1)
         {
-            CreateButtons(pScenes);
+            CreateObjects();
         }
 
-        protected void CreateButtons(List<SceneBase> pScenes)
+        protected override void CreateObjects()
         {
-            //LevelButton wanted = new LevelButton(pScenes[0], new Vector2(500, 500), new Rectangle(0, 0, 64, 32), "Wanted");
-            //LevelButton dodge = new LevelButton(pScenes[1], new Vector2(500, 600), new Rectangle(0, 0, 64, 32), "Dodge");
-            //LevelButton blackJack = new LevelButton(pScenes[2], new Vector2(500, 700), new Rectangle(0, 0, 64, 32), "Black Jack");
+            LevelButton wanted = new LevelButton(GameStates.wantedMiniGame, new Vector2(game.GetGraphics().PreferredBackBufferWidth / 2, 500), new Rectangle(0, 0, 64, 32), "Wanted");
+            LevelButton dodge = new LevelButton(GameStates.dodgeMinigame, new Vector2(game.GetGraphics().PreferredBackBufferWidth / 2, 600), new Rectangle(0, 0, 64, 32), "Dodge");
+            LevelButton blackJack = new LevelButton(GameStates.ramiGame1Poker, new Vector2(game.GetGraphics().PreferredBackBufferWidth / 2, 700), new Rectangle(0, 0, 64, 32), "Black Jack");
 
-            //UiSceneContent.Add(wanted);
-            //UiSceneContent.Add(wanted);
-            //UiSceneContent.Add(wanted);
+            UiSceneContent.Add(wanted);
+            UiSceneContent.Add(dodge);
+            UiSceneContent.Add(blackJack);
         }
 
         public override void Draw(SpriteBatch pSpriteBatch)
