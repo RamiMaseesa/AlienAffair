@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using AlienAffair.Sprints.Sprint3.GamePlayScripts.Elliot.Dodge;
+using AlienAffair.Sprints.Sprint3.GamePlayScripts.Rami;
 
 namespace AlienAffair.Sprints.Sprint3.GamePlayScripts
 {
@@ -20,6 +21,7 @@ namespace AlienAffair.Sprints.Sprint3.GamePlayScripts
         TextWriterScene textWriterScene;
         Elliot.Wanted.WantedMiniGame wantedMiniGame;
         DodgeMinigame dodgeMinigame;
+        RamiGame1Poker pokerMinigame;
 
         public Game1()
         {
@@ -98,7 +100,7 @@ namespace AlienAffair.Sprints.Sprint3.GamePlayScripts
             wantedMiniGame = new Elliot.Wanted.WantedMiniGame(Content, game1Refference);
             dodgeMinigame = new DodgeMinigame(Content, game1Refference);
 
-            _currentScene = textWriterScene;
+            _currentScene = pokerMinigame;
             for (int i = scenes.Count - 1; i >= 0; i--)
             {
                 foreach (GameObject gameObject in scenes[i].sceneContent)

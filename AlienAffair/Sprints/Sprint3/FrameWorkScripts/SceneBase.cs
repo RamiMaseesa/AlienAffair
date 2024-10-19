@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using AlienAffair.Sprints.Sprint3.GamePlayScripts;
+using AlienAffair.Sprints.Sprint3.GamePlayScripts.Rami;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -23,7 +25,7 @@ namespace AlienAffair.Sprints.Sprint3.FrameWorkScripts
         public SceneBase(Game1 pGame)
         {
             _game = pGame;
-            //_game.scenes.Add(this);
+            _game.scenes.Add(this);
         }
 
         /// <summary>
@@ -82,6 +84,11 @@ namespace AlienAffair.Sprints.Sprint3.FrameWorkScripts
         protected virtual void CreateObjects()
         {
             //empty
+        }
+
+        public static implicit operator SceneBase(RamiGame1Poker v)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -14,8 +14,8 @@ namespace AlienAffair.Sprints.Sprint3.GamePlayScripts.Rami.BlackJack
         private List<CardBase> cards = new List<CardBase>();
         private GraphicsDeviceManager graphics;
         private ContentManager content;
-        private int playerPoints = 0;
-        private int AIPoints = 0;
+        //private int playerPoints = 0;
+        //private int AIPoints = 0;
 
         private int AICardHeight = 200;
         private int PlayerCardHeight = 600;
