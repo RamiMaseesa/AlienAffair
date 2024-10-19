@@ -15,10 +15,18 @@ namespace AlienAffair.Sprints.Sprint3.GamePlayScripts.Elliot.LevelSelector
 
         protected void CreateButtons(List<SceneBase> pScenes)
         {
-            LevelButton wanted = new LevelButton(pScenes[0], _game);
-            LevelButton dodge = new LevelButton(pScenes[1], _game);
-            LevelButton blackJack = new LevelButton(pScenes[2], _game);
+            LevelButton wanted = new LevelButton(pScenes[0], _game, new Vector2(500, 500), new Rectangle(0, 0, 64, 32), "Wanted");
+            LevelButton dodge = new LevelButton(pScenes[1], _game, new Vector2(500, 600), new Rectangle(0, 0, 64, 32), "Dodge");
+            LevelButton blackJack = new LevelButton(pScenes[2], _game, new Vector2(500, 700), new Rectangle(0, 0, 64, 32), "Black Jack");
+
+            UiSceneContent.Add(wanted);
+            UiSceneContent.Add(wanted);
+            UiSceneContent.Add(wanted);
         }
 
+        public override void Draw(SpriteBatch pSpriteBatch)
+        {
+            base.Draw(pSpriteBatch);
+        }
     }
 }

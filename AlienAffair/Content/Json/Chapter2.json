@@ -1,0 +1,60 @@
+{
+  "start": {
+    "Text": [
+      {
+        "line": "VERY BIG SLOW TEXT!",
+        "textSize": 3,
+        "delaySpeed": 0.6
+      },
+      {
+        "line": "(Faster smaller blue text)",
+        "_rgbValues": [88, 164, 255, 255] ,
+        "delaySpeed": 0.08
+      }
+    ],
+    "dialogueOptions": [
+      {
+        "answerText": "Text with 4 lines",
+        "next": "4Lines"
+      },
+      {
+        "answerText": "Does it work?",
+        "next": "neutral"
+      }
+    ]
+  },
+  "4Lines": {
+    "Text": [
+      {
+        "line": "Line 1 is pretty normal"
+      },
+      {
+        "line": "line 2 turned red for some reason?",
+        "_rgbValues": [255, 44, 44, 255]
+      },
+      {
+        "line": "Line 3 has 2 lines that is in one string!\nLine 3 continues down here!"
+      },
+      {
+        "line": "Line 4 will skip to the next line when finished*"
+      }
+    ],
+    "dialogueOptions": [
+      {
+        "answerText": "Go Back",
+        "next": "start"
+      },
+      {
+        "answerText": "...",
+        "next": "neutral"
+      }
+    ]
+  },
+  "neutral": {
+    "Text": [
+      {
+        "line": "Everything seems to work"
+      }
+    ]
+  }
+}
