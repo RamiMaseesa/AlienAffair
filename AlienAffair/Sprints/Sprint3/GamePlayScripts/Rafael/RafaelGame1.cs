@@ -66,7 +66,7 @@ namespace AlienAffair.Sprints.Sprint3.GamePlayScripts.Rafael
         protected override void Draw(GameTime gameTime)
         {
             base.Draw(gameTime);
-            GraphicsDevice.Clear(Color.DarkGoldenrod);
+            GraphicsDevice.Clear(Color.GhostWhite);
             _spriteBatch.Begin(samplerState: SamplerState.PointClamp);
             _currentScene.Draw(_spriteBatch);
             _spriteBatch.End();
