@@ -4,6 +4,7 @@ using AlienAffair.Sprints.Sprint3.GamePlayScripts.Rafael;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using AlienAffair.Sprints.Sprint3.GamePlayScripts.Elliot.Wanted;
 using AlienAffair.Sprints.Sprint3.GamePlayScripts.Elliot.Dodge;
 using AlienAffair.Sprints.Sprint3.GamePlayScripts.Elliot.LevelSelector;
 using AlienAffair.Sprints.Sprint3.GamePlayScripts.Rami.BlackJack;
@@ -27,9 +28,11 @@ namespace AlienAffair.Sprints.Sprint3.GamePlayScripts
         TextWriterScene textWriterScene;
         MenuScene menuScene;
         LevelSelect levelSelect;
-        Elliot.Wanted.WantedMiniGame wantedMiniGame;
+        WantedMiniGame wantedMiniGame;
         DodgeMinigame dodgeMinigame;
         RamiGame1Poker ramiGame1Poker;
+
+        MenuButton menuButton;
 
         public Game1()
         {
@@ -86,6 +89,8 @@ namespace AlienAffair.Sprints.Sprint3.GamePlayScripts
 
             KeyboardState kstate = Keyboard.GetState();
 
+            menuButton.Update(gameTime);
+
             _currentScene.Update(gameTime);
         }
 
@@ -96,6 +101,7 @@ namespace AlienAffair.Sprints.Sprint3.GamePlayScripts
             _spriteBatch.Begin(samplerState: SamplerState.PointClamp);
             _currentScene.Draw(_spriteBatch);
             _currentScene.Draw(_spriteBatch);
+            menuButton.Draw(_spriteBatch, gameFont);
             _spriteBatch.End();
             base.Draw(gameTime);
         }
@@ -115,10 +121,14 @@ namespace AlienAffair.Sprints.Sprint3.GamePlayScripts
             // wantedMiniGame,
             // dodgeMinigame,
             // ramiGame1Poker
+
+            menuButton = new MenuButton(game1Refference, new Vector2(_graphics.PreferredBackBufferWidth - 164, _graphics.PreferredBackBufferHeight - 164), new Rectangle(0, 0, 64, 32), "Menu");
+            menuButton.LoadSprite(Content);
+
             menuScene = new MenuScene(game1Refference);
             levelSelect = new LevelSelect(game1Refference);
             textWriterScene = new TextWriterScene(game1Refference);
-            wantedMiniGame = new Elliot.Wanted.WantedMiniGame(Content, game1Refference);
+            wantedMiniGame = new WantedMiniGame(Content, game1Refference);
             dodgeMinigame = new DodgeMinigame(Content, game1Refference);
             ramiGame1Poker = new RamiGame1Poker(game1Refference);
 
@@ -135,6 +145,11 @@ namespace AlienAffair.Sprints.Sprint3.GamePlayScripts
         public GraphicsDeviceManager GetGraphics()
         {
             return _graphics;
+        }
+
+        public void LoadGame1()
+        {
+            LoadContent();
         }
     }
 }

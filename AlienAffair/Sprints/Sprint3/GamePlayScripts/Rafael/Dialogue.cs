@@ -22,13 +22,13 @@ public class Dialogue : UiObject
         Annoyed
     }
 
-    public Emotion currentEmotion { get; set; }
+    public Emotion CurrentEmotion { get; set; }
     public DialogueLine[] Text { get; set; }
     bool _typingFinished = false;
     SoundEffect soundEffect;
 
     //public List<DialogueOption> dialogueOptions { get; set; }
-    public DialogueOption[] dialogueOptions { get; set; }
+    public DialogueOption[] DialogueOptions { get; set; }
 
     public DialogueManager dialogueManager;
 
@@ -72,11 +72,11 @@ public class Dialogue : UiObject
                 EndOfTextLogic();
             }
         }
-        if (dialogueOptions != null)
+        if (DialogueOptions != null)
         {
-            for (int i = dialogueOptions.Length - 1; i >= 0; i--)
+            for (int i = DialogueOptions.Length - 1; i >= 0; i--)
             {
-                dialogueOptions[i].Update(pGameTime);
+                DialogueOptions[i].Update(pGameTime);
             }
         }
     }
@@ -91,7 +91,7 @@ public class Dialogue : UiObject
             if (Text[i]._isvisible)
             {
                 Text[i].PrintLine(pSpriteBatch, pGameFont, new Vector2(position.X, position.Y + _yOffset));
-                _yOffset += Text[i].GetPrintedTextSize(pGameFont).Y * Text[i].textSize;
+                _yOffset += Text[i].GetPrintedTextSize(pGameFont).Y * Text[i].TextSize;
             }
         }
         DisplayOptions(pSpriteBatch);
@@ -105,7 +105,7 @@ public class Dialogue : UiObject
         if (kstate.IsKeyDown(Keys.Right))
             Text[indexer].charPrintDelay = 0.02f;
         else
-            Text[indexer].charPrintDelay = Text[indexer].delaySpeed;
+            Text[indexer].charPrintDelay = Text[indexer].DelaySpeed;
     }
     /// <summary>
     /// Prints all th dialogue at once
@@ -137,11 +137,11 @@ public class Dialogue : UiObject
         //_dialogueIndex = 0;
         _typingFinished = false;
         System.Console.WriteLine($"Dialogue {this} has been reset");
-        if (dialogueOptions != null)
+        if (DialogueOptions != null)
         {
-            for (int i = 0; i < dialogueOptions.Length; i++)
+            for (int i = 0; i < DialogueOptions.Length; i++)
             {
-                dialogueOptions[i].objectActive = false;
+                DialogueOptions[i].objectActive = false;
             }
         }
 
@@ -158,25 +158,25 @@ public class Dialogue : UiObject
     public void EndOfTextLogic()
     {
         Console.WriteLine("All text has been typed");
-        if (dialogueOptions != null)
+        if (DialogueOptions != null)
         {
-            for (int i = 0; i < dialogueOptions.Length; i++)
+            for (int i = 0; i < DialogueOptions.Length; i++)
             {
-                dialogueOptions[i].objectActive = true;
+                DialogueOptions[i].objectActive = true;
             }
         }
     }
 
     public void DisplayOptions(SpriteBatch pSpriteBatch)
     {
-        if (dialogueOptions != null)
+        if (DialogueOptions != null)
         {
-            for (int i = 0; i < dialogueOptions.Length; i++)
+            for (int i = 0; i < DialogueOptions.Length; i++)
             {
-                dialogueOptions[i].position.Y = 200 + (100 * i);
-                dialogueOptions[i].SetTexture(pixel);
-                dialogueOptions[i].SetDialogueManager(dialogueManager);
-                dialogueOptions[i].Draw(pSpriteBatch, gameFont);
+                DialogueOptions[i].position.Y = 200 + (100 * i);
+                DialogueOptions[i].SetTexture(pixel);
+                DialogueOptions[i].SetDialogueManager(dialogueManager);
+                DialogueOptions[i].Draw(pSpriteBatch, gameFont);
             }
         }
     }

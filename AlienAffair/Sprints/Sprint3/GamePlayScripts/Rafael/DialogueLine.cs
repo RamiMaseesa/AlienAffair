@@ -7,11 +7,11 @@ namespace AlienAffair.Sprints.Sprint3.GamePlayScripts.Rafael;
 
 public class DialogueLine
 {
-    public string line { get; set; }
-    public float textSize { get; set; } = 1f;
-    public int[] _rgbValues { get; set; }
+    public string Line { get; set; }
+    public float TextSize { get; set; } = 1f;
+    public int[] RgbValues { get; set; }
     public Color textColor;
-    public float linespacing { get; set; } = 0f;
+    public float Linespacing { get; set; } = 0f;
 
     public string printedText = "";
 
@@ -23,7 +23,7 @@ public class DialogueLine
     float _elapsedTime;
     //int _dialogueIndex;
 
-    public float delaySpeed { get; set; } = 0.1f;
+    public float DelaySpeed { get; set; } = 0.1f;
 
     public DialogueLine()
     {
@@ -32,8 +32,8 @@ public class DialogueLine
 
     public void AssignColor()
     {
-        if (_rgbValues != null)
-            textColor = new Color(_rgbValues[0], _rgbValues[1], _rgbValues[2], _rgbValues[3]);
+        if (RgbValues != null)
+            textColor = new Color(RgbValues[0], RgbValues[1], RgbValues[2], RgbValues[3]);
         else
             textColor = Color.White;
     }
@@ -41,7 +41,7 @@ public class DialogueLine
     public void PrintLine(SpriteBatch pSpriteBatch, SpriteFont pGameFont, Vector2 pPosition)
     {
         AssignColor();
-        pSpriteBatch.DrawString(pGameFont, printedText, pPosition, textColor, 0f, new Vector2(0, 0), textSize, SpriteEffects.None, 0f);
+        pSpriteBatch.DrawString(pGameFont, printedText, pPosition, textColor, 0f, new Vector2(0, 0), TextSize, SpriteEffects.None, 0f);
     }
 
     /// <summary>
@@ -67,11 +67,11 @@ public class DialogueLine
         if (!_typingLineFinished)
         {
             _isvisible = true;
-            if (_characterIndex < line.Length)
+            if (_characterIndex < Line.Length)
             {
                 if (_elapsedTime >= charPrintDelay)
                 {
-                    printedText += line[_characterIndex];
+                    printedText += Line[_characterIndex];
                     _characterIndex++;
                     _elapsedTime = 0;
                     
@@ -99,7 +99,7 @@ public class DialogueLine
     {
          _typingLineFinished = true;
          _isvisible = true;
-         printedText = line;
+         printedText = Line;
     }
 
     private void EndOfTextLogic()

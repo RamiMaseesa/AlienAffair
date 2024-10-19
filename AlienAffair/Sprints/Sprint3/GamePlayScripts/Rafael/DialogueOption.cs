@@ -9,8 +9,8 @@ namespace AlienAffair.Sprints.Sprint3.GamePlayScripts.Rafael;
 
 public class DialogueOption : ButtonBase
 {
-    public string answerText { get; set; }
-    public string next {get; set;}
+    public string AnswerText { get; set; }
+    public string Next {get; set;}
     public DialogueManager dialogueManager;
 
     public DialogueOption()
@@ -30,9 +30,9 @@ public class DialogueOption : ButtonBase
 
     public override void DrawText(SpriteBatch pSpriteBatch, SpriteFont pGameFont)
     {
-        Vector2 textSize = pGameFont.MeasureString(answerText);
+        Vector2 textSize = pGameFont.MeasureString(AnswerText);
         Vector2 textLocation = position;
-        pSpriteBatch.DrawString(pGameFont, answerText, textLocation - (textSize * 1f / 2), Color.White);
+        pSpriteBatch.DrawString(pGameFont, AnswerText, textLocation - (textSize * 1f / 2), Color.White);
     }
 
     public override void DrawSprite(SpriteBatch pSpriteBatch)
@@ -60,7 +60,7 @@ public class DialogueOption : ButtonBase
     public override void ButtonBehaviour()
     {
         base.ButtonBehaviour();
-        dialogueManager.ChangeDialogueData(next);
+        dialogueManager.ChangeDialogueData(Next);
         
     }
 

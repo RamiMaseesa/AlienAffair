@@ -1,7 +1,7 @@
 [
   {
-    "currentEmotion": 1,
-    "text": [
+    "CurrentEmotion": 1,
+    "Text": [
       "*You were taking a leisurely stroll through the park...*\n",
       "A sudden, ear-splitting roar filled the air,\n",
       "louder than thunder but with an odd mechanical edge to it,\n",
@@ -10,79 +10,79 @@
     ]
   },
   {
-    "currentEmotion": 1,
-    "text": [
+    "CurrentEmotion": 1,
+    "Text": [
       "I approached cautiously,\n",
-      "drawn to the strange glow from the nearby forest,\n", 
+      "drawn to the strange glow from the nearby forest,\n",
       "where the ufo seemingly had landed.\n",
-      "The air felt thick, almost electric. The ship, sleek and alien,\n", 
+      "The air felt thick, almost electric. The ship, sleek and alien,\n",
       "A hatch was partially open, emitting a faint blue light."
     ]
   },
   {
-    "currentEmotion": 1,
-    "text": [
+    "CurrentEmotion": 1,
+    "Text": [
       "As I stepped closer, something stirred inside.\n",
       "A tall, shadowy figure emerged, its skin a sickly gray-green,\n",
-      "its eyes wide, black voids. My heart pounded,\n", 
+      "its eyes wide, black voids. My heart pounded,\n",
       "every instinct screamed at me to run,\n",
       "but my legs wouldn't move."
     ]
   }
   ,
   {
-    "currentEmotion": 1,
-    "text": [
+    "CurrentEmotion": 1,
+    "Text": [
       "The Alien Loomed over me, its presence heavy and suffocating.\n ",
       "I instinctively took a shaky step back, but it tilted its head,\n",
       "almost amused, as if it could smell my fear. Pointless, it rasped,\n",
-      "its voice strange and crackling like broken radio static. \"You can run\",\n", 
+      "its voice strange and crackling like broken radio static. \"You can run\",\n",
       "but it won't matter.\""
     ],
-    "dialogueOptions": [
+    "DialogueOptions": [
       {
-        "answerText": "Why would you destroy us?"
+        "AnswerText": "Why would you destroy us?"
       },
       {
-        "answerText": "..."
+        "AnswerText": "..."
       }
     ]
   }
   ,
   {
-    "currentEmotion": 3,
-    "text": [
+    "CurrentEmotion": 3,
+    "Text": [
       "Your kind is reckless\n",
       "You spread like a virus, chaos and conflict follow everywhere you go...\n",
       "Although your question intrigues me...\n",
       "I am curious. If there's anything worth saving in your species, prove it.\n",
       "Convince me otherwise.\n"
     ],
-    "dialogueOptions": [
+    "DialogueOptions": [
       {
-        "answerText": "I will prove you wrong!"
+        "AnswerText": "I will prove you wrong!"
       },
       {
-        "answerText": "I'd Rather continue my walk"
+        "AnswerText": "I'd Rather continue my walk"
       },
       {
-        "answerText": "..."
+        "AnswerText": "..."
       }
     ]
   }
   ,
   {
-    "currentEmotion": 3,
-    "text": [
+    "CurrentEmotion": 3,
+    "Text": [
       "As i expected\n",
       ""
     ],
-    "dialogueOptions": [
+    "DialogueOptions": [
       {
-        "answerText": ""
+        "AnswerText": ""
       },
       {
-        "answerText": ""
+        "AnswerText": ""
       }
     ]
   }
