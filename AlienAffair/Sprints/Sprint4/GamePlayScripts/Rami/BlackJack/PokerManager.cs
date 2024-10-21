@@ -39,11 +39,11 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts.Rami.BlackJack
 
             foreach (CardBase card in cards)
             {
-                card.LoadSprite(content);
+                card.LoadSprite(content); 
             }
         }
 
-        public virtual void Update(GameTime gameTime)
+        public void WinCheck()
         {
             int sumAI = 0;
             int sumPlayer = 0;
@@ -58,24 +58,34 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts.Rami.BlackJack
             {
                 cards.Clear();
                 OnGameStart();
+                Console.WriteLine("Player Bust");
             }
             else if (sumAI > 21) 
             {
                 cards.Clear();
                 OnGameStart();
+                Console.WriteLine("AI Bust");
             }
 
-            if (sumAI < 17) return;
+
 
             if (sumPlayer == sumAI)
             {
                 cards.Clear();
                 OnGameStart();
+                Console.WriteLine("TIE");
             }
             else if (sumPlayer > sumAI)
             {
                 cards.Clear();
                 OnGameStart();
+                Console.WriteLine("Player WIN");
+            }
+            else
+            {
+                cards.Clear();
+                OnGameStart();
+                Console.WriteLine("AI WIN");
             }
         }
 
@@ -89,6 +99,14 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts.Rami.BlackJack
 
         public void OnHit()
         {
+            int sum = 0;
+
+            foreach (CardBase cardBase in cards)
+            {
+                if (cardBase is PlayerCard) sum += cardBase.value;
+            }
+
+            if (sum >= 21) return;
 
             int amountOfPlayerCards = 0;
             foreach (CardBase cardBase in cards)
@@ -111,6 +129,7 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts.Rami.BlackJack
             }
 
             if (sum >= 17) return;
+
             do {
                 int amountOfAICards = 0;
                 foreach (CardBase cardBase in cards)
