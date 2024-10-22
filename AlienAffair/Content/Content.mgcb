@@ -27,7 +27,7 @@
 /processorParam:TextureFormat=Compressed
 /build:Fonts/WantedGameFont.spritefont
 
-#begin Sprites/Alien Head.png
+#begin Sprites/Alien_Head.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -37,9 +37,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Sprites/Alien Head.png
+/build:Sprites/Alien_Head.png
 
-#begin Sprites/Background Wanted.png
+#begin Sprites/Background_Wanted.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -49,7 +49,43 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Sprites/Background Wanted.png
+/build:Sprites/Background_Wanted.png
+
+#begin Sprites/Backgrounds/ForestBackground.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sprites/Backgrounds/ForestBackground.png
+
+#begin Sprites/Backgrounds/TitleScreenDark.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sprites/Backgrounds/TitleScreenDark.png
+
+#begin Sprites/Backgrounds/TitleScreenLight.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sprites/Backgrounds/TitleScreenLight.png
 
 #begin Sprites/Button.png
 /importer:TextureImporter
@@ -207,7 +243,7 @@
 /processorParam:TextureFormat=Color
 /build:Sprites/tapijt.png
 
-#begin Sprites/White block.png
+#begin Sprites/White_Block.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -217,9 +253,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Sprites/White block.png
+/build:Sprites/White_Block.png
 
-#begin Sprites/White Circle.png
+#begin Sprites/White_Circle.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -229,5 +265,5 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Sprites/White Circle.png
+/build:Sprites/White_Circle.png
 

@@ -1,13 +1,13 @@
-﻿using System.Collections.Generic;
-using AlienAffair.Sprints.Sprint4.FrameWorkScripts;
+﻿using AlienAffair.Sprints.Sprint4.FrameWorkScripts;
+using AlienAffair.Sprints.Sprint4.GamePlayScripts.Elliot.Dodge;
+using AlienAffair.Sprints.Sprint4.GamePlayScripts.Elliot.LevelSelector;
+using AlienAffair.Sprints.Sprint4.GamePlayScripts.Elliot.Wanted;
 using AlienAffair.Sprints.Sprint4.GamePlayScripts.Rafael;
+using AlienAffair.Sprints.Sprint4.GamePlayScripts.Rami.BlackJack;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using AlienAffair.Sprints.Sprint4.GamePlayScripts.Elliot.Wanted;
-using AlienAffair.Sprints.Sprint4.GamePlayScripts.Elliot.Dodge;
-using AlienAffair.Sprints.Sprint4.GamePlayScripts.Elliot.LevelSelector;
-using AlienAffair.Sprints.Sprint4.GamePlayScripts.Rami.BlackJack;
+using System.Collections.Generic;
 
 namespace AlienAffair.Sprints.Sprint4.GamePlayScripts
 {
@@ -23,8 +23,9 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts
         public List<SceneBase> scenes = new List<SceneBase>();
         SceneBase _currentScene;
 
-        public GameStates currentState = GameStates.MenuScene;
+        public GameStates currentState = GameStates.TitleScreen;
 
+        TitleScreen titleScreen;
         TextWriterScene textWriterScene;
         MenuScene menuScene;
         LevelSelect levelSelect;
@@ -54,10 +55,12 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts
         protected override void LoadContent()
         {
             base.LoadContent();
-            ResetScenes();
 
             gameFont = Content.Load<SpriteFont>("Fonts\\File");
             pixel = Content.Load<Texture2D>("Sprites\\Pixel");
+
+            ResetScenes();
+
 
             for (int i = scenes.Count - 1; i >= 0; i--)
             {
@@ -101,7 +104,7 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts
             _spriteBatch.Begin(samplerState: SamplerState.PointClamp);
             _currentScene.Draw(_spriteBatch);
             _currentScene.Draw(_spriteBatch);
-            menuButton.Draw(_spriteBatch, gameFont);
+            menuButton.Draw(_spriteBatch);
             _spriteBatch.End();
             base.Draw(gameTime);
         }
@@ -109,6 +112,7 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts
         public virtual void ChangeScene(GameStates pState)
         {
             _currentScene = scenes[(int)pState];
+            currentState = pState;
         }
 
         private void ResetScenes()
@@ -122,9 +126,10 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts
             // dodgeMinigame,
             // ramiGame1Poker
 
-            menuButton = new MenuButton(game1Refference, new Vector2(_graphics.PreferredBackBufferWidth - 164, _graphics.PreferredBackBufferHeight - 164), new Rectangle(0, 0, 64, 32), "Menu");
+            menuButton = new MenuButton(game1Refference, new Vector2(_graphics.PreferredBackBufferWidth - 164, _graphics.PreferredBackBufferHeight - 164), new Rectangle(0, 0, 64, 32), gameFont, "Menu");
             menuButton.LoadSprite(Content);
 
+            titleScreen = new TitleScreen(game1Refference);
             menuScene = new MenuScene(game1Refference);
             levelSelect = new LevelSelect(game1Refference);
             textWriterScene = new TextWriterScene(game1Refference);
@@ -132,7 +137,8 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts
             dodgeMinigame = new DodgeMinigame(Content, game1Refference);
             ramiGame1Poker = new RamiGame1Poker(game1Refference);
 
-            _currentScene = menuScene;
+            currentState = GameStates.TitleScreen;
+            _currentScene = titleScreen;
             for (int i = scenes.Count - 1; i >= 0; i--)
             {
                 foreach (GameObject gameObject in scenes[i].sceneContent)
@@ -150,6 +156,13 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts
         public void LoadGame1()
         {
             LoadContent();
+            currentState = GameStates.MenuScene;
+            _currentScene = menuScene;
+        }
+
+        public GameStates GetCurrentScene()
+        {
+            return currentState;
         }
     }
 }

@@ -119,14 +119,16 @@ public class UiObject
     public virtual void DrawSprite(SpriteBatch pSpriteBatch)
     {
         origin = new Vector2(rectangle.Width / 2f, rectangle.Height / 2f);
-        //Program doesn't work without this if statemenet figure out later
+        //Program doesn't work without this if statemenet fvigure out later
         if (texture2D != null)
             pSpriteBatch.Draw(texture2D, position, rectangle, color, 0, origin, scale, SpriteEffects.None, 0.0f);
     }
 
     public virtual void DrawText(SpriteBatch pSpriteBatch, SpriteFont pGameFont)
     {
-        pSpriteBatch.DrawString(pGameFont, printedText, position, Color.White);
+        Vector2 textSize = pGameFont.MeasureString(printedText);
+        Vector2 textLocation = position;
+        pSpriteBatch.DrawString(pGameFont, printedText, textLocation - (textSize * 1f / 2), Color.White);
     }
 
     public virtual void DrawHitbox(SpriteBatch pSpriteBatch)

@@ -39,7 +39,7 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts.Elliot.Wanted
         protected override void CreateObjects()
         {
             sceneContent.Clear();
-            background = contentManager.Load<Texture2D>("Sprites\\Background Wanted");
+            background = contentManager.Load<Texture2D>("Sprites\\Background_Wanted");
             font = contentManager.Load<SpriteFont>("Fonts\\WantedGameFont");
 
 
@@ -73,7 +73,7 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts.Elliot.Wanted
                 }
             }
 
-            playerCircle = new PlayerCircle(new Vector2((gameScreen.X + gameScreen.Width) / 2, (gameScreen.Y + gameScreen.Height) / 2), "Sprites\\White Circle", sceneColor * 0.40f, new Rectangle(0, 0, 64, 64));
+            playerCircle = new PlayerCircle(new Vector2((gameScreen.X + gameScreen.Width) / 2, (gameScreen.Y + gameScreen.Height) / 2), "Sprites\\White_Circle", sceneColor * 0.40f, new Rectangle(0, 0, 64, 64));
             playerCircle.LoadSprite(contentManager);
         }
 
