@@ -38,9 +38,9 @@ public class Dialogue : UiObject
 
     public Dialogue()
     {
-        position = new Vector2(100, 460);
-        backgroundPosition = new Vector2(0, 450);
-        backgroundSize = new Vector2(700, 110);
+        position = new Vector2(GraphicsDeviceManager.DefaultBackBufferHeight / 2, 610);
+        backgroundPosition = new Vector2(0, 600);
+        backgroundSize = new Vector2(1200, 110);
         backGroundOrigin = new Vector2(0, 0);
         //Text[0]._isvisible = true;
     }
@@ -187,7 +187,7 @@ public class Dialogue : UiObject
         {
             for (int i = 0; i < DialogueOptions.Length; i++)
             {
-                DialogueOptions[i].position.Y = 200 + (100 * i);
+                DialogueOptions[i].position.Y = 250 + (100 * i);
                 DialogueOptions[i].SetTexture(pixel);
                 DialogueOptions[i].SetDialogueManager(dialogueManager);
                 DialogueOptions[i].Draw(pSpriteBatch, gameFont);

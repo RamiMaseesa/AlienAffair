@@ -15,7 +15,7 @@ public class DialogueOption : ButtonBase
         objectActive = false;
 
         //Position of the button
-        position = new Vector2(500, 200);
+        position = new Vector2(975, 0);
         
         //Rectangle of the sprite
         rectangle = new Rectangle(0, 0, 2, 2);
