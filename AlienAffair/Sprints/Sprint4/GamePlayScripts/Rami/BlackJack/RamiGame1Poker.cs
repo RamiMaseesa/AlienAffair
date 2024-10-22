@@ -24,8 +24,8 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts.Rami.BlackJack
             // TODO: Add your initialization logic here
             base.CreateObjects();
             pokerManager.OnGameStart();
-            sceneContent.Add(new Table(new Vector2(game.GetGraphics().PreferredBackBufferWidth / 2, game.GetGraphics().PreferredBackBufferHeight / 2), "Sprites\\tafel"));
             sceneContent.Add(new Carpet(new Vector2(game.GetGraphics().PreferredBackBufferWidth / 2, game.GetGraphics().PreferredBackBufferHeight / 2), "Sprites\\tapijt"));
+            sceneContent.Add(new Table(new Vector2(game.GetGraphics().PreferredBackBufferWidth / 2, game.GetGraphics().PreferredBackBufferHeight / 2), "Sprites\\tafel"));
             UiSceneContent.Add(new ButtonStand(new Vector2(150, 200), game.Content.Load<Texture2D>("Sprites\\Button"), "STAND", pokerManager));
             UiSceneContent.Add(new ButtonHit(new Vector2(game.GetGraphics().PreferredBackBufferWidth - 150, 200), game.Content.Load<Texture2D>("Sprites\\Button"), "HIT", pokerManager));
         }
