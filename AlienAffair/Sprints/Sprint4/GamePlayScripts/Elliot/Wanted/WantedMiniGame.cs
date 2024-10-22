@@ -102,6 +102,7 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts.Elliot.Wanted
             if (timesWon >= 5)
             {
                 pSpriteBatch.DrawString(font, "You Win!", new Vector2(960, 540), Color.Green, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 1f);
+                game.ChangeScene(GameStates.textWriterScene);
             }
             else if (timeLeft > 0)
             {
