@@ -183,7 +183,7 @@ public class Dialogue : UiObject
 
     public void DisplayOptions(SpriteBatch pSpriteBatch)
     {
-        if (DialogueOptions != null)
+        if (DialogueOptions != null && DialogueOptions.Length > 1)
         {
             for (int i = 0; i < DialogueOptions.Length; i++)
             {
@@ -192,6 +192,10 @@ public class Dialogue : UiObject
                 DialogueOptions[i].SetDialogueManager(dialogueManager);
                 DialogueOptions[i].Draw(pSpriteBatch, gameFont);
             }
+        }
+        else if(DialogueOptions.Length == 1 && _typingFinished)
+        {
+            dialogueManager.ChangeDialogueData(DialogueOptions[0].Next);
         }
     }
 
