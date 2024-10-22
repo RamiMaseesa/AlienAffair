@@ -1,76 +1,235 @@
 {
-  "start": {
+  "CasinoScene": {
     "Text": [
       {
-        "Line": "VERY BIG SLOW TEXT!",
-        "TextSize": 3,
-        "DelaySpeed": 0.6
+        "Line": "Do you see that man over there? He was once a brilliant student, always the top of his class."
       },
       {
-        "Line": "(Faster smaller blue text)",
-        "RgbValues": [ 88, 164, 255, 255 ],
-        "DelaySpeed": 0.08
+        "Line": "But in his final year of exams, he became addicted to opening CSGO skin cases."
+      },
+      {
+        "Line": "It started innocently, just a few euros here and there. But soon, he was using his entire savings account, money meant to pay for his studies."
       }
     ],
     "DialogueOptions": [
       {
-        "AnswerText": "Text with 4 lines",
-        "Next": "4Lines"
+        "AnswerText": "It's his own fault, he should have never started. Luckily, not everyone ends up like this.",
+        "Next": "OwnFault"
       },
       {
-        "AnswerText": "Does it work?",
-        "Next": "neutral"
+        "AnswerText": "This is bad, but not everyone loses everything through gambling.",
+        "Next": "NotEveryone"
+      },
+      {
+        "AnswerText": "This is unfortunate, this man never got the help he needed.",
+        "Next": "HelpNeeded"
       }
     ]
   },
-  "4Lines": {
+  "OwnFault": {
     "Text": [
       {
-        "Line": "Line 1 is pretty normal"
-      },
-      {
-        "Line": "line 2 turned red for some reason?",
-        "RgbValues": [ 255, 44, 44, 255 ]
-      },
-      {
-        "Line": "Line 3 has 2 lines that is in one string!\nLine 3 continues down here!"
-      },
-      {
-        "Line": "Line 4 will skip to the next line when finished*"
-      },
-      {
-        "Line": "Uh oh it doesn't continue here!*"
-      },
-      {
-        "Line": "Again!"
+        "Line": "Do you people have no sympathy for each other?"
       }
     ],
     "DialogueOptions": [
       {
-        "AnswerText": "Go Back",
+        "Next": "BanGambling?"
+      }
+    ]
+  },
+  "NotEveryone": {
+    "Text": [
+      {
+        "Line": "This man did."
+      }
+    ],
+    "DialogueOptions": [
+      {
+        "Next": "BanGambling?"
+      }
+    ]
+  },
+  "HelpNeeded": {
+    "Text": [
+      {
+        "Line": "It's good to know some people still care about others."
+      }
+    ],
+    "DialogueOptions": [
+      {
+        "Next": "BanGambling?"
+      }
+    ]
+  },
+  "BanGambling?": {
+    "Text": [
+      {
+        "Line": "Don't forget that the casino profits from his suffering, why don't you ban gambling?"
+      }
+    ],
+    "DialogueOptions": [
+      {
+        "AnswerText": "In some countries, gambling is illegal. But banning it entirely won't solve the problem, people always find a way to gamble, even illegally.",
+        "Next": "AlwaysFindAWay"
+      },
+      {
+        "AnswerText": "Money from gambling often goes towards social programs. It's complicated: gambling can be harmful to individuals, but it also brings economic benefits.",
+        "Next": "MoneyUsedWell"
+      },
+      {
+        "AnswerText": "People choose to gamble with their free will.",
+        "Next": "FreeWill"
+      }
+    ]
+  },
+  "AlwaysFindAWay": {
+    "Text": [
+      {
+        "Line": "I didn't know that."
+      }
+    ],
+    "DialogueOptions": [
+      {
         "Next": "start"
-      },
-      {
-        "AnswerText": "I wanna Play poker",
-        "Next": "Poker"
-      },
-      {
-        "AnswerText": "I wanna FaceFinder",
-        "Next": "WantedMinigame"
       }
     ]
   },
-  "Poker": {
+  "MoneyUsedWell": {
     "Text": [
       {
-        "Line": "That was fun"
+        "Line": "That doesn't help these gamblers at all."
+      }
+    ],
+    "DialogueOptions": [
+      {
+        "Next": "start"
       }
     ]
   },
-  "WantedMinigame": {
+  "FreeWill": {
     "Text": [
       {
-        "Line": "That was fun"
+        "Line": "These people aren't free."
+      }
+    ],
+    "DialogueOptions": [
+      {
+        "Next": "start"
+      }
+    ]
+  },
+  "HelpHim": {
+    "Text": [
+      {
+        "Line": "How would you help this man?"
+      }
+    ],
+    "DialogueOptions": [
+      {
+        "AnswerText": "I would kick him out of the casino.",
+        "Next": "KickOut"
+      },
+      {
+        "AnswerText": "I would advise him to seek help.",
+        "Next": "AdviseHelp"
+      },
+      {
+        "AnswerText": "I would give him some extra money.",
+        "Next": "GiveMoney"
+      }
+    ]
+  },
+  "KickOut": {
+    "Text": [
+      {
+        "Line": "Strong of you."
+      }
+    ],
+    "DialogueOptions": [
+      {
+        "Next": "start"
+      }
+    ]
+  },
+  "AdviseHelp": {
+    "Text": [
+      {
+        "Line": "Advice would indeed be good."
+      }
+    ],
+    "DialogueOptions": [
+      {
+        "Next": "start"
+      }
+    ]
+  },
+  "GiveMoney": {
+    "Text": [
+      {
+        "Line": "You don't see the real problem."
+      }
+    ],
+    "DialogueOptions": [
+      {
+        "Next": "start"
+      }
+    ]
+  },
+  "NoZorg": {
+    "Text": [
+      {
+        "Line": "And how would you truly help him if I wasn't here?"
+      }
+    ],
+    "DialogueOptions": [
+      {
+        "AnswerText": "What I said, I would do. Everyone deserves a chance to be helped.",
+        "Next": "HelpChance"
+      },
+      {
+        "AnswerText": "I would pretend I never saw him and just walk away, it's easier to look the other way.",
+        "Next": "WalkAway"
+      },
+      {
+        "AnswerText": "I'm not sure, but maybe I'd try to help him, as long as it doesn't cost me too much.",
+        "Next": "MaybeHelp"
+      }
+    ]
+  },
+  "HelpChance": {
+    "Text": [
+      {
+        "Line": "You mean what you say, I can respect that."
+      }
+    ],
+    "DialogueOptions": [
+      {
+        "Next": "start"
+      }
+    ]
+  },
+  "WalkAway": {
+    "Text": [
+      {
+        "Line": "Your honesty is appreciated."
+      }
+    ],
+    "DialogueOptions": [
+      {
+        "Next": "start"
+      }
+    ]
+  },
+  "MaybeHelp": {
+    "Text": [
+      {
+        "Line": "People really don’t want to put effort into helping strangers."
+      }
+    ],
+    "DialogueOptions": [
+      {
+        "Next": "start"
       }
     ]
   }

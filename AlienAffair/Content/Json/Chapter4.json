@@ -1,0 +1,230 @@
+{
+  "CityScene": {
+    "Text": [
+      {
+        "Line": "Look at this city, it’s overcrowded, the air is filthy, and it’s terribly loud. Why would anyone want to live here?"
+      }
+    ],
+    "DialogueOptions": [
+      {
+        "AnswerText": "Everyone has their preferences, but most people are here for work. Eventually, they get used to city life.",
+        "Next": "GetUsedToCity"
+      },
+      {
+        "AnswerText": "This may not look nice, but people here are still happy.",
+        "Next": "PeopleHappy"
+      },
+      {
+        "AnswerText": "I agree, down with cities! We should all live in small villages.",
+        "Next": "SmallVillages"
+      }
+    ]
+  },
+  "GetUsedToCity": {
+    "Text": [
+      {
+        "Line": "Just because you can get used to a bad environment doesn’t make it a good thing."
+      }
+    ],
+    "DialogueOptions": [
+      {
+        "Next": "LonelyInCity"
+      }
+    ]
+  },
+  "PeopleHappy": {
+    "Text": [
+      {
+        "Line": "As long as they are happy, I suppose there’s no problem."
+      }
+    ],
+    "DialogueOptions": [
+      {
+        "Next": "LonelyInCity"
+      }
+    ]
+  },
+  "SmallVillages": {
+    "Text": [
+      {
+        "Line": "My kind also lives only in small camps of 5-7 Zorgians."
+      }
+    ],
+    "DialogueOptions": [
+      {
+        "Next": "LonelyInCity"
+      }
+    ]
+  },
+  "LonelyInCity": {
+    "Text": [
+      {
+        "Line": "Many people feel lonely in a big city, even though they’re surrounded by others. Why do you think that is?"
+      }
+    ],
+    "DialogueOptions": [
+      {
+        "AnswerText": "People in cities are less likely to reach out and make contact.",
+        "Next": "LessContact"
+      },
+      {
+        "AnswerText": "They’re not lonely, just a bit tired.",
+        "Next": "NotLonely"
+      },
+      {
+        "AnswerText": "Humans are social animals, but often afraid to start conversations with strangers.",
+        "Next": "SocialAnimals"
+      }
+    ]
+  },
+  "LessContact": {
+    "Text": [
+      {
+        "Line": "Then you should build more recreational facilities."
+      }
+    ],
+    "DialogueOptions": [
+      {
+        "Next": "ChildLaborScene"
+      }
+    ]
+  },
+  "NotLonely": {
+    "Text": [
+      {
+        "Line": "I know the difference between loneliness and being tired."
+      }
+    ],
+    "DialogueOptions": [
+      {
+        "Next": "ChildLaborScene"
+      }
+    ]
+  },
+  "SocialAnimals": {
+    "Text": [
+      {
+        "Line": "You humans need to stop being so afraid of each other."
+      }
+    ],
+    "DialogueOptions": [
+      {
+        "Next": "ChildLaborScene"
+      }
+    ]
+  },
+  "ChildLaborScene": {
+    "Text": [
+      {
+        "Line": "Look at that (H&M) clothing store. All those nice clothes, made through child labor. Why do people still buy them?"
+      }
+    ],
+    "DialogueOptions": [
+      {
+        "AnswerText": "Most people don’t know much about it.",
+        "Next": "DontKnowMuch"
+      },
+      {
+        "AnswerText": "It’s cheap and easy to get, so people choose convenience over ethics.",
+        "Next": "ChooseConvenience"
+      },
+      {
+        "AnswerText": "Some people may want to do something, but they don’t know how to find alternatives.",
+        "Next": "DontKnowAlternatives"
+      }
+    ]
+  },
+  "DontKnowMuch": {
+    "Text": [
+      {
+        "Line": "I believe most people have heard about it at least once."
+      }
+    ],
+    "DialogueOptions": [
+      {
+        "Next": "CrimeRateScene"
+      }
+    ]
+  },
+  "ChooseConvenience": {
+    "Text": [
+      {
+        "Line": "You feel nothing for others when you don't see or know them? Good to know."
+      }
+    ],
+    "DialogueOptions": [
+      {
+        "Next": "CrimeRateScene"
+      }
+    ]
+  },
+  "DontKnowAlternatives": {
+    "Text": [
+      {
+        "Line": "On your own, you can’t do much."
+      }
+    ],
+    "DialogueOptions": [
+      {
+        "Next": "CrimeRateScene"
+      }
+    ]
+  },
+  "CrimeRateScene": {
+    "Text": [
+      {
+        "Line": "Look at the high crime rate. Why would anyone want to live in a city where you could lose everything to thieves?"
+      }
+    ],
+    "DialogueOptions": [
+      {
+        "AnswerText": "Not everyone gets robbed; many people live safely in the city.",
+        "Next": "NotEveryoneRobbed"
+      },
+      {
+        "AnswerText": "That’s a good point, but there are ways to protect yourself, like security and neighborhood watch programs.",
+        "Next": "ProtectYourself"
+      },
+      {
+        "AnswerText": "The crime rate is going down, which means cities are getting safer.",
+        "Next": "CrimeRateLower"
+      }
+    ]
+  },
+  "NotEveryoneRobbed": {
+    "Text": [
+      {
+        "Line": "You’re avoiding my question."
+      }
+    ],
+    "DialogueOptions": [
+      {
+        "Next": "start"
+      }
+    ]
+  },
+  "ProtectYourself": {
+    "Text": [
+      {
+        "Line": "The fact that these things are even needed is disgusting."
+      }
+    ],
+    "DialogueOptions": [
+      {
+        "Next": "start"
+      }
+    ]
+  },
+  "CrimeRateLower": {
+    "Text": [
+      {
+        "Line": "That is reassuring."
+      }
+    ],
+    "DialogueOptions": [
+      {
+        "Next": "start"
+      }
+    ]
+  }
+}
