@@ -37,6 +37,12 @@
       },
       {
         "Line": "Line 4 will skip to the next line when finished*"
+      },
+      {
+        "Line": "Uh oh it doesn't continue here!*"
+      },
+      {
+        "Line": "Again!"
       }
     ],
     "DialogueOptions": [
@@ -45,15 +51,26 @@
         "Next": "start"
       },
       {
-        "AnswerText": "...",
-        "Next": "neutral"
+        "AnswerText": "I wanna Play poker",
+        "Next": "Poker"
+      },
+      {
+        "AnswerText": "I wanna FaceFinder",
+        "Next": "WantedMinigame"
       }
     ]
   },
-  "neutral": {
+  "Poker": {
     "Text": [
       {
-        "Line": "Everything seems to work"
+        "Line": "That was fun"
+      }
+    ]
+  },
+  "WantedMinigame": {
+    "Text": [
+      {
+        "Line": "That was fun"
       }
     ]
   }

@@ -92,6 +92,19 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts
             menuButton.Update(gameTime);
 
             _currentScene.Update(gameTime);
+
+            switch(textWriterScene.GetDialogueManager().DialogueKey)
+            {
+                case "Poker":
+                    _currentScene = ramiGame1Poker;
+                    break;
+                case "DodgeMinigame":
+                    _currentScene = dodgeMinigame;
+                    break;
+                case "WantedMinigame":
+                    _currentScene = wantedMiniGame;
+                    break;
+            }
         }
 
         protected override void Draw(GameTime gameTime)

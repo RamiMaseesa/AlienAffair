@@ -7,6 +7,16 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts.Rafael;
 
 public class DialogueLine
 {
+
+    public enum LineState
+    {
+        idle,
+        typing,
+        finished,
+        final
+    }
+
+    LineState linestate;
     public string Line { get; set; }
     public float TextSize { get; set; } = 1f;
     public int[] RgbValues { get; set; }
@@ -14,9 +24,6 @@ public class DialogueLine
     public float Linespacing { get; set; } = 0f;
 
     public string printedText = "";
-
-
-    public bool _typingLineFinished = false;
     public bool _isvisible = false;
     public float charPrintDelay;
     int _characterIndex;
@@ -27,7 +34,8 @@ public class DialogueLine
 
     public DialogueLine()
     {
-
+        linestate = LineState.typing;
+        _isvisible = true;
     }
 
     public void AssignColor()
@@ -64,17 +72,24 @@ public class DialogueLine
     public void TypeWriterEffect(GameTime pGameTime)
     {
         _elapsedTime += (float)pGameTime.ElapsedGameTime.TotalSeconds;
-        if (!_typingLineFinished)
+        if (linestate == LineState.typing)
         {
             _isvisible = true;
             if (_characterIndex < Line.Length)
             {
                 if (_elapsedTime >= charPrintDelay)
                 {
+                    if (Line[_characterIndex] == '*')
+                    {
+                        _characterIndex++;
+                        _elapsedTime = 0;
+                        linestate = LineState.final;
+                        return;
+                    }
+
                     printedText += Line[_characterIndex];
                     _characterIndex++;
                     _elapsedTime = 0;
-                    
                     //put your logic per letter here
                     PerLetterLogic();
                 }
@@ -82,9 +97,7 @@ public class DialogueLine
             else
             {
                 EndOfTextLogic();
-                _typingLineFinished = true;
-                //_isvisible = false;
-
+                linestate = LineState.finished;
             }
         }
     }
@@ -95,12 +108,12 @@ public class DialogueLine
         return stringSize;
     }
 
-    public void SkipDialogue()
+    /*public void SkipDialogue()
     {
-         _typingLineFinished = true;
-         _isvisible = true;
-         printedText = Line;
-    }
+        linestate = LineState.finished;
+        _isvisible = true;
+        printedText = Line;
+    }*/
 
     private void EndOfTextLogic()
     {
@@ -116,7 +129,17 @@ public class DialogueLine
     {
         printedText = "";
         _characterIndex = 0;
-        _typingLineFinished = false;
+        linestate = LineState.typing;
         _isvisible = false;
+    }
+
+    public LineState GetLineState()
+    {
+        return linestate;
+    }
+
+    public void SetLineState(LineState pLineState)
+    {
+        linestate = pLineState;
     }
 }

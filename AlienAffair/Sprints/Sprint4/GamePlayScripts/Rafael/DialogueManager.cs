@@ -9,6 +9,7 @@ public class DialogueManager
 {
     public Dictionary<string, Dialogue> _allDialogue;
     public Dialogue dialogueData;
+    public string DialogueKey;
 
     public DialogueManager(string jsonFilePath, string chapter)
     {
@@ -29,6 +30,7 @@ public class DialogueManager
 
     public void ChangeDialogueData(string pNext)
     {
-        dialogueData = _allDialogue[pNext];
+        DialogueKey = pNext;
+        dialogueData = _allDialogue[DialogueKey];
     }
 }
