@@ -7,7 +7,7 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts.Rafael;
 public class DialogueOption : ButtonBase
 {
     public string AnswerText { get; set; }
-    public string Next {get; set;}
+    public string Next { get; set; }
     public DialogueManager dialogueManager;
 
     public DialogueOption()
@@ -16,10 +16,10 @@ public class DialogueOption : ButtonBase
 
         //Position of the button
         position = new Vector2(975, 0);
-        
+
         //Rectangle of the sprite
         rectangle = new Rectangle(0, 0, 2, 2);
-        
+
         //Size of the Button
         scale = new Vector2(250, 15);
         color = new Color(198, 33, 30);
@@ -27,9 +27,13 @@ public class DialogueOption : ButtonBase
 
     public override void DrawText(SpriteBatch pSpriteBatch, SpriteFont pGameFont)
     {
-        Vector2 textSize = pGameFont.MeasureString(AnswerText);
-        Vector2 textLocation = position;
-        pSpriteBatch.DrawString(pGameFont, AnswerText, textLocation - (textSize * 1f / 2), Color.White);
+        if (AnswerText != null)
+        {
+            Vector2 textSize = pGameFont.MeasureString(AnswerText);
+            Vector2 textLocation = position;
+            pSpriteBatch.DrawString(pGameFont, AnswerText, textLocation - (textSize * 1f / 2), Color.White);
+        }
+
     }
 
     public override void DrawSprite(SpriteBatch pSpriteBatch)
@@ -58,7 +62,6 @@ public class DialogueOption : ButtonBase
     {
         base.ButtonBehaviour();
         dialogueManager.ChangeDialogueData(Next);
-        
     }
 
     public void SetTexture(Texture2D backgroundSprite)
