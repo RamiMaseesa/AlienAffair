@@ -21,7 +21,23 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts
 
         public Game1 game1Refference;
         public List<SceneBase> scenes = new List<SceneBase>();
+
+        SceneBase _previousScene;
         SceneBase _currentScene;
+        public SceneBase CurrentScene
+        {
+            get { return _currentScene; }
+            set
+            {
+                if (_currentScene != value)
+                {
+                    _previousScene = _currentScene;
+                    System.Console.WriteLine("PreviousScene: " + _previousScene);
+                    _currentScene = value;
+                }
+            }
+        }
+
 
         public GameStates currentState = GameStates.TitleScreen;
 
@@ -34,6 +50,9 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts
         RamiGame1Poker ramiGame1Poker;
 
         MenuButton menuButton;
+
+        EndScene endScene;
+        
 
         public Game1()
         {
@@ -142,8 +161,10 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts
             menuButton = new MenuButton(game1Refference, new Vector2(_graphics.PreferredBackBufferWidth - 164, _graphics.PreferredBackBufferHeight - 164), new Rectangle(0, 0, 64, 32), gameFont, "Menu");
             menuButton.LoadSprite(Content);
 
+
             titleScreen = new TitleScreen(game1Refference);
             menuScene = new MenuScene(game1Refference);
+            endScene = new EndScene(game1Refference, 16);
             levelSelect = new LevelSelect(game1Refference);
             textWriterScene = new TextWriterScene(game1Refference);
             wantedMiniGame = new WantedMiniGame(Content, game1Refference);
@@ -176,6 +197,23 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts
         public GameStates GetCurrentScene()
         {
             return currentState;
+        }
+
+        public SceneBase GetPreviousScene()
+        {
+            return _previousScene;
+        }
+
+        public void EndMinigame()
+        {
+            if (GetPreviousScene() is TextWriterScene)
+            {
+                ChangeScene(GameStates.textWriterScene);
+            }
+            else
+            {
+                LoadGame1();
+            }
         }
     }
 }

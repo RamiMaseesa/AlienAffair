@@ -3,7 +3,6 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using System.Collections.Generic;
 
 namespace AlienAffair.Sprints.Sprint4.GamePlayScripts.Elliot.Wanted
 {
@@ -39,7 +38,7 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts.Elliot.Wanted
         protected override void CreateObjects()
         {
             sceneContent.Clear();
-            background = contentManager.Load<Texture2D>("Sprites\\Background_Wanted");
+            background = contentManager.Load<Texture2D>("Sprites\\Backgrounds\\Background_Wanted");
             font = contentManager.Load<SpriteFont>("Fonts\\WantedGameFont");
 
 
@@ -95,33 +94,31 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts.Elliot.Wanted
             playerCircle.MoveCircle(pGameTime, gameScreen);
             playerCircle.DetectWanted(wantedPerson, pGameTime);
             CheckWallCollision();
+
+            if (timesWon >= 5)
+            {
+                game.EndMinigame();
+            }
+            else if (timeLeft <= 0)
+            {
+                game.EndMinigame();
+            }
         }
 
         public override void Draw(SpriteBatch pSpriteBatch)
         {
-            if (timesWon >= 5)
-            {
-                pSpriteBatch.DrawString(font, "You Win!", new Vector2(960, 540), Color.Green, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 1f);
-                game.ChangeScene(GameStates.textWriterScene);
-            }
-            else if (timeLeft > 0)
-            {
-                pSpriteBatch.Draw(background, new Vector2(0, 0), sceneColor);
+            pSpriteBatch.Draw(background, new Vector2(0, 0), sceneColor);
 
-                pSpriteBatch.DrawString(font, Math.Floor(timeLeft).ToString(), new Vector2(688, 0), Color.Yellow, 0f, new Vector2(32, 0), 1f, SpriteEffects.None, 1f);
+            pSpriteBatch.DrawString(font, Math.Floor(timeLeft).ToString(), new Vector2(688, 0), Color.Yellow, 0f, new Vector2(32, 0), 1f, SpriteEffects.None, 1f);
 
-                pSpriteBatch.DrawString(font, "Found:" + timesWon.ToString(), new Vector2(1609, 233), Color.Yellow, 0f, new Vector2(32, 0), 1f, SpriteEffects.None, 1f);
+            pSpriteBatch.DrawString(font, "Found:" + timesWon.ToString(), new Vector2(1609, 233), Color.Yellow, 0f, new Vector2(32, 0), 1f, SpriteEffects.None, 1f);
 
-                pSpriteBatch.Draw(wantedSprite, new Vector2(1609, 433), new Rectangle(drawWantedPosX, drawWantedPosY, 63, 63), sceneColor, 0f, new Vector2(0, 0), 1.95f, SpriteEffects.None, 1f);
+            pSpriteBatch.Draw(wantedSprite, new Vector2(1609, 433), new Rectangle(drawWantedPosX, drawWantedPosY, 63, 63), sceneColor, 0f, new Vector2(0, 0), 1.95f, SpriteEffects.None, 1f);
 
 
-                base.Draw(pSpriteBatch);
-                playerCircle.Draw(pSpriteBatch);
-            }
-            else if (timeLeft <= 0)
-            {
-                pSpriteBatch.DrawString(font, "You Lose!", new Vector2(960, 540), Color.Red, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 1f);
-            }
+            base.Draw(pSpriteBatch);
+            playerCircle.Draw(pSpriteBatch);
+
         }
 
         private void CheckWallCollision()
@@ -136,6 +133,18 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts.Elliot.Wanted
                 {
                     alien.FlipDirectionX();
                 }
+            }
+        }
+
+        private void EndGame()
+        {
+            if (game.GetPreviousScene() is TextWriterScene)
+            {
+                game.ChangeScene(GameStates.textWriterScene);
+            }
+            else
+            {
+                game.LoadGame1();
             }
         }
     }
