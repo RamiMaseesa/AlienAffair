@@ -8,7 +8,7 @@
         "Line": "But in his final year of exams, he became addicted to opening CSNO skin cases."
       },
       {
-        "Line": "It started innocently, just a few euros here and there. But soon, he was using his entire savings account, money meant to pay for his studies."
+        "Line": "It started innocently, just a few euros here and there. But soon, he was using his \nentire savings account, money meant to pay for his studies."
       }
     ],
     "DialogueOptions": [
@@ -17,11 +17,11 @@
         "Next": "OwnFault"
       },
       {
-        "AnswerText": "This is bad, but not everyone loses everything through gambling.",
+        "AnswerText": "not everyone loses ",
         "Next": "NotEveryone"
       },
       {
-        "AnswerText": "This is unfortunate, this man never got the help he needed.",
+        "AnswerText": "this man never got help",
         "Next": "HelpNeeded"
       }
     ]
@@ -70,15 +70,15 @@
     ],
     "DialogueOptions": [
       {
-        "AnswerText": "In some countries, gambling is illegal. But banning it entirely won't solve the problem, people always find a way to gamble, even illegally.",
+        "AnswerText": "some countries banned gambling",
         "Next": "AlwaysFindAWay"
       },
       {
-        "AnswerText": "Money from gambling often goes towards social programs. It's complicated: gambling can be harmful to individuals, but it also brings economic benefits.",
+        "AnswerText": "social programs",
         "Next": "MoneyUsedWell"
       },
       {
-        "AnswerText": "People choose to gamble with their free will.",
+        "AnswerText": "People choose to gamble",
         "Next": "FreeWill"
       }
     ]
@@ -127,15 +127,15 @@
     ],
     "DialogueOptions": [
       {
-        "AnswerText": "I would kick him out of the casino.",
+        "AnswerText": "kick him out",
         "Next": "KickOut"
       },
       {
-        "AnswerText": "I would advise him to seek help.",
+        "AnswerText": "advise him",
         "Next": "AdviseHelp"
       },
       {
-        "AnswerText": "I would give him some extra money.",
+        "AnswerText": "give him money",
         "Next": "GiveMoney"
       }
     ]
@@ -184,15 +184,15 @@
     ],
     "DialogueOptions": [
       {
-        "AnswerText": "What I said, I would do. Everyone deserves a chance to be helped.",
+        "AnswerText": "What I said, I would do",
         "Next": "HelpChance"
       },
       {
-        "AnswerText": "I would pretend I never saw him and just walk away, it's easier to look the other way.",
+        "AnswerText": "I would pretend I never saw him",
         "Next": "WalkAway"
       },
       {
-        "AnswerText": "I'm not sure, but maybe I'd try to help him, as long as it doesn't cost me too much.",
+        "AnswerText": "maybe I'd try to help",
         "Next": "MaybeHelp"
       }
     ]
