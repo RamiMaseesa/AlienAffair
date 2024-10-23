@@ -1,5 +1,6 @@
 {
   "start": {
+    "CurrentEmotion": 1,
     "Text": [
       {
         "Line": "This forest was a source of life. Plants grew, the air was pure. But companies only saw profit and cut everything down."
@@ -27,9 +28,10 @@
     ]
   },
   "DisappearResponse": {
+    "CurrentEmotion": 5,
     "Text": [
       {
-        "Line": "So humans too?"
+        "Line": "So, humans too?"
       }
     ],
     "DialogueOptions": [
@@ -39,6 +41,7 @@
     ]
   },
   "NoReplacement": {
+    "CurrentEmotion": 9,
     "Text": [
       {
         "Line": "Then stop using wood."
@@ -51,6 +54,7 @@
     ]
   },
   "DrivenByMoney": {
+    "CurrentEmotion": 6,
     "Text": [
       {
         "Line": "You live in a society, is that your defense?"
@@ -63,9 +67,10 @@
     ]
   },
   "AnimalExtinction": {
+    "CurrentEmotion": 10,
     "Text": [
       {
-        "Line": "All the animals that are now losing their homes or going extinct did nothing wrong. Why do these animals deserve to disappear, but humanity does not?"
+        "Line": "All the animals that are now losing their homes or going extinct did nothing wrong. /nWhy do these animals deserve to disappear, but humanity does not?"
       }
     ],
     "DialogueOptions": [
@@ -84,6 +89,7 @@
     ]
   },
   "BigDilemma": {
+    "CurrentEmotion": 0,
     "Text": [
       {
         "Line": "My kind needs water, but we don't steal your oceans."
@@ -96,6 +102,7 @@
     ]
   },
   "NeedWood": {
+    "CurrentEmotion": 1,
     "Text": [
       {
         "Line": "Yes, I understand now how important wood is to you."
@@ -108,6 +115,7 @@
     ]
   },
   "SaveSpecies": {
+    "CurrentEmotion": 5,
     "Text": [
       {
         "Line": "That is why I am here."
@@ -120,6 +128,7 @@
     ]
   },
   "WhatMakesItRight": {
+    "CurrentEmotion": 9,
     "Text": [
       {
         "Line": "What makes it okay for humans to keep doing this?"
@@ -141,6 +150,7 @@
     ]
   },
   "PreferToStop": {
+    "CurrentEmotion": 7,
     "Text": [
       {
         "Line": "Unfortunately, you're not the leader of the world."
@@ -153,6 +163,7 @@
     ]
   },
   "NotDirectly": {
+    "CurrentEmotion": 5,
     "Text": [
       {
         "Line": "Directly or indirectly, you do this together."
@@ -165,6 +176,7 @@
     ]
   },
   "HumansInCharge": {
+    "CurrentEmotion": 2,
     "Text": [
       {
         "Line": "In the universe, we Zorgians are in charge."
@@ -177,6 +189,7 @@
     ]
   },
   "HowToSolve": {
+    "CurrentEmotion": 9,
     "Text": [
       {
         "Line": "What can humans do to solve this?"
@@ -198,6 +211,7 @@
     ]
   },
   "EfficientUse": {
+    "CurrentEmotion": 13,
     "Text": [
       {
         "Line": "That's a good start."
@@ -210,6 +224,7 @@
     ]
   },
   "MoreZoos": {
+    "CurrentEmotion": 0,
     "Text": [
       {
         "Line": "What a noble thought."
@@ -222,6 +237,7 @@
     ]
   },
   "NothingSolution": {
+    "CurrentEmotion": 10,
     "Text": [
       {
         "Line": "What a weak argument."
