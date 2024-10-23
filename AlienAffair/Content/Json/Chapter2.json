@@ -2,91 +2,91 @@
   "start": {
     "Text": [
       {
-        "Line": "Zie die man daar? Hij was ooit een briljante student, \naltijd de beste van zijn klas"
+        "Line": "Do you see that man over there? He was once a brilliant student, always the top of his class."
       },
       {
-        "Line": "Maar in zijn examenjaar raakte hij verslaafd aan het openen van CSGO-skin cases.*"
+        "Line": "But in his final year of exams, he became addicted to opening CSNO skin cases."
       },
       {
-        "Line": "Het begon onschuldig, \nslechts een paar euro's hier en daar. \nMaar al snel gebruikte hij zijn hele spaarrekening \ngeld dat bedoeld was om zijn studie te betalen."
+        "Line": "It started innocently, just a few euros here and there. But soon, he was using his entire savings account, money meant to pay for his studies."
       }
     ],
     "DialogueOptions": [
       {
-        "AnswerText": "Het is zijn eigen schuld",
-        "Next": "EigenSchuld"
+        "AnswerText": "It's his own fault",
+        "Next": "OwnFault"
       },
       {
-        "AnswerText": "niet iedereen verliest alles door gokken",
-        "Next": "NietIedereen"
+        "AnswerText": "This is bad, but not everyone loses everything through gambling.",
+        "Next": "NotEveryone"
       },
       {
-        "AnswerText": "nooit de hulp gekregen die hij nodig had",
-        "Next": "HulpNodig"
+        "AnswerText": "This is unfortunate, this man never got the help he needed.",
+        "Next": "HelpNeeded"
       }
     ]
   },
-  "EigenSchuld": {
+  "OwnFault": {
     "Text": [
       {
-        "Line": "hebben jullie mensen geen medelijden voor elkaar?"
+        "Line": "Do you people have no sympathy for each other?"
       }
     ],
     "DialogueOptions": [
       {
-        "Next": "GokkenIllegaal?"
+        "Next": "BanGambling?"
       }
     ]
   },
-  "NietIedereen": {
+  "NotEveryone": {
     "Text": [
       {
-        "Line": "deze man wel"
+        "Line": "This man did."
       }
     ],
     "DialogueOptions": [
       {
-        "Next": "GokkenIllegaal"
+        "Next": "BanGambling?"
       }
     ]
   },
-  "HulpNodig": {
+  "HelpNeeded": {
     "Text": [
       {
-        "Line": "goed om te weten dat sommige mensen nog om elkaar geven"
+        "Line": "It's good to know some people still care about others."
       }
     ],
     "DialogueOptions": [
       {
-        "Next": "GokkenIllegaal"
+        "Next": "BanGambling?"
       }
     ]
   },
-  "GokkenIllegaal?": {
+  "BanGambling?": {
     "Text": [
       {
-        "Line": "vergeet ook niet dat het casino profiteert van zijn leid, \nwaarom verbieden jullie gokken niet"
+        "Line": "Don't forget that the casino profits from his suffering, why don't you ban gambling?"
       }
     ],
     "DialogueOptions": [
       {
-        "AnswerText": "in sommige landen wel",
-        "Next": "AltijdEenmanier"
+        "AnswerText": "In some countries, gambling is illegal. But banning it entirely won't solve the problem, people always find a way to gamble, even illegally.",
+        "Next": "AlwaysFindAWay"
       },
       {
-        "AnswerText": "Het Opbrengst word goed gebruikt",
-        "Next": "GoedGebruikt"
+        "AnswerText": "Money from gambling often goes towards social programs. It's complicated: gambling can be harmful to individuals, but it also brings economic benefits.",
+        "Next": "MoneyUsedWell"
       },
       {
-        "AnswerText": "Hun kiezen ervoor met hun vrije wil",
-        "Next": "VrijeWil?"
+        "AnswerText": "People choose to gamble with their free will.",
+        "Next": "FreeWill"
       }
     ]
   },
-  "AltijdEenmanier": {
+  "AlwaysFindAWay": {
     "Text": [
       {
-        "Line": "ik wist niet dat dit zo was"
+        "Line": "I didn't know that."
       }
     ],
     "DialogueOptions": [
@@ -94,10 +94,11 @@
         "Next": "start"
       }
     ]
-  },"GoedGebruikt": {
+  },
+  "MoneyUsedWell": {
     "Text": [
       {
-        "Line": "daar hebben deze gokkers niks aan"
+        "Line": "That doesn't help these gamblers at all."
       }
     ],
     "DialogueOptions": [
@@ -105,10 +106,125 @@
         "Next": "start"
       }
     ]
-  },"VrijeWil?": {
+  },
+  "FreeWill": {
     "Text": [
       {
-        "Line": "Deze mensen zijn niet vrij"
+        "Line": "These people aren't free."
+      }
+    ],
+    "DialogueOptions": [
+      {
+        "Next": "start"
+      }
+    ]
+  },
+  "HelpHim": {
+    "Text": [
+      {
+        "Line": "How would you help this man?"
+      }
+    ],
+    "DialogueOptions": [
+      {
+        "AnswerText": "I would kick him out of the casino.",
+        "Next": "KickOut"
+      },
+      {
+        "AnswerText": "I would advise him to seek help.",
+        "Next": "AdviseHelp"
+      },
+      {
+        "AnswerText": "I would give him some extra money.",
+        "Next": "GiveMoney"
+      }
+    ]
+  },
+  "KickOut": {
+    "Text": [
+      {
+        "Line": "Strong of you."
+      }
+    ],
+    "DialogueOptions": [
+      {
+        "Next": "start"
+      }
+    ]
+  },
+  "AdviseHelp": {
+    "Text": [
+      {
+        "Line": "Advice would indeed be good."
+      }
+    ],
+    "DialogueOptions": [
+      {
+        "Next": "start"
+      }
+    ]
+  },
+  "GiveMoney": {
+    "Text": [
+      {
+        "Line": "You don't see the real problem."
+      }
+    ],
+    "DialogueOptions": [
+      {
+        "Next": "start"
+      }
+    ]
+  },
+  "NoZorg": {
+    "Text": [
+      {
+        "Line": "And how would you truly help him if I wasn't here?"
+      }
+    ],
+    "DialogueOptions": [
+      {
+        "AnswerText": "What I said, I would do. Everyone deserves a chance to be helped.",
+        "Next": "HelpChance"
+      },
+      {
+        "AnswerText": "I would pretend I never saw him and just walk away, it's easier to look the other way.",
+        "Next": "WalkAway"
+      },
+      {
+        "AnswerText": "I'm not sure, but maybe I'd try to help him, as long as it doesn't cost me too much.",
+        "Next": "MaybeHelp"
+      }
+    ]
+  },
+  "HelpChance": {
+    "Text": [
+      {
+        "Line": "You mean what you say, I can respect that."
+      }
+    ],
+    "DialogueOptions": [
+      {
+        "Next": "start"
+      }
+    ]
+  },
+  "WalkAway": {
+    "Text": [
+      {
+        "Line": "Your honesty is appreciated."
+      }
+    ],
+    "DialogueOptions": [
+      {
+        "Next": "start"
+      }
+    ]
+  },
+  "MaybeHelp": {
+    "Text": [
+      {
+        "Line": "People really don’t want to put effort into helping strangers."
       }
     ],
     "DialogueOptions": [
