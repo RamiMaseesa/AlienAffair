@@ -48,9 +48,8 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts
         WantedMiniGame wantedMiniGame;
         DodgeMinigame dodgeMinigame;
         RamiGame1Poker ramiGame1Poker;
-
+        Tutorial tutorial;
         MenuButton menuButton;
-
         EndScene endScene;
         
 
@@ -165,6 +164,7 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts
             titleScreen = new TitleScreen(game1Refference);
             menuScene = new MenuScene(game1Refference);
             endScene = new EndScene(game1Refference, 16);
+            tutorial = new Tutorial(game1Refference);
             levelSelect = new LevelSelect(game1Refference);
             textWriterScene = new TextWriterScene(game1Refference);
             wantedMiniGame = new WantedMiniGame(Content, game1Refference);

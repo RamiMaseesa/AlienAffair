@@ -26,6 +26,8 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts.Elliot.LevelSelector
 
         public override void Draw(SpriteBatch pSpriteBatch)
         {
+            pSpriteBatch.DrawString(game.gameFont, "Minigames", new Vector2(game.Window.ClientBounds.Width / 2, 200f), Color.Yellow, 0f, game.gameFont.MeasureString("Minigames") / 2, 1f, SpriteEffects.None, 1f);
+
             base.Draw(pSpriteBatch);
         }
     }

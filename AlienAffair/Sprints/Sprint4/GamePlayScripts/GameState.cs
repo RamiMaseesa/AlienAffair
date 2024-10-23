@@ -5,6 +5,7 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts
         TitleScreen,
         MenuScene,
         EndScene,
+        Tutorial,
         LevelSelect,
         textWriterScene,
         wantedMiniGame,
