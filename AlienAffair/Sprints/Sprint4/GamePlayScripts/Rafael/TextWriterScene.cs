@@ -27,7 +27,6 @@ namespace AlienAffair.Sprints.Sprint4.FrameWorkScripts
                 if (_currentDialogue != value)
                 {
                     _currentDialogue = value;
-                    _currentDialogue.ResetDialogue();
                     _currentDialogue.SetPixel(game.pixel);
                     _currentDialogue.SetSpriteFont(game.gameFont);
                     _currentDialogue.GetDialogueManager(dialogueManager);
@@ -35,13 +34,14 @@ namespace AlienAffair.Sprints.Sprint4.FrameWorkScripts
                     {
                          _currentDialogue.Text[i].ResetDialogue();
                     }
+                    _currentDialogue.ResetDialogue();
                 }
             }
         }
 
         public TextWriterScene(Game1 pGame) : base(pGame)
         {
-            dialogueManager = new DialogueManager("Content/Json/Chapter2.json", "Chapter1");
+            dialogueManager = new DialogueManager("Content/Json/Chapter2.json", "Chapter2");
         }
 
         public override void Update(GameTime pGameTime)
@@ -54,6 +54,8 @@ namespace AlienAffair.Sprints.Sprint4.FrameWorkScripts
 
             _currentDialogue.Update(pGameTime);
             _currentDialogue.Update(pGameTime);
+
+            //switch()
         }
 
         public override void Draw(SpriteBatch pSpriteBatch)
@@ -67,7 +69,12 @@ namespace AlienAffair.Sprints.Sprint4.FrameWorkScripts
             base.LoadContent(pContent);
             CurrentDialogue = dialogueManager.dialogueData;
 
-            var jsonFile = File.ReadAllText("Content/Json/Chapter1.json");
+            var jsonFile = File.ReadAllText("Content/Json/Chapter2.json");
+        }
+
+        public DialogueManager GetDialogueManager()
+        {
+            return dialogueManager;
         }
     }
 }

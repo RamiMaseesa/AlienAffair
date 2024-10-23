@@ -1,0 +1,236 @@
+{
+  "ForestScene": {
+    "Text": [
+      {
+        "Line": "This forest was a source of life. Plants grew, the air was pure. But companies only saw profit and cut everything down."
+      },
+      {
+        "Line": "What was once a green and living ecosystem is now a barren wasteland. The forest that fed the earth for centuries is gone."
+      },
+      {
+        "Line": "How can you defend this against nature?"
+      }
+    ],
+    "DialogueOptions": [
+      {
+        "AnswerText": "With or without humans, the Amazon will disappear one day.",
+        "Next": "DisappearResponse"
+      },
+      {
+        "AnswerText": "This is unfortunate, but right now there's no replacement for wood.",
+        "Next": "NoReplacement"
+      },
+      {
+        "AnswerText": "It's sad for biodiversity that we live in a world driven by making money.",
+        "Next": "DrivenByMoney"
+      }
+    ]
+  },
+  "DisappearResponse": {
+    "Text": [
+      {
+        "Line": "So humans too?"
+      }
+    ],
+    "DialogueOptions": [
+      {
+        "Next": "AnimalExtinction"
+      }
+    ]
+  },
+  "NoReplacement": {
+    "Text": [
+      {
+        "Line": "Then stop using wood."
+      }
+    ],
+    "DialogueOptions": [
+      {
+        "Next": "AnimalExtinction"
+      }
+    ]
+  },
+  "DrivenByMoney": {
+    "Text": [
+      {
+        "Line": "You live in a society, is that your defense?"
+      }
+    ],
+    "DialogueOptions": [
+      {
+        "Next": "AnimalExtinction"
+      }
+    ]
+  },
+  "AnimalExtinction": {
+    "Text": [
+      {
+        "Line": "All the animals that are now losing their homes or going extinct did nothing wrong. Why do these animals deserve to disappear, but humanity does not?"
+      }
+    ],
+    "DialogueOptions": [
+      {
+        "AnswerText": "We humans don't want these animals to disappear, but we need the wood. It's a big dilemma.",
+        "Next": "BigDilemma"
+      },
+      {
+        "AnswerText": "Humans can't do anything about it, we simply need wood.",
+        "Next": "NeedWood"
+      },
+      {
+        "AnswerText": "I hope we can save as many species as possible.",
+        "Next": "SaveSpecies"
+      }
+    ]
+  },
+  "BigDilemma": {
+    "Text": [
+      {
+        "Line": "My kind needs water, but we don't steal your oceans."
+      }
+    ],
+    "DialogueOptions": [
+      {
+        "Next": "WhatMakesItRight"
+      }
+    ]
+  },
+  "NeedWood": {
+    "Text": [
+      {
+        "Line": "Yes, I understand now how important wood is to you."
+      }
+    ],
+    "DialogueOptions": [
+      {
+        "Next": "WhatMakesItRight"
+      }
+    ]
+  },
+  "SaveSpecies": {
+    "Text": [
+      {
+        "Line": "That is why I am here."
+      }
+    ],
+    "DialogueOptions": [
+      {
+        "Next": "WhatMakesItRight"
+      }
+    ]
+  },
+  "WhatMakesItRight": {
+    "Text": [
+      {
+        "Line": "What makes it okay for humans to keep doing this?"
+      }
+    ],
+    "DialogueOptions": [
+      {
+        "AnswerText": "It's not okay, and I would prefer if it stopped.",
+        "Next": "PreferToStop"
+      },
+      {
+        "AnswerText": "Humanity doesn't directly choose this.",
+        "Next": "NotDirectly"
+      },
+      {
+        "AnswerText": "Humans are in charge here.",
+        "Next": "HumansInCharge"
+      }
+    ]
+  },
+  "PreferToStop": {
+    "Text": [
+      {
+        "Line": "Unfortunately, you're not the leader of the world."
+      }
+    ],
+    "DialogueOptions": [
+      {
+        "Next": "HowToSolve"
+      }
+    ]
+  },
+  "NotDirectly": {
+    "Text": [
+      {
+        "Line": "Directly or indirectly, you do this together."
+      }
+    ],
+    "DialogueOptions": [
+      {
+        "Next": "HowToSolve"
+      }
+    ]
+  },
+  "HumansInCharge": {
+    "Text": [
+      {
+        "Line": "In the universe, we Zorgians are in charge."
+      }
+    ],
+    "DialogueOptions": [
+      {
+        "Next": "HowToSolve"
+      }
+    ]
+  },
+  "HowToSolve": {
+    "Text": [
+      {
+        "Line": "What can humans do to solve this?"
+      }
+    ],
+    "DialogueOptions": [
+      {
+        "AnswerText": "We need to use wood and paper more efficiently.",
+        "Next": "EfficientUse"
+      },
+      {
+        "AnswerText": "We should house the animals in more zoos.",
+        "Next": "MoreZoos"
+      },
+      {
+        "AnswerText": "Nothing. This is the result of capitalism. (We live in a society)",
+        "Next": "NothingSolution"
+      }
+    ]
+  },
+  "EfficientUse": {
+    "Text": [
+      {
+        "Line": "That's a good start."
+      }
+    ],
+    "DialogueOptions": [
+      {
+        "Next": "start"
+      }
+    ]
+  },
+  "MoreZoos": {
+    "Text": [
+      {
+        "Line": "What a noble thought."
+      }
+    ],
+    "DialogueOptions": [
+      {
+        "Next": "start"
+      }
+    ]
+  },
+  "NothingSolution": {
+    "Text": [
+      {
+        "Line": "What a weak argument."
+      }
+    ],
+    "DialogueOptions": [
+      {
+        "Next": "start"
+      }
+    ]
+  }
+}

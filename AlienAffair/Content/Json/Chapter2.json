@@ -2,58 +2,118 @@
   "start": {
     "Text": [
       {
-        "Line": "VERY BIG SLOW TEXT!",
-        "TextSize": 3,
-        "DelaySpeed": 0.6
+        "Line": "Zie die man daar? Hij was ooit een briljante student, \naltijd de beste van zijn klas"
       },
       {
-        "Line": "(Faster smaller blue text)",
-        "RgbValues": [ 88, 164, 255, 255 ],
-        "DelaySpeed": 0.08
+        "Line": "Maar in zijn examenjaar raakte hij verslaafd aan het openen van CSGO-skin cases.*"
+      },
+      {
+        "Line": "Het begon onschuldig, \nslechts een paar euro's hier en daar. \nMaar al snel gebruikte hij zijn hele spaarrekening \ngeld dat bedoeld was om zijn studie te betalen."
       }
     ],
     "DialogueOptions": [
       {
-        "AnswerText": "Text with 4 lines",
-        "Next": "4Lines"
+        "AnswerText": "Het is zijn eigen schuld",
+        "Next": "EigenSchuld"
       },
       {
-        "AnswerText": "Does it work?",
-        "Next": "neutral"
+        "AnswerText": "niet iedereen verliest alles door gokken",
+        "Next": "NietIedereen"
+      },
+      {
+        "AnswerText": "nooit de hulp gekregen die hij nodig had",
+        "Next": "HulpNodig"
       }
     ]
   },
-  "4Lines": {
+  "EigenSchuld": {
     "Text": [
       {
-        "Line": "Line 1 is pretty normal"
-      },
-      {
-        "Line": "line 2 turned red for some reason?",
-        "RgbValues": [ 255, 44, 44, 255 ]
-      },
-      {
-        "Line": "Line 3 has 2 lines that is in one string!\nLine 3 continues down here!"
-      },
-      {
-        "Line": "Line 4 will skip to the next line when finished*"
+        "Line": "hebben jullie mensen geen medelijden voor elkaar?"
       }
     ],
     "DialogueOptions": [
       {
-        "AnswerText": "Go Back",
+        "Next": "GokkenIllegaal?"
+      }
+    ]
+  },
+  "NietIedereen": {
+    "Text": [
+      {
+        "Line": "deze man wel"
+      }
+    ],
+    "DialogueOptions": [
+      {
+        "Next": "GokkenIllegaal"
+      }
+    ]
+  },
+  "HulpNodig": {
+    "Text": [
+      {
+        "Line": "goed om te weten dat sommige mensen nog om elkaar geven"
+      }
+    ],
+    "DialogueOptions": [
+      {
+        "Next": "GokkenIllegaal"
+      }
+    ]
+  },
+  "GokkenIllegaal?": {
+    "Text": [
+      {
+        "Line": "vergeet ook niet dat het casino profiteert van zijn leid, \nwaarom verbieden jullie gokken niet"
+      }
+    ],
+    "DialogueOptions": [
+      {
+        "AnswerText": "in sommige landen wel",
+        "Next": "AltijdEenmanier"
+      },
+      {
+        "AnswerText": "Het Opbrengst word goed gebruikt",
+        "Next": "GoedGebruikt"
+      },
+      {
+        "AnswerText": "Hun kiezen ervoor met hun vrije wil",
+        "Next": "VrijeWil?"
+      }
+    ]
+  },
+  "AltijdEenmanier": {
+    "Text": [
+      {
+        "Line": "ik wist niet dat dit zo was"
+      }
+    ],
+    "DialogueOptions": [
+      {
         "Next": "start"
-      },
-      {
-        "AnswerText": "...",
-        "Next": "neutral"
       }
     ]
-  },
-  "neutral": {
+  },"GoedGebruikt": {
     "Text": [
       {
-        "Line": "Everything seems to work"
+        "Line": "daar hebben deze gokkers niks aan"
+      }
+    ],
+    "DialogueOptions": [
+      {
+        "Next": "start"
+      }
+    ]
+  },"VrijeWil?": {
+    "Text": [
+      {
+        "Line": "Deze mensen zijn niet vrij"
+      }
+    ],
+    "DialogueOptions": [
+      {
+        "Next": "start"
       }
     ]
   }

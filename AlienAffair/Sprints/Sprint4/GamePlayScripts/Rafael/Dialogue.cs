@@ -38,17 +38,18 @@ public class Dialogue : UiObject
 
     public Dialogue()
     {
-        position = new Vector2(100, 460);
-        backgroundPosition = new Vector2(0, 450);
-        backgroundSize = new Vector2(700, 110);
+        position = new Vector2(GraphicsDeviceManager.DefaultBackBufferHeight / 2, 610);
+        backgroundPosition = new Vector2(0, 600);
+        backgroundSize = new Vector2(1200, 110);
         backGroundOrigin = new Vector2(0, 0);
+        //Text[0]._isvisible = true;
     }
 
     public override void Update(GameTime pGameTime)
     {
         //temporary
         kstate = Keyboard.GetState();
-        Text[0]._isvisible = true;
+        // Text[0]._isvisible = true;
         if (!_typingFinished)
         {
             for (int i = Text.Length - 1; i >= 0; i--)
@@ -56,17 +57,23 @@ public class Dialogue : UiObject
                 if (Text[i]._isvisible)
                 {
                     Text[i].TypeWriterEffect(pGameTime);
-                    if (Text[i]._typingLineFinished)
+                    if (Text[i].GetLineState() == DialogueLine.LineState.finished)
                     {
+                        if (i + 1 < Text.Length)
+                            Text[i + 1]._isvisible = true;
+                    }
+                    else if (Text[i].GetLineState() == DialogueLine.LineState.final)
+                    {
+                        FinalLineLogic();
                         if (i + 1 < Text.Length)
                             Text[i + 1]._isvisible = true;
                     }
                 }
                 FastForwardText(i);
-                SkipDialogue();
+                //SkipDialogue();
             }
 
-            if (Text[Text.Length - 1]._typingLineFinished)
+            if (Text[Text.Length - 1].GetLineState() == DialogueLine.LineState.finished)
             {
                 _typingFinished = true;
                 EndOfTextLogic();
@@ -83,7 +90,6 @@ public class Dialogue : UiObject
 
     public override void Draw(SpriteBatch pSpriteBatch, SpriteFont pGameFont)
     {
-        //pSpriteBatch.Draw(pixel, new Vector2(backgroundPosition.X, backgroundPosition.Y - 4), null, Color.White, 0f, backGroundOrigin, new Vector2(backgroundSize.X, backgroundSize.Y + 4), SpriteEffects.None, 0f);
         pSpriteBatch.Draw(pixel, backgroundPosition, null, new Color(0, 0, 0, 198), 0f, backGroundOrigin, backgroundSize, SpriteEffects.None, 0f);
         _yOffset = 0;
         for (int i = 0; i < Text.Length; i++)
@@ -107,12 +113,12 @@ public class Dialogue : UiObject
         else
             Text[indexer].charPrintDelay = Text[indexer].DelaySpeed;
     }
+
     /// <summary>
     /// Prints all th dialogue at once
     /// </summary>
-    public void SkipDialogue()
+    /*public void SkipDialogue()
     {
-
         if (kstate.IsKeyDown(Keys.Enter) && !_typingFinished)
         {
             for (int i = 0; i < Text.Length; i++)
@@ -122,10 +128,7 @@ public class Dialogue : UiObject
             }
             _typingFinished = true;
         }
-
-
-
-    }
+    }*/
 
     /// <summary>
     /// Makes the dialogue reset all the way
@@ -133,9 +136,8 @@ public class Dialogue : UiObject
     public void ResetDialogue()
     {
         printedText = "";
-        //_characterIndex = 0;
-        //_dialogueIndex = 0;
         _typingFinished = false;
+        Text[0]._isvisible = true;
         System.Console.WriteLine($"Dialogue {this} has been reset");
         if (DialogueOptions != null)
         {
@@ -167,17 +169,33 @@ public class Dialogue : UiObject
         }
     }
 
+    public void FinalLineLogic()
+    {
+        for (int i = 0; i < Text.Length; i++)
+        {
+            if (Text[i]._isvisible)
+            {
+                Text[i]._isvisible = false;
+                Text[i].SetLineState(DialogueLine.LineState.idle);
+            }
+        }
+    }
+
     public void DisplayOptions(SpriteBatch pSpriteBatch)
     {
-        if (DialogueOptions != null)
+        if (DialogueOptions != null && DialogueOptions.Length > 1)
         {
             for (int i = 0; i < DialogueOptions.Length; i++)
             {
-                DialogueOptions[i].position.Y = 200 + (100 * i);
+                DialogueOptions[i].position.Y = 250 + (100 * i);
                 DialogueOptions[i].SetTexture(pixel);
                 DialogueOptions[i].SetDialogueManager(dialogueManager);
                 DialogueOptions[i].Draw(pSpriteBatch, gameFont);
             }
+        }
+        else if(DialogueOptions.Length == 1 && _typingFinished)
+        {
+            dialogueManager.ChangeDialogueData(DialogueOptions[0].Next);
         }
     }
 

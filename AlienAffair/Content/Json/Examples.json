@@ -1,0 +1,77 @@
+{
+  "start": {
+    "Text": [
+      {
+        "Line": "VERY BIG SLOW TEXT!",
+        "TextSize": 3,
+        "DelaySpeed": 0.6
+      },
+      {
+        "Line": "(Faster smaller blue text)",
+        "RgbValues": [ 88, 164, 255, 255 ],
+        "DelaySpeed": 0.08
+      }
+    ],
+    "DialogueOptions": [
+      {
+        "AnswerText": "Text with 4 lines",
+        "Next": "4Lines"
+      },
+      {
+        "AnswerText": "Does it work?",
+        "Next": "neutral"
+      }
+    ]
+  },
+  "4Lines": {
+    "Text": [
+      {
+        "Line": "Line 1 is pretty normal"
+      },
+      {
+        "Line": "line 2 turned red for some reason?",
+        "RgbValues": [ 255, 44, 44, 255 ]
+      },
+      {
+        "Line": "Line 3 has 2 lines that is in one string!\nLine 3 continues down here!"
+      },
+      {
+        "Line": "Line 4 will skip to the next line when finished*"
+      },
+      {
+        "Line": "Uh oh it doesn't continue here!*"
+      },
+      {
+        "Line": "Again!"
+      }
+    ],
+    "DialogueOptions": [
+      {
+        "AnswerText": "Go Back",
+        "Next": "start"
+      },
+      {
+        "AnswerText": "I wanna Play poker",
+        "Next": "Poker"
+      },
+      {
+        "AnswerText": "I wanna FaceFinder",
+        "Next": "WantedMinigame"
+      }
+    ]
+  },
+  "Poker": {
+    "Text": [
+      {
+        "Line": "That was fun"
+      }
+    ]
+  },
+  "WantedMinigame": {
+    "Text": [
+      {
+        "Line": "That was fun"
+      }
+    ]
+  }
+}
