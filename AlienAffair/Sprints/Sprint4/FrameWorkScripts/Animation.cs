@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 
 namespace AlienAffair.Sprints.Sprint4.FrameWorkScripts
 {
@@ -20,6 +21,8 @@ namespace AlienAffair.Sprints.Sprint4.FrameWorkScripts
 
         private int pixelAmountAdderX = 0;
         private int pixelAmountAdderY = 0;
+
+        private bool reachedEnd = false;
 
         public Animation(float pAnimateSpeed, int pSpriteAmountX, int pSpriteAmountY, Texture2D pTexture)
         {
@@ -47,10 +50,12 @@ namespace AlienAffair.Sprints.Sprint4.FrameWorkScripts
             {
                 currentSpriteAmountX += pixelAmountAdderX;
                 animateTimer = 0;
+                reachedEnd = false;
                 if (currentSpriteAmountX >= spriteSheet.Width)
                 {
                     currentSpriteAmountY += pixelAmountAdderY;
                     currentSpriteAmountX = 0;
+                    reachedEnd = false;
                 }
                 if (currentSpriteAmountY >= spriteSheet.Height)
                 {
@@ -58,12 +63,22 @@ namespace AlienAffair.Sprints.Sprint4.FrameWorkScripts
                     animateTimer = 0;
                 }
             }
-
             drawPos[0] = currentSpriteAmountX;
             drawPos[1] = currentSpriteAmountY;
+            Console.WriteLine(drawPos[0] + "    " + drawPos[1]);
 
             //Console.WriteLine(drawPos[0] + "     " + drawPos[1]);
             return new Rectangle(drawPos[0], drawPos[1], pixelAmountAdderX, pixelAmountAdderY);
+        }
+
+        public bool CheckForEnd()
+        {
+            return currentSpriteAmountY + pixelAmountAdderY >= spriteSheet.Height;
+        }
+
+        public Rectangle ReachedEnd()
+        {
+            return new Rectangle(spriteSheet.Width - pixelAmountAdderX, spriteSheet.Height - pixelAmountAdderY, pixelAmountAdderX, pixelAmountAdderY);
         }
     }
 }

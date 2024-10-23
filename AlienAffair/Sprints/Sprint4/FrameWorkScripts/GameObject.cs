@@ -28,6 +28,9 @@ namespace AlienAffair.Sprints.Sprint4.FrameWorkScripts
         /// <summary>Color of the GameObject</summary>
             public Color color = Color.White;
 
+        ///<summary>Rotation of the GameObject</summary>
+            public float rotation = 0;
+
         /// <summary>Origin of the GameObject</summary>
             public Vector2 origin;
 
@@ -93,7 +96,7 @@ namespace AlienAffair.Sprints.Sprint4.FrameWorkScripts
         public virtual void DrawSprite(SpriteBatch pSpriteBatch)
         {
             origin = new Vector2(rectangle.Width / 2f, rectangle.Height / 2f);
-            pSpriteBatch.Draw(texture2D, position, rectangle, color, 0, origin, scale, SpriteEffects.None, 0.0f);
+            pSpriteBatch.Draw(texture2D, position, rectangle, color, rotation, origin, scale, SpriteEffects.None, 0.0f);
         }
 
         /// <summary>

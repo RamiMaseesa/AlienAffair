@@ -31,5 +31,17 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts.Elliot.Dodge
 
             base.Update(pGameTime);
         }
+
+        public void GameOver(GameTime pGameTime)
+        {
+            float difference = playerReference.position.X - position.X;
+
+            position.X += difference * (2 * (float)pGameTime.ElapsedGameTime.TotalSeconds);
+        }
+
+        public void ChangeSpeed(float pAnimationSpeed)
+        {
+            jaguarAnimation = new Animation(pAnimationSpeed, 1, 3, texture2D);
+        }
     }
 }

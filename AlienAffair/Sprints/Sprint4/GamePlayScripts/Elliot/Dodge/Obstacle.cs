@@ -16,6 +16,7 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts.Elliot.Dodge
             color = pColor;
             scale = 0.75f;
             speed = pSpeed;
+            rotation = MathHelper.ToRadians(90f);
 
             rectangle = SpritePicker(); 
         }
@@ -29,10 +30,11 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts.Elliot.Dodge
         {
             base.Draw(pSpriteBatch);
 
-            DrawHitbox(pSpriteBatch);
+            //DrawHitbox(pSpriteBatch);
 
             origin = new Vector2(rectangle.Width / 2f, rectangle.Height / 2f);
-            pSpriteBatch.Draw(texture2D, position, rectangle, color, 0, origin, scale, SpriteEffects.None, 0.0f);
+           // pSpriteBatch.Draw(texture2D, position, rectangle, color, 0, origin, scale, SpriteEffects.None, 0.0f);
+            //Console.WriteLine(hitBox.X + "    " + hitBox.Y);
 
         }
 
@@ -44,6 +46,16 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts.Elliot.Dodge
             int drawPos = rnd.Next(sprites.Length);
 
             return new Rectangle(0, sprites[drawPos], 256, 128);
+        }
+
+        public void UpdateObjectSpeed(float pAddSpeed)
+        {
+            speed = pAddSpeed;
+        }
+
+        public void ChangeSpeed(float pNewSpeed)
+        {
+            speed = pNewSpeed;
         }
     }
 }
