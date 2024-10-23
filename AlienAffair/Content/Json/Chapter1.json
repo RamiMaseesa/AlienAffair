@@ -26,7 +26,7 @@
         "Next": "TeleportScene"
       },
       {
-        "AnswerText": "Uh, never mind. I’d rather continue my walk.",
+        "AnswerText": "Uh, I’d rather continue my walk.",
         "Next": "EndScene"
       }
     ]
