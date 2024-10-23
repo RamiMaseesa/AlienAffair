@@ -217,7 +217,7 @@
     ],
     "DialogueOptions": [
       {
-        "Next": "start"
+        "Next": "DodgeMinigame"
       }
     ]
   },
