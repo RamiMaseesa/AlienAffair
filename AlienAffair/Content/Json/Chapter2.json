@@ -92,7 +92,7 @@
     ],
     "DialogueOptions": [
       {
-        "Next": "start"
+        "Next": "HelpHim"
       }
     ]
   },
@@ -104,7 +104,7 @@
     ],
     "DialogueOptions": [
       {
-        "Next": "start"
+        "Next": "HelpHim"
       }
     ]
   },
@@ -116,7 +116,7 @@
     ],
     "DialogueOptions": [
       {
-        "Next": "start"
+        "Next": "HelpHim"
       }
     ]
   },
@@ -149,7 +149,7 @@
     ],
     "DialogueOptions": [
       {
-        "Next": "start"
+        "Next": "NoZorg"
       }
     ]
   },
@@ -161,7 +161,7 @@
     ],
     "DialogueOptions": [
       {
-        "Next": "start"
+        "Next": "NoZorg"
       }
     ]
   },
@@ -173,7 +173,7 @@
     ],
     "DialogueOptions": [
       {
-        "Next": "start"
+        "Next": "NoZorg"
       }
     ]
   },
