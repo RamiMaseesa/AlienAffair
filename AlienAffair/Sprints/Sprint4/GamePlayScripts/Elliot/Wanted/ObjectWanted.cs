@@ -24,7 +24,6 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts.Elliot.Wanted
             direction = new Vector2(rnd.Next(-1, 2) + (float)rnd.Next(0, 100) / 100, rnd.Next(-1, 2) + (float)rnd.Next(0, 100) / 100);
             direction.Normalize();
             speed = rnd.Next(50, 100);
-            Console.WriteLine(direction);
         }
 
         public override void Update(GameTime pGameTime)

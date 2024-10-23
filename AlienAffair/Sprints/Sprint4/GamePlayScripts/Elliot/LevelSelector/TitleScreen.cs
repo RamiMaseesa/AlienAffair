@@ -13,7 +13,7 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts.Elliot.LevelSelector
         Texture2D background;
         float flickerTime = 1;
         string title = "Alien Affair";
-        string play = ">Press enter to start<";
+        string playText = ">Press enter to start<";
 
         public TitleScreen(Game1 pGame1) : base(pGame1)
         {
@@ -31,7 +31,7 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts.Elliot.LevelSelector
         {
             pSpriteBatch.Draw(background, new Vector2(0, 0), Color.White);
             pSpriteBatch.DrawString(font, title, new Vector2(game.Window.ClientBounds.Width / 2, game.Window.ClientBounds.Height / 6f), Color.LightGoldenrodYellow, 0f, font.MeasureString(title) / 2, 1.5f, SpriteEffects.None, 1f);
-            pSpriteBatch.DrawString(game.gameFont, play, new Vector2(game.Window.ClientBounds.Width / 2, game.Window.ClientBounds.Height / 1.5f), Color.LightGoldenrodYellow, 0f, game.gameFont.MeasureString(play) / 2, 1f, SpriteEffects.None, 1f);
+            pSpriteBatch.DrawString(game.gameFont, playText, new Vector2(game.Window.ClientBounds.Width / 2, game.Window.ClientBounds.Height / 1.5f), Color.LightGoldenrodYellow, 0f, game.gameFont.MeasureString(playText) / 2, 1f, SpriteEffects.None, 1f);
         }
 
         private void FlickerLight(GameTime pGameTime)

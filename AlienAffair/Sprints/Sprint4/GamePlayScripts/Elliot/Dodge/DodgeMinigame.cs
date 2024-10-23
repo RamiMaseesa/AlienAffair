@@ -9,15 +9,29 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts.Elliot.Dodge
 {
     public class DodgeMinigame : SceneBase
     {
-        ContentManager contentManager;
+        private ContentManager contentManager;
 
-        Jaguar jaguar;
-        Player man;
+        private MovingBackground background;
 
-        int maxObjectCount = 3;
-        List<Obstacle> obstaclesInScene = new List<Obstacle>();
-        float[] lanePos = new float[3];
-        float objectSpawnTimer = 1f;
+        private Jaguar jaguar;
+        private Player player;
+        private float baseAnimationSpeed = 0.2f;
+
+        private bool gameOver = false;
+        private float timeLeft = 30f;
+        private float speedUpTimer = 10f;
+
+        private Color playerDebugColor = Color.White;
+
+        float baseSpeed = 178f;
+
+        private List<Obstacle> obstaclesInScene = new List<Obstacle>();
+        private float[] lanePos = new float[3];
+        private float objectSpawnTimer = 1f;
+        private int minSpawnTime = 1;
+        private int maxSpawnTime = 3;
+
+        private Obstacle hitObject;
 
         public DodgeMinigame(ContentManager pContent, Game1 pGame1) : base(pGame1)
         {
@@ -27,15 +41,17 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts.Elliot.Dodge
 
         protected override void CreateObjects()
         {
+            background = new MovingBackground(game, baseSpeed);
+
             lanePos[0] = game.Window.ClientBounds.Height * 0.3f;
             lanePos[1] = game.Window.ClientBounds.Height * 0.5f;
             lanePos[2] = game.Window.ClientBounds.Height * 0.7f;
 
-            man = new Player(new Vector2(900, lanePos[1]), "Sprites\\RunningManSpriteSheet", Color.White, lanePos);
-            jaguar = new Jaguar(new Vector2(450, lanePos[1]), "Sprites\\JaguarSpriteSheet", Color.White, man);
+            player = new Player(new Vector2(900, lanePos[1]), "Sprites\\RunningManSpriteSheet", playerDebugColor, lanePos);
+            jaguar = new Jaguar(new Vector2(450, lanePos[1]), "Sprites\\JaguarSpriteSheet", Color.White, player);
 
             sceneContent.Add(jaguar);
-            sceneContent.Add(man);
+            sceneContent.Add(player);
 
             LoadContent(contentManager);
         }
@@ -45,35 +61,102 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts.Elliot.Dodge
             base.LoadContent(pContent);
 
             jaguar.Initialize();
-            man.Initialize();
+            player.Initialize();
         }
 
         public override void Update(GameTime pGameTime)
         {
+            background.MoveBackground(pGameTime);
             base.Update(pGameTime);
-            SpawnObjects(pGameTime);
+            CheckForCollision();
+
+            if (gameOver == false)
+            {
+                SpawnObjects(pGameTime);
+                Timers(pGameTime);
+            }
+            else
+            {
+                jaguar.GameOver(pGameTime);
+                player.PlayFallAnimation(game.Content.Load<Texture2D>("Sprites\\FallingManSpriteSheet"));
+
+                if (jaguar.hitBox.Contains(player.hitBox))
+                {
+                    game.ChangeScene(GameStates.textWriterScene);
+                }
+            }
         }
 
         public override void Draw(SpriteBatch pSpriteBatch)
         {
+            background.DrawBackground(pSpriteBatch);
+            sceneContent.Reverse();
             base.Draw(pSpriteBatch);
+            sceneContent.Reverse();
+
+            pSpriteBatch.DrawString(game.gameFont, Math.Floor(timeLeft).ToString(), new Vector2(game.Window.ClientBounds.Width / 2, 10f), Color.Yellow, 0f, game.gameFont.MeasureString(Math.Floor(timeLeft).ToString()) / 2, 1f, SpriteEffects.None, 1f);
         }
 
         private void SpawnObjects(GameTime pGameTime)
         {
             objectSpawnTimer -= (float)pGameTime.ElapsedGameTime.TotalSeconds;
-            
+
             Random rnd = new Random();
             int spawnPos = rnd.Next(0, 3);
 
             if (objectSpawnTimer < 0)
             {
-                Obstacle obstacle = new Obstacle(new Vector2(game.Window.ClientBounds.Width, (int)lanePos[spawnPos]), "Sprites\\Obstacles", Color.White, 75);
+                Obstacle obstacle = new Obstacle(new Vector2(game.Window.ClientBounds.Width, (int)lanePos[spawnPos]), "Sprites\\Obstacles", Color.White, baseSpeed);
                 obstacle.LoadSprite(contentManager);
                 sceneContent.Add(obstacle);
                 obstaclesInScene.Add(obstacle);
 
-                objectSpawnTimer = rnd.Next(3, 5);
+                objectSpawnTimer = rnd.Next(minSpawnTime, maxSpawnTime);
+            }
+        }
+
+        private void CheckForCollision()
+        {
+            for (int i = 0; i < obstaclesInScene.Count; i++)
+            {
+                if (obstaclesInScene[i].hitBox.Intersects(player.hitBox))
+                {
+                    hitObject = obstaclesInScene[i];
+                    Console.WriteLine("Hit Object");
+                    player.color = Color.Red;
+                    gameOver = true;
+                }
+            }
+
+            if (hitObject != null && !hitObject.hitBox.Intersects(player.hitBox))
+            {
+                hitObject = null;
+                player.color = Color.White;
+            }
+        }
+
+        private void Timers(GameTime pGameTime)
+        {
+            timeLeft -= (float)pGameTime.ElapsedGameTime.TotalSeconds;
+            speedUpTimer -= (float)pGameTime.ElapsedGameTime.TotalSeconds;
+
+            if (timeLeft <= 0)
+            {
+                game.ChangeScene(GameStates.textWriterScene);
+            }
+
+            if (speedUpTimer <= 0)
+            {
+                speedUpTimer = 10f;
+                baseSpeed += 25;
+                baseAnimationSpeed *= 0.5f;
+                player.ChangeSpeed(baseAnimationSpeed);
+                jaguar.ChangeSpeed(baseAnimationSpeed);
+                background.ChangeSpeed(baseSpeed);
+                for (int i = 0; i < obstaclesInScene.Count; i++)
+                {
+                    obstaclesInScene[i].ChangeSpeed(baseSpeed);
+                }
             }
         }
     }
