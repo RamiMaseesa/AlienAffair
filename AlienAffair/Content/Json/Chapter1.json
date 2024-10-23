@@ -1,90 +1,51 @@
-[
-  {
-    "CurrentEmotion": 1,
+{
+  "start": {
     "Text": [
-      "*You were taking a leisurely stroll through the park...*\n",
-      "A sudden, ear-splitting roar filled the air,\n",
-      "louder than thunder but with an odd mechanical edge to it,\n",
-      "The sky seemed to tear open as something massive and metallic\n",
-      "hurtled out of the clouds, *"
+      {
+        "Line": "Player: \"Should I run?\""
+      },
+      {
+        "Line": "Zorg: \"It’s pointless, human. I’m going to make all humans disappear in their sleep.\""
+      },
+      {
+        "Line": "Player: \"Why?\""
+      },
+      {
+        "Line": "Zorg: \"Humanity causes more harm than good: you use each other, destroy the world, and leave little room for each other.\""
+      },
+      {
+        "Line": "Player: \"That’s not true, and I can prove it.\""
+      },
+      {
+        "Line": "Zorg: \"Alright, if you're sure, I’ll teleport us to three places where humanity shows its worst.\""
+      }
+    ],
+    "DialogueOptions": [
+      {
+        "AnswerText": "I’m sure.",
+        "Next": "TeleportScene"
+      },
+      {
+        "AnswerText": "Uh, never mind. I’d rather continue my walk.",
+        "Next": "EndScene"
+      }
     ]
   },
-  {
-    "CurrentEmotion": 1,
+  "TeleportScene": {
     "Text": [
-      "I approached cautiously,\n",
-      "drawn to the strange glow from the nearby forest,\n",
-      "where the ufo seemingly had landed.\n",
-      "The air felt thick, almost electric. The ship, sleek and alien,\n",
-      "A hatch was partially open, emitting a faint blue light."
+      {
+        "Line": "Zorg teleports you to the next location."
+      }
     ]
   },
-  {
-    "CurrentEmotion": 1,
+  "EndScene": {
     "Text": [
-      "As I stepped closer, something stirred inside.\n",
-      "A tall, shadowy figure emerged, its skin a sickly gray-green,\n",
-      "its eyes wide, black voids. My heart pounded,\n",
-      "every instinct screamed at me to run,\n",
-      "but my legs wouldn't move."
-    ]
-  }
-  ,
-  {
-    "CurrentEmotion": 1,
-    "Text": [
-      "The Alien Loomed over me, its presence heavy and suffocating.\n ",
-      "I instinctively took a shaky step back, but it tilted its head,\n",
-      "almost amused, as if it could smell my fear. Pointless, it rasped,\n",
-      "its voice strange and crackling like broken radio static. \"You can run\",\n",
-      "but it won't matter.\""
-    ],
-    "DialogueOptions": [
       {
-        "AnswerText": "Why would you destroy us?"
+        "Line": "Zorg: \"Wow, humanity is truly hopeless.\""
       },
       {
-        "AnswerText": "..."
+        "Line": "Zorg decides to make humanity disappear."
       }
     ]
   }
-  ,
-  {
-    "CurrentEmotion": 3,
-    "Text": [
-      "Your kind is reckless\n",
-      "You spread like a virus, chaos and conflict follow everywhere you go...\n",
-      "Although your question intrigues me...\n",
-      "I am curious. If there's anything worth saving in your species, prove it.\n",
-      "Convince me otherwise.\n"
-    ],
-    "DialogueOptions": [
-      {
-        "AnswerText": "I will prove you wrong!"
-      },
-      {
-        "AnswerText": "I'd Rather continue my walk"
-      },
-      {
-        "AnswerText": "..."
-      }
-    ]
-  }
-  ,
-  {
-    "CurrentEmotion": 3,
-    "Text": [
-      "As i expected\n",
-      ""
-    ],
-    "DialogueOptions": [
-      {
-        "AnswerText": ""
-      },
-      {
-        "AnswerText": ""
-      }
-    ]
-  }
-  
-]
+}
