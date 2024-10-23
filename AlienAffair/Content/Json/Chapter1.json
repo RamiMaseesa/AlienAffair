@@ -2,10 +2,10 @@
   "start": {
     "Text": [
       {
-        "Line": "Player: \"Should I run?\""
+        "Line": "Should I run?"
       },
       {
-        "Line": "Zorg: \"It’s pointless, human. I’m going to make all humans disappear in their sleep.\""
+        "Line": "It’s pointless, human. I’m going to make all humans disappear in their sleep"
       },
       {
         "Line": "Player: \"Why?\""
@@ -26,7 +26,7 @@
         "Next": "TeleportScene"
       },
       {
-        "AnswerText": "Uh, never mind. I’d rather continue my walk.",
+        "AnswerText": "Uh, I’d rather continue my walk.",
         "Next": "EndScene"
       }
     ]

@@ -13,15 +13,15 @@
     ],
     "DialogueOptions": [
       {
-        "AnswerText": "With or without humans, the Amazon will disappear one day.",
+        "AnswerText": "the Amazon will disappear one day.",
         "Next": "DisappearResponse"
       },
       {
-        "AnswerText": "This is unfortunate, but right now there's no replacement for wood.",
+        "AnswerText": "there's no replacement for wood.",
         "Next": "NoReplacement"
       },
       {
-        "AnswerText": "It's sad for biodiversity that we live in a world driven by making money.",
+        "AnswerText": "It's sad for biodiversity",
         "Next": "DrivenByMoney"
       }
     ]
@@ -70,15 +70,15 @@
     ],
     "DialogueOptions": [
       {
-        "AnswerText": "We humans don't want these animals to disappear, but we need the wood. It's a big dilemma.",
+        "AnswerText": "we need the wood. It's a big dilemma.",
         "Next": "BigDilemma"
       },
       {
-        "AnswerText": "Humans can't do anything about it, we simply need wood.",
+        "AnswerText": "Humans can't do anything about it",
         "Next": "NeedWood"
       },
       {
-        "AnswerText": "I hope we can save as many species as possible.",
+        "AnswerText": "I hope we can save the animals.",
         "Next": "SaveSpecies"
       }
     ]
@@ -127,7 +127,7 @@
     ],
     "DialogueOptions": [
       {
-        "AnswerText": "It's not okay, and I would prefer if it stopped.",
+        "AnswerText": "I would prefer if it stopped.",
         "Next": "PreferToStop"
       },
       {
@@ -184,15 +184,15 @@
     ],
     "DialogueOptions": [
       {
-        "AnswerText": "We need to use wood and paper more efficiently.",
+        "AnswerText": "We need to be more efficient",
         "Next": "EfficientUse"
       },
       {
-        "AnswerText": "We should house the animals in more zoos.",
+        "AnswerText": "We should house the animals in zoos.",
         "Next": "MoreZoos"
       },
       {
-        "AnswerText": "Nothing. This is the result of capitalism. (We live in a society)",
+        "AnswerText": "This is the result of capitalism",
         "Next": "NothingSolution"
       }
     ]
