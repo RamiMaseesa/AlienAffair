@@ -1,50 +1,58 @@
 {
   "start": {
+    "CurrentEmotion": 1,
     "Text": [
       {
-        "Line": "Should I run?"
+        "Line": "(Should I run?)",
+        "RgbValues": [71, 135, 234, 255]
       },
       {
-        "Line": "It’s pointless, human. I’m going to make all humans disappear in their sleep"
+        "Line": "It's pointless, human. I'm going to make all humans disappear in their sleep"
       },
       {
-        "Line": "Player: \"Why?\""
+        "Line": "(Why?)",
+        "RgbValues": [71, 135, 234, 255]
       },
       {
-        "Line": "Zorg: \"Humanity causes more harm than good: you use each other, destroy the world, and leave little room for each other.\""
+        "Line": "Humanity causes more harm than good: you use each other, destroy the world, and leave little room for each other."
       },
       {
-        "Line": "Player: \"That’s not true, and I can prove it.\""
+        "Line": "(That's not true, and I can prove it.)",
+        "RgbValues": [71, 135, 234, 255]
       },
       {
-        "Line": "Zorg: \"Alright, if you're sure, I’ll teleport us to three places where humanity shows its worst.\""
+        "Line": "Alright, if you're sure, I'll teleport us to three places where humanity shows its worst."
       }
     ],
     "DialogueOptions": [
       {
-        "AnswerText": "I’m sure.",
+        "AnswerText": "I'm sure.",
         "Next": "TeleportScene"
       },
       {
-        "AnswerText": "Uh, I’d rather continue my walk.",
+        "AnswerText": "Uh, I'd rather continue my walk.",
         "Next": "EndScene"
       }
     ]
   },
   "TeleportScene": {
+    "CurrentEmotion": 6,
     "Text": [
       {
-        "Line": "Zorg teleports you to the next location."
+        "Line": "(Zorg teleports you to the next location.)",
+        "RgbValues": [71, 135, 234, 255]
       }
     ]
   },
   "EndScene": {
+    "CurrentEmotion": 10,
     "Text": [
       {
-        "Line": "Zorg: \"Wow, humanity is truly hopeless.\""
+        "Line": "Wow, humanity is truly hopeless."
       },
       {
-        "Line": "Zorg decides to make humanity disappear."
+        "Line": "Zorg decides to make humanity disappear.",
+        "RgbValues": [255, 0, 0, 255]
       }
     ]
   }

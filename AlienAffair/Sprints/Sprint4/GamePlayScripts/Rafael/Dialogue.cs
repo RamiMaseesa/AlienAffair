@@ -15,8 +15,8 @@ public class Dialogue : UiObject
     public enum Emotion
     {
         happy,
-        neutral, 
-        neutral2,
+        neutral,
+        anrgy,
         stinky, 
         flirty,
         pointing,

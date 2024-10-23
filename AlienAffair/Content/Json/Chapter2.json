@@ -1,6 +1,6 @@
 {
   "start": {
-    "CurrentEmotion": 10,
+    "CurrentEmotion": 5,
     "Text": [
       {
         "Line": "Do you see that man over there? He was once a brilliant student, always the top of his class."
@@ -28,6 +28,7 @@
     ]
   },
   "OwnFault": {
+    "CurrentEmotion": 2,
     "Text": [
       {
         "Line": "Do you people have no sympathy for each other?"
@@ -40,6 +41,7 @@
     ]
   },
   "NotEveryone": {
+    "CurrentEmotion": 11,
     "Text": [
       {
         "Line": "This man did."
@@ -52,6 +54,7 @@
     ]
   },
   "HelpNeeded": {
+    "CurrentEmotion": 12,
     "Text": [
       {
         "Line": "It's good to know some people still care about others."
@@ -64,6 +67,7 @@
     ]
   },
   "BanGambling?": {
+    "CurrentEmotion": 10,
     "Text": [
       {
         "Line": "Don't forget that the casino profits from his suffering, why don't you ban gambling?"
@@ -85,6 +89,7 @@
     ]
   },
   "AlwaysFindAWay": {
+    "CurrentEmotion": 8,
     "Text": [
       {
         "Line": "I didn't know that."
@@ -92,11 +97,12 @@
     ],
     "DialogueOptions": [
       {
-        "Next": "start"
+        "Next": "HelpHim"
       }
     ]
   },
   "MoneyUsedWell": {
+    "CurrentEmotion": 3,
     "Text": [
       {
         "Line": "That doesn't help these gamblers at all."
@@ -104,11 +110,12 @@
     ],
     "DialogueOptions": [
       {
-        "Next": "start"
+        "Next": "HelpHim"
       }
     ]
   },
   "FreeWill": {
+    "CurrentEmotion": 12,
     "Text": [
       {
         "Line": "These people aren't free."
@@ -116,11 +123,12 @@
     ],
     "DialogueOptions": [
       {
-        "Next": "start"
+        "Next": "HelpHim"
       }
     ]
   },
   "HelpHim": {
+    "CurrentEmotion": 10,
     "Text": [
       {
         "Line": "How would you help this man?"
@@ -142,6 +150,7 @@
     ]
   },
   "KickOut": {
+    "CurrentEmotion": 12,
     "Text": [
       {
         "Line": "Strong of you."
@@ -149,11 +158,12 @@
     ],
     "DialogueOptions": [
       {
-        "Next": "start"
+        "Next": "NoZorg"
       }
     ]
   },
   "AdviseHelp": {
+    "CurrentEmotion": 0,
     "Text": [
       {
         "Line": "Advice would indeed be good."
@@ -161,11 +171,12 @@
     ],
     "DialogueOptions": [
       {
-        "Next": "start"
+        "Next": "NoZorg"
       }
     ]
   },
   "GiveMoney": {
+    "CurrentEmotion": 11,
     "Text": [
       {
         "Line": "You don't see the real problem."
@@ -173,11 +184,12 @@
     ],
     "DialogueOptions": [
       {
-        "Next": "start"
+        "Next": "NoZorg"
       }
     ]
   },
   "NoZorg": {
+    "CurrentEmotion": 5,
     "Text": [
       {
         "Line": "And how would you truly help him if I wasn't here?"
@@ -199,6 +211,7 @@
     ]
   },
   "HelpChance": {
+    "CurrentEmotion": 7,
     "Text": [
       {
         "Line": "You mean what you say, I can respect that."
@@ -211,6 +224,7 @@
     ]
   },
   "WalkAway": {
+    "CurrentEmotion": 12,
     "Text": [
       {
         "Line": "Your honesty is appreciated."
@@ -223,9 +237,10 @@
     ]
   },
   "MaybeHelp": {
+    "CurrentEmotion": 11,
     "Text": [
       {
-        "Line": "People really don’t want to put effort into helping strangers."
+        "Line": "People really don't want to put effort into helping strangers."
       }
     ],
     "DialogueOptions": [
