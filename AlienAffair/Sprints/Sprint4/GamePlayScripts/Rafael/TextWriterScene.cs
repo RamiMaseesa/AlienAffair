@@ -39,9 +39,19 @@ namespace AlienAffair.Sprints.Sprint4.FrameWorkScripts
             }
         }
 
+        AlienImage alien = new AlienImage(new Vector2(400, 600), new Rectangle(0, 0, 1000, 1333));
+
         public TextWriterScene(Game1 pGame) : base(pGame)
         {
             dialogueManager = new DialogueManager("Content/Json/Chapter2.json", "Chapter2");
+            CreateObjects();
+        }
+
+        protected override void CreateObjects()
+        {
+            base.CreateObjects();
+            sceneContent.Add(alien);
+            
         }
 
         public override void Update(GameTime pGameTime)
@@ -49,7 +59,7 @@ namespace AlienAffair.Sprints.Sprint4.FrameWorkScripts
             base.Update(pGameTime);
 
             CurrentDialogue = dialogueManager.dialogueData;
-
+            alien.Update(pGameTime, (int)_currentDialogue.CurrentEmotion);
             //KeyboardState kstate = Keyboard.GetState();
 
             _currentDialogue.Update(pGameTime);
@@ -62,6 +72,7 @@ namespace AlienAffair.Sprints.Sprint4.FrameWorkScripts
         {
             base.Draw(pSpriteBatch);
             _currentDialogue.Draw(pSpriteBatch, game.gameFont);
+
         }
 
         public override void LoadContent(ContentManager pContent)

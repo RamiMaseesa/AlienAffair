@@ -1,5 +1,6 @@
 {
-  "CityScene": {
+  "start": {
+    "CurrentEmotion": 2,
     "Text": [
       {
         "Line": "Look at this city, it’s overcrowded, the air is filthy, and it’s terribly loud. Why would anyone want to live here?"
@@ -7,20 +8,21 @@
     ],
     "DialogueOptions": [
       {
-        "AnswerText": "Everyone has their preferences, but most people are here for work. Eventually, they get used to city life.",
+        "AnswerText": "Everyone has their preferences",
         "Next": "GetUsedToCity"
       },
       {
-        "AnswerText": "This may not look nice, but people here are still happy.",
+        "AnswerText": "people here are still happy",
         "Next": "PeopleHappy"
       },
       {
-        "AnswerText": "I agree, down with cities! We should all live in small villages.",
+        "AnswerText": "I agree, down with cities",
         "Next": "SmallVillages"
       }
     ]
   },
   "GetUsedToCity": {
+    "CurrentEmotion": 12,
     "Text": [
       {
         "Line": "Just because you can get used to a bad environment doesn’t make it a good thing."
@@ -33,6 +35,7 @@
     ]
   },
   "PeopleHappy": {
+    "CurrentEmotion": 13,
     "Text": [
       {
         "Line": "As long as they are happy, I suppose there’s no problem."
@@ -45,6 +48,7 @@
     ]
   },
   "SmallVillages": {
+    "CurrentEmotion": 7,
     "Text": [
       {
         "Line": "My kind also lives only in small camps of 5-7 Zorgians."
@@ -57,6 +61,7 @@
     ]
   },
   "LonelyInCity": {
+    "CurrentEmotion": 5,
     "Text": [
       {
         "Line": "Many people feel lonely in a big city, even though they’re surrounded by others. Why do you think that is?"
@@ -64,20 +69,21 @@
     ],
     "DialogueOptions": [
       {
-        "AnswerText": "People in cities are less likely to reach out and make contact.",
+        "AnswerText": "People dont reach out.",
         "Next": "LessContact"
       },
       {
-        "AnswerText": "They’re not lonely, just a bit tired.",
+        "AnswerText": "just a bit tired.",
         "Next": "NotLonely"
       },
       {
-        "AnswerText": "Humans are social animals, but often afraid to start conversations with strangers.",
+        "AnswerText": "Humans are social animals.",
         "Next": "SocialAnimals"
       }
     ]
   },
   "LessContact": {
+    "CurrentEmotion": 8,
     "Text": [
       {
         "Line": "Then you should build more recreational facilities."
@@ -90,6 +96,7 @@
     ]
   },
   "NotLonely": {
+    "CurrentEmotion": 10,
     "Text": [
       {
         "Line": "I know the difference between loneliness and being tired."
@@ -102,6 +109,7 @@
     ]
   },
   "SocialAnimals": {
+    "CurrentEmotion": 3,
     "Text": [
       {
         "Line": "You humans need to stop being so afraid of each other."
@@ -114,9 +122,10 @@
     ]
   },
   "ChildLaborScene": {
+    "CurrentEmotion": 5,
     "Text": [
       {
-        "Line": "Look at that (H&M) clothing store. All those nice clothes, made through child labor. Why do people still buy them?"
+        "Line": "Look at that (M&H) clothing store. All those nice clothes, made through child labor. Why do people still buy them?"
       }
     ],
     "DialogueOptions": [
@@ -125,16 +134,17 @@
         "Next": "DontKnowMuch"
       },
       {
-        "AnswerText": "It’s cheap and easy to get, so people choose convenience over ethics.",
+        "AnswerText": "It’s cheap and easy to get",
         "Next": "ChooseConvenience"
       },
       {
-        "AnswerText": "Some people may want to do something, but they don’t know how to find alternatives.",
+        "AnswerText": "people don’t know how to find alternatives.",
         "Next": "DontKnowAlternatives"
       }
     ]
   },
   "DontKnowMuch": {
+    "CurrentEmotion": 6,
     "Text": [
       {
         "Line": "I believe most people have heard about it at least once."
@@ -147,6 +157,7 @@
     ]
   },
   "ChooseConvenience": {
+    "CurrentEmotion": 12,
     "Text": [
       {
         "Line": "You feel nothing for others when you don't see or know them? Good to know."
@@ -159,6 +170,7 @@
     ]
   },
   "DontKnowAlternatives": {
+    "CurrentEmotion": 5,
     "Text": [
       {
         "Line": "On your own, you can’t do much."
@@ -171,6 +183,7 @@
     ]
   },
   "CrimeRateScene": {
+    "CurrentEmotion": 11,
     "Text": [
       {
         "Line": "Look at the high crime rate. Why would anyone want to live in a city where you could lose everything to thieves?"
@@ -178,20 +191,21 @@
     ],
     "DialogueOptions": [
       {
-        "AnswerText": "Not everyone gets robbed; many people live safely in the city.",
+        "AnswerText": "Not everyone gets robbed",
         "Next": "NotEveryoneRobbed"
       },
       {
-        "AnswerText": "That’s a good point, but there are ways to protect yourself, like security and neighborhood watch programs.",
+        "AnswerText": "there are ways to protect yourself",
         "Next": "ProtectYourself"
       },
       {
-        "AnswerText": "The crime rate is going down, which means cities are getting safer.",
+        "AnswerText": "The crime rate is going down",
         "Next": "CrimeRateLower"
       }
     ]
   },
   "NotEveryoneRobbed": {
+    "CurrentEmotion": 10,
     "Text": [
       {
         "Line": "You’re avoiding my question."
@@ -199,11 +213,12 @@
     ],
     "DialogueOptions": [
       {
-        "Next": "start"
+        "Next": "WantedMinigame"
       }
     ]
   },
   "ProtectYourself": {
+    "CurrentEmotion": 11,
     "Text": [
       {
         "Line": "The fact that these things are even needed is disgusting."
@@ -216,6 +231,7 @@
     ]
   },
   "CrimeRateLower": {
+    "CurrentEmotion": 8,
     "Text": [
       {
         "Line": "That is reassuring."

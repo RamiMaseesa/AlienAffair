@@ -1,5 +1,6 @@
 {
-  "ForestScene": {
+  "start": {
+    "CurrentEmotion": 1,
     "Text": [
       {
         "Line": "This forest was a source of life. Plants grew, the air was pure. But companies only saw profit and cut everything down."
@@ -13,23 +14,24 @@
     ],
     "DialogueOptions": [
       {
-        "AnswerText": "With or without humans, the Amazon will disappear one day.",
+        "AnswerText": "the Amazon will disappear one day.",
         "Next": "DisappearResponse"
       },
       {
-        "AnswerText": "This is unfortunate, but right now there's no replacement for wood.",
+        "AnswerText": "there's no replacement for wood.",
         "Next": "NoReplacement"
       },
       {
-        "AnswerText": "It's sad for biodiversity that we live in a world driven by making money.",
+        "AnswerText": "It's sad for biodiversity",
         "Next": "DrivenByMoney"
       }
     ]
   },
   "DisappearResponse": {
+    "CurrentEmotion": 5,
     "Text": [
       {
-        "Line": "So humans too?"
+        "Line": "So, humans too?"
       }
     ],
     "DialogueOptions": [
@@ -39,6 +41,7 @@
     ]
   },
   "NoReplacement": {
+    "CurrentEmotion": 9,
     "Text": [
       {
         "Line": "Then stop using wood."
@@ -51,6 +54,7 @@
     ]
   },
   "DrivenByMoney": {
+    "CurrentEmotion": 6,
     "Text": [
       {
         "Line": "You live in a society, is that your defense?"
@@ -63,27 +67,29 @@
     ]
   },
   "AnimalExtinction": {
+    "CurrentEmotion": 10,
     "Text": [
       {
-        "Line": "All the animals that are now losing their homes or going extinct did nothing wrong. Why do these animals deserve to disappear, but humanity does not?"
+        "Line": "All the animals that are now losing their homes or going extinct did nothing wrong. /nWhy do these animals deserve to disappear, but humanity does not?"
       }
     ],
     "DialogueOptions": [
       {
-        "AnswerText": "We humans don't want these animals to disappear, but we need the wood. It's a big dilemma.",
+        "AnswerText": "we need the wood. It's a big dilemma.",
         "Next": "BigDilemma"
       },
       {
-        "AnswerText": "Humans can't do anything about it, we simply need wood.",
+        "AnswerText": "Humans can't do anything about it",
         "Next": "NeedWood"
       },
       {
-        "AnswerText": "I hope we can save as many species as possible.",
+        "AnswerText": "I hope we can save the animals.",
         "Next": "SaveSpecies"
       }
     ]
   },
   "BigDilemma": {
+    "CurrentEmotion": 0,
     "Text": [
       {
         "Line": "My kind needs water, but we don't steal your oceans."
@@ -96,6 +102,7 @@
     ]
   },
   "NeedWood": {
+    "CurrentEmotion": 1,
     "Text": [
       {
         "Line": "Yes, I understand now how important wood is to you."
@@ -108,6 +115,7 @@
     ]
   },
   "SaveSpecies": {
+    "CurrentEmotion": 5,
     "Text": [
       {
         "Line": "That is why I am here."
@@ -120,6 +128,7 @@
     ]
   },
   "WhatMakesItRight": {
+    "CurrentEmotion": 9,
     "Text": [
       {
         "Line": "What makes it okay for humans to keep doing this?"
@@ -127,7 +136,7 @@
     ],
     "DialogueOptions": [
       {
-        "AnswerText": "It's not okay, and I would prefer if it stopped.",
+        "AnswerText": "I would prefer if it stopped.",
         "Next": "PreferToStop"
       },
       {
@@ -141,6 +150,7 @@
     ]
   },
   "PreferToStop": {
+    "CurrentEmotion": 7,
     "Text": [
       {
         "Line": "Unfortunately, you're not the leader of the world."
@@ -153,6 +163,7 @@
     ]
   },
   "NotDirectly": {
+    "CurrentEmotion": 5,
     "Text": [
       {
         "Line": "Directly or indirectly, you do this together."
@@ -165,6 +176,7 @@
     ]
   },
   "HumansInCharge": {
+    "CurrentEmotion": 2,
     "Text": [
       {
         "Line": "In the universe, we Zorgians are in charge."
@@ -177,6 +189,7 @@
     ]
   },
   "HowToSolve": {
+    "CurrentEmotion": 9,
     "Text": [
       {
         "Line": "What can humans do to solve this?"
@@ -184,20 +197,21 @@
     ],
     "DialogueOptions": [
       {
-        "AnswerText": "We need to use wood and paper more efficiently.",
+        "AnswerText": "We need to be more efficient",
         "Next": "EfficientUse"
       },
       {
-        "AnswerText": "We should house the animals in more zoos.",
+        "AnswerText": "We should house the animals in zoos.",
         "Next": "MoreZoos"
       },
       {
-        "AnswerText": "Nothing. This is the result of capitalism. (We live in a society)",
+        "AnswerText": "This is the result of capitalism",
         "Next": "NothingSolution"
       }
     ]
   },
   "EfficientUse": {
+    "CurrentEmotion": 13,
     "Text": [
       {
         "Line": "That's a good start."
@@ -210,6 +224,7 @@
     ]
   },
   "MoreZoos": {
+    "CurrentEmotion": 0,
     "Text": [
       {
         "Line": "What a noble thought."
@@ -217,11 +232,12 @@
     ],
     "DialogueOptions": [
       {
-        "Next": "start"
+        "Next": "DodgeMinigame"
       }
     ]
   },
   "NothingSolution": {
+    "CurrentEmotion": 10,
     "Text": [
       {
         "Line": "What a weak argument."
