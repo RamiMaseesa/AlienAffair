@@ -14,12 +14,20 @@ public class Dialogue : UiObject
 {
     public enum Emotion
     {
-        neutral,
         happy,
+        neutral, 
+        neutral2,
+        stinky, 
+        flirty,
+        pointing,
+        distracted,
+        suprise,
+        absoluteCinema,
+        what,
+        disappointed,
         sad,
-        angry,
-        confused,
-        Annoyed
+        sad2,
+        happy2
     }
 
     public Emotion CurrentEmotion { get; set; }
