@@ -11,26 +11,40 @@ public class DialogueManager
     public Dialogue dialogueData;
     public string DialogueKey;
 
-    public DialogueManager(string jsonFilePath, string chapter)
+    string _json;
+    public string Json
     {
-        // Load the dialogue data from a JSON file
-        string json = File.ReadAllText(jsonFilePath);
-        //var allChapters = JsonSerializer.Deserialize<Dictionary<string, Dictionary<string, Dialogue>>>(json);
-        var allChapters = JsonSerializer.Deserialize<Dictionary<string, Dialogue>>(json);
-
-        GetChapter(allChapters, chapter);
+        get
+        {
+            return _json;
+        }
+        set
+        {
+            _json = value;
+            _allDialogue = JsonSerializer.Deserialize<Dictionary<string, Dialogue>>(Json);
+            ChangeDialogueData("start");
+            ChangeDialogueData("start");
+        }
     }
 
-    public void GetChapter(Dictionary<string, Dialogue> pAllDialogue, string pChapter)
+    public DialogueManager(string pJsonFilePath)
     {
-        _allDialogue = pAllDialogue;
+        // Load the dialogue data from a JSON file
+        ChangeJsonPath(pJsonFilePath);
+        _allDialogue = JsonSerializer.Deserialize<Dictionary<string, Dialogue>>(Json);
         ChangeDialogueData("start");
         Console.WriteLine(dialogueData.Text);
+
     }
 
     public void ChangeDialogueData(string pNext)
     {
         DialogueKey = pNext;
         dialogueData = _allDialogue[DialogueKey];
+    }
+
+    public void ChangeJsonPath(string pJsonFilePath)
+    {
+        Json = File.ReadAllText(pJsonFilePath);
     }
 }

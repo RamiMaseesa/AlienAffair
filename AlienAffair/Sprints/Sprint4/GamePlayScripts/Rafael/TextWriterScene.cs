@@ -17,6 +17,7 @@ namespace AlienAffair.Sprints.Sprint4.FrameWorkScripts
         //Tutorial on https://www.tutlane.com/tutorial/csharp/csharp-properties-get-set
         Dialogue _currentDialogue;
         DialogueManager dialogueManager;
+        public string jsonPath;
 
 
         public Dialogue CurrentDialogue
@@ -43,7 +44,8 @@ namespace AlienAffair.Sprints.Sprint4.FrameWorkScripts
 
         public TextWriterScene(Game1 pGame) : base(pGame)
         {
-            dialogueManager = new DialogueManager("Content/Json/Chapter2.json", "Chapter2");
+            jsonPath = "Content/Json/Chapter1.json";
+            dialogueManager = new DialogueManager(jsonPath);
             CreateObjects();
         }
 
