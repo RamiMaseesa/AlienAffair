@@ -2,7 +2,7 @@
   "start": {
     "Text": [
       {
-        "Line": "Look at this city, it’s overcrowded, the air is filthy, and it’s terribly loud. Why would anyone want to live here?"
+        "Line": "Look at this city, it's overcrowded, the air is filthy, and it's terribly loud. Why would anyone want to live here?"
       }
     ],
     "DialogueOptions": [
@@ -23,7 +23,7 @@
   "GetUsedToCity": {
     "Text": [
       {
-        "Line": "Just because you can get used to a bad environment doesn’t make it a good thing."
+        "Line": "Just because you can get used to a bad environment doesn't make it a good thing."
       }
     ],
     "DialogueOptions": [
@@ -35,7 +35,7 @@
   "PeopleHappy": {
     "Text": [
       {
-        "Line": "As long as they are happy, I suppose there’s no problem."
+        "Line": "As long as they are happy, I suppose there's no problem."
       }
     ],
     "DialogueOptions": [
@@ -59,7 +59,7 @@
   "LonelyInCity": {
     "Text": [
       {
-        "Line": "Many people feel lonely in a big city, even though they’re surrounded by others. Why do you think that is?"
+        "Line": "Many people feel lonely in a big city, even though they're surrounded by others. Why do you think that is?"
       }
     ],
     "DialogueOptions": [
@@ -121,15 +121,15 @@
     ],
     "DialogueOptions": [
       {
-        "AnswerText": "Most people don’t know much about it.",
+        "AnswerText": "Most people don't know much about it.",
         "Next": "DontKnowMuch"
       },
       {
-        "AnswerText": "It’s cheap and easy to get",
+        "AnswerText": "It's cheap and easy to get",
         "Next": "ChooseConvenience"
       },
       {
-        "AnswerText": "people don’t know how to find alternatives.",
+        "AnswerText": "people don't know how to find alternatives.",
         "Next": "DontKnowAlternatives"
       }
     ]
@@ -161,7 +161,7 @@
   "DontKnowAlternatives": {
     "Text": [
       {
-        "Line": "On your own, you can’t do much."
+        "Line": "On your own, you can't do much."
       }
     ],
     "DialogueOptions": [
@@ -194,7 +194,7 @@
   "NotEveryoneRobbed": {
     "Text": [
       {
-        "Line": "You’re avoiding my question."
+        "Line": "You're avoiding my question."
       }
     ],
     "DialogueOptions": [

@@ -107,13 +107,25 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts
                 case "WantedMinigame":
                     _currentScene = wantedMiniGame;
                     break;
+                case "Chapter1":
+                    textWriterScene.GetDialogueManager().ChangeJsonPath("Content/Json/Chapter1.json");
+                    break;
+                case "Chapter2":
+                    textWriterScene.GetDialogueManager().ChangeJsonPath("Content/Json/Chapter2.json");
+                    break;
+                case "Chapter3":
+                    textWriterScene.GetDialogueManager().ChangeJsonPath("Content/Json/Chapter3.json");
+                    break;
+                 case "Chapter4":
+                    textWriterScene.GetDialogueManager().ChangeJsonPath("Content/Json/Chapter4.json");
+                    break;
             }
         }
 
         protected override void Draw(GameTime gameTime)
         {
             base.Draw(gameTime);
-            GraphicsDevice.Clear(Color.DarkGoldenrod);
+            GraphicsDevice.Clear(Color.LightSkyBlue);
             _spriteBatch.Begin(samplerState: SamplerState.PointClamp);
             _currentScene.Draw(_spriteBatch);
             _currentScene.Draw(_spriteBatch);

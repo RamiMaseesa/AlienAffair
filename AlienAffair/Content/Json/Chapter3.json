@@ -205,7 +205,7 @@
     ],
     "DialogueOptions": [
       {
-        "Next": "start"
+        "Next": "Chapter4"
       }
     ]
   },
@@ -217,7 +217,7 @@
     ],
     "DialogueOptions": [
       {
-        "Next": "start"
+        "Next": "Chapter4"
       }
     ]
   },
@@ -229,7 +229,19 @@
     ],
     "DialogueOptions": [
       {
-        "Next": "start"
+        "Next": "Chapter4"
+      }
+    ]
+  },
+  "Chapter4": {
+    "Text": [
+      {
+        "Line": "We're here"
+      }
+    ],
+    "DialogueOptions": [
+      {
+        "Next": "Chapter4"
       }
     ]
   }
