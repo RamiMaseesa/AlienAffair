@@ -7,6 +7,7 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts.Elliot.LevelSelector
     public class Tutorial : SceneBase
     {
         TutorialTextButton backButton;
+        Texture2D background;
 
         public enum DisplayTutorialTextState
         {
@@ -26,12 +27,14 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts.Elliot.LevelSelector
 
         protected override void CreateObjects()
         {
+            background = game.Content.Load<Texture2D>("Sprites\\Backgrounds\\StarsBackground");
+
             backButton = new TutorialTextButton(this, DisplayTutorialTextState.Buttons, new Vector2(164, game.GetGraphics().PreferredBackBufferHeight - 164), new Rectangle(0, 0, 64, 32), "Back to buttons");
             backButton.LoadSprite(game.Content);
-            TutorialTextButton text = new TutorialTextButton(this, DisplayTutorialTextState.VisualNovel, new Vector2(game.GetGraphics().PreferredBackBufferWidth / 2, 400), new Rectangle(0, 0, 64, 32), "Visual novel");
-            TutorialTextButton wanted = new TutorialTextButton(this, DisplayTutorialTextState.Wanted, new Vector2(game.GetGraphics().PreferredBackBufferWidth / 2, 500), new Rectangle(0, 0, 64, 32), "Wanted");
+            TutorialTextButton text = new TutorialTextButton(this, DisplayTutorialTextState.VisualNovel, new Vector2(game.GetGraphics().PreferredBackBufferWidth / 2, 300), new Rectangle(0, 0, 64, 32), "Visual novel");
+            TutorialTextButton wanted = new TutorialTextButton(this, DisplayTutorialTextState.Wanted, new Vector2(game.GetGraphics().PreferredBackBufferWidth / 2, 450), new Rectangle(0, 0, 64, 32), "Wanted");
             TutorialTextButton dodge = new TutorialTextButton(this, DisplayTutorialTextState.Dodge, new Vector2(game.GetGraphics().PreferredBackBufferWidth / 2, 600), new Rectangle(0, 0, 64, 32), "Dodge");
-            TutorialTextButton blackJack = new TutorialTextButton(this, DisplayTutorialTextState.BlackJack, new Vector2(game.GetGraphics().PreferredBackBufferWidth / 2, 700), new Rectangle(0, 0, 64, 32), "Black Jack");
+            TutorialTextButton blackJack = new TutorialTextButton(this, DisplayTutorialTextState.BlackJack, new Vector2(game.GetGraphics().PreferredBackBufferWidth / 2, 750), new Rectangle(0, 0, 64, 32), "Black Jack");
 
             UiSceneContent.Add(text);
             UiSceneContent.Add(wanted);
@@ -41,7 +44,9 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts.Elliot.LevelSelector
 
         public override void Draw(SpriteBatch pSpriteBatch)
         {
-            pSpriteBatch.DrawString(game.gameFont, "Tutorial", new Vector2(game.Window.ClientBounds.Width / 2, 200f), Color.Yellow, 0f, game.gameFont.MeasureString("Tutorial") / 2, 1f, SpriteEffects.None, 1f);
+            pSpriteBatch.Draw(background, new Vector2(0, 0), Color.White);
+
+            pSpriteBatch.DrawString(game.gameFont, "TUTORIAL", new Vector2(game.Window.ClientBounds.Width / 2, 200f), Color.Yellow, 0f, game.gameFont.MeasureString("TUTORIAL") / 2, 1f, SpriteEffects.None, 1f);
             DrawState(pSpriteBatch);
         }
 

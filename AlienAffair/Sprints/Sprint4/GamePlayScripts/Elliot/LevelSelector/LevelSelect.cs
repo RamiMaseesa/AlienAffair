@@ -8,6 +8,8 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts.Elliot.LevelSelector
 {
     public class LevelSelect : SceneBase
     {
+        Texture2D background;
+        
         public LevelSelect(Game1 pGame1) : base(pGame1)
         {
             CreateObjects();
@@ -15,9 +17,11 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts.Elliot.LevelSelector
 
         protected override void CreateObjects()
         {
-            LevelButton wanted = new LevelButton(GameStates.wantedMiniGame, new Vector2(game.GetGraphics().PreferredBackBufferWidth / 2, 500), new Rectangle(0, 0, 64, 32), "Wanted");
-            LevelButton dodge = new LevelButton(GameStates.dodgeMinigame, new Vector2(game.GetGraphics().PreferredBackBufferWidth / 2, 600), new Rectangle(0, 0, 64, 32), "Dodge");
-            LevelButton blackJack = new LevelButton(GameStates.ramiGame1Poker, new Vector2(game.GetGraphics().PreferredBackBufferWidth / 2, 700), new Rectangle(0, 0, 64, 32), "Black Jack");
+            background = game.Content.Load<Texture2D>("Sprites\\Backgrounds\\StarsBackground");
+
+            LevelButton wanted = new LevelButton(GameStates.wantedMiniGame, new Vector2(game.GetGraphics().PreferredBackBufferWidth / 2, 300), new Rectangle(0, 0, 64, 32), "Wanted");
+            LevelButton dodge = new LevelButton(GameStates.dodgeMinigame, new Vector2(game.GetGraphics().PreferredBackBufferWidth / 2, 450), new Rectangle(0, 0, 64, 32), "Dodge");
+            LevelButton blackJack = new LevelButton(GameStates.ramiGame1Poker, new Vector2(game.GetGraphics().PreferredBackBufferWidth / 2, 600), new Rectangle(0, 0, 64, 32), "Black Jack");
 
             UiSceneContent.Add(wanted);
             UiSceneContent.Add(dodge);
@@ -26,7 +30,8 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts.Elliot.LevelSelector
 
         public override void Draw(SpriteBatch pSpriteBatch)
         {
-            pSpriteBatch.DrawString(game.gameFont, "Minigames", new Vector2(game.Window.ClientBounds.Width / 2, 200f), Color.Yellow, 0f, game.gameFont.MeasureString("Minigames") / 2, 1f, SpriteEffects.None, 1f);
+            pSpriteBatch.Draw(background, new Vector2(0, 0), Color.White);
+            pSpriteBatch.DrawString(game.gameFont, "MINIGAMES", new Vector2(game.Window.ClientBounds.Width / 2, 200f), Color.Yellow, 0f, game.gameFont.MeasureString("MINIGAMES") / 2, 1f, SpriteEffects.None, 1f);
 
             base.Draw(pSpriteBatch);
         }
