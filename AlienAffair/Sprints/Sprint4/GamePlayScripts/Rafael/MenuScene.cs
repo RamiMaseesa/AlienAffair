@@ -27,6 +27,11 @@ public class MenuScene : SceneBase
         UiSceneContent.Add(new ExitButton(new Vector2(game.GetGraphics().PreferredBackBufferWidth / 2, 750), new Rectangle(3, 35, 58, 26), "Exit"));
     }
 
+    public override void OnSceneEnter()
+    {
+        game.backgroundManager.ChangeBackground(backgrounds.Stars);
+    }
+
     public override void Draw(SpriteBatch pSpriteBatch)
     {
         pSpriteBatch.Draw(background, new Vector2(0, 0), Color.White);

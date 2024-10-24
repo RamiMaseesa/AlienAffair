@@ -1,7 +1,6 @@
 ﻿using AlienAffair.Sprints.Sprint4.FrameWorkScripts;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
 using System;
 
 
@@ -9,7 +8,7 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts.Elliot.Dodge
 {
     public class Obstacle : GameObject
     {
-        float speed = 50;
+        private float speed = 50;
 
         public Obstacle(Vector2 pPosition, string pPath, Color pColor, float pSpeed) : base(pPosition, pPath)
         {

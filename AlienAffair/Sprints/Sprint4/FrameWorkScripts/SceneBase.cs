@@ -78,6 +78,11 @@ namespace AlienAffair.Sprints.Sprint4.FrameWorkScripts
             }
         }
 
+        public virtual void OnSceneEnter()
+        {
+
+        }
+
         /// <summary>
         /// Use this method to add all your objects to the sceneContent
         /// </summary>

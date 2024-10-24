@@ -9,8 +9,6 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts.Elliot.Dodge
 {
     public class DodgeMinigame : SceneBase
     {
-        private ContentManager contentManager;
-
         private MovingBackground background;
 
         private Jaguar jaguar;
@@ -33,7 +31,6 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts.Elliot.Dodge
 
         public DodgeMinigame(ContentManager pContent, Game1 pGame1) : base(pGame1)
         {
-            contentManager = pContent;
             CreateObjects();
         }
 
@@ -51,7 +48,7 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts.Elliot.Dodge
             sceneContent.Add(jaguar);
             sceneContent.Add(player);
 
-            LoadContent(contentManager);
+            LoadContent(game.Content);
         }
 
         public override void LoadContent(ContentManager pContent)
@@ -105,7 +102,7 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts.Elliot.Dodge
             if (objectSpawnTimer < 0)
             {
                 Obstacle obstacle = new Obstacle(new Vector2(game.Window.ClientBounds.Width, (int)lanePos[spawnPos]), "Sprites\\Obstacles", Color.White, baseSpeed);
-                obstacle.LoadSprite(contentManager);
+                obstacle.LoadSprite(game.Content);
                 sceneContent.Add(obstacle);
                 obstaclesInScene.Add(obstacle);
 

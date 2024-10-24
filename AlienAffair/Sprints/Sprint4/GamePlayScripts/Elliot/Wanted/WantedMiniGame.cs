@@ -76,6 +76,12 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts.Elliot.Wanted
             playerCircle.LoadSprite(contentManager);
         }
 
+        public override void OnSceneEnter()
+        {
+            game.backgroundManager.ChangeBackground(backgrounds.Wanted);
+        }
+
+
         public override void Update(GameTime pGameTime)
         {
             base.Update(pGameTime);

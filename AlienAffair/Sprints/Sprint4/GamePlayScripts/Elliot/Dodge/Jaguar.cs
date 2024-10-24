@@ -1,16 +1,13 @@
 ﻿using AlienAffair.Sprints.Sprint4.FrameWorkScripts;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Input;
-using System;
 
 namespace AlienAffair.Sprints.Sprint4.GamePlayScripts.Elliot.Dodge
 {
     public class Jaguar : GameObject
     {
-        Animation jaguarAnimation;
-        Rectangle jaguarRec;
+        private Animation jaguarAnimation;
 
-        Player playerReference;
+        private Player playerReference;
 
         public Jaguar(Vector2 pPosition, string pPath, Color pColor, Player pPlayer) : base(pPosition, pPath)
         {

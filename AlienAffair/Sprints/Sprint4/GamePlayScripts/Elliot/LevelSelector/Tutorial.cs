@@ -1,5 +1,6 @@
 ﻿using AlienAffair.Sprints.Sprint4.FrameWorkScripts;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace AlienAffair.Sprints.Sprint4.GamePlayScripts.Elliot.LevelSelector
@@ -7,7 +8,6 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts.Elliot.LevelSelector
     public class Tutorial : SceneBase
     {
         TutorialTextButton backButton;
-        Texture2D background;
 
         public enum DisplayTutorialTextState
         {
@@ -27,8 +27,6 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts.Elliot.LevelSelector
 
         protected override void CreateObjects()
         {
-            background = game.Content.Load<Texture2D>("Sprites\\Backgrounds\\StarsBackground");
-
             backButton = new TutorialTextButton(this, DisplayTutorialTextState.Buttons, new Vector2(164, game.GetGraphics().PreferredBackBufferHeight - 164), new Rectangle(0, 0, 64, 32), "Back to buttons");
             backButton.LoadSprite(game.Content);
             TutorialTextButton text = new TutorialTextButton(this, DisplayTutorialTextState.VisualNovel, new Vector2(game.GetGraphics().PreferredBackBufferWidth / 2, 300), new Rectangle(0, 0, 64, 32), "Visual novel");
@@ -42,10 +40,13 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts.Elliot.LevelSelector
             UiSceneContent.Add(blackJack);
         }
 
+        public override void OnSceneEnter()
+        {
+            game.backgroundManager.ChangeBackground(backgrounds.Stars);
+        }
+
         public override void Draw(SpriteBatch pSpriteBatch)
         {
-            pSpriteBatch.Draw(background, new Vector2(0, 0), Color.White);
-
             pSpriteBatch.DrawString(game.gameFont, "TUTORIAL", new Vector2(game.Window.ClientBounds.Width / 2, 200f), Color.Yellow, 0f, game.gameFont.MeasureString("TUTORIAL") / 2, 1f, SpriteEffects.None, 1f);
             DrawState(pSpriteBatch);
         }

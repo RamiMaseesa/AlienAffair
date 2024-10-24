@@ -1,4 +1,5 @@
 ﻿using AlienAffair.Sprints.Sprint4.FrameWorkScripts;
+using AlienAffair.Sprints.Sprint4.GamePlayScripts.Elliot;
 using AlienAffair.Sprints.Sprint4.GamePlayScripts.Elliot.Dodge;
 using AlienAffair.Sprints.Sprint4.GamePlayScripts.Elliot.LevelSelector;
 using AlienAffair.Sprints.Sprint4.GamePlayScripts.Elliot.Wanted;
@@ -21,6 +22,8 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts
 
         public Game1 game1Refference;
         public List<SceneBase> scenes = new List<SceneBase>();
+
+        public BackgroundManager backgroundManager;
 
         SceneBase _previousScene;
         SceneBase _currentScene;
@@ -76,6 +79,7 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts
 
             gameFont = Content.Load<SpriteFont>("Fonts\\File");
             pixel = Content.Load<Texture2D>("Sprites\\Pixel");
+            backgroundManager = new BackgroundManager(game1Refference);
 
             ResetScenes();
 
@@ -133,8 +137,9 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts
             base.Draw(gameTime);
             GraphicsDevice.Clear(Color.DarkGoldenrod);
             _spriteBatch.Begin(samplerState: SamplerState.PointClamp);
+            backgroundManager.Draw(_spriteBatch);
             _currentScene.Draw(_spriteBatch);
-            _currentScene.Draw(_spriteBatch);
+            //_currentScene.Draw(_spriteBatch);
             menuButton.Draw(_spriteBatch);
             _spriteBatch.End();
             base.Draw(gameTime);
@@ -144,6 +149,7 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts
         {
             _currentScene = scenes[(int)pState];
             currentState = pState;
+            _currentScene.OnSceneEnter();
         }
 
         private void ResetScenes()
@@ -173,6 +179,8 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts
 
             currentState = GameStates.TitleScreen;
             _currentScene = titleScreen;
+            _currentScene.OnSceneEnter();
+
             for (int i = scenes.Count - 1; i >= 0; i--)
             {
                 foreach (GameObject gameObject in scenes[i].sceneContent)
