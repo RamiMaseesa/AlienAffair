@@ -15,7 +15,7 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts.Rami.BlackJack
 
         public RamiGame1Poker(Game1 game1) : base(game1)
         {
-            pokerManager = new PokerManager(game.GetGraphics(), game.Content);
+            pokerManager = new PokerManager(game.GetGraphics(), game.Content, game);
             CreateObjects();
         }
 

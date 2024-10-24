@@ -16,11 +16,12 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts.Rami.BlackJack
 
         private int AICardHeight = 200;
         private int PlayerCardHeight = 600;
-
-        public PokerManager(GraphicsDeviceManager graphics, ContentManager content)
+        public Game1 game;
+        public PokerManager(GraphicsDeviceManager graphics, ContentManager content, Game1 pGame1Refference)
         {
             this.graphics = graphics;
             this.content = content;
+            game = pGame1Refference;
         }
 
         public virtual void OnGameStart()
@@ -56,13 +57,14 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts.Rami.BlackJack
                 cards.Clear();
                 OnGameStart();
                 Console.WriteLine("Player Bust");
-                
+                game.EndMinigame();
             }
             else if (sumAI > 21) 
             {
                 cards.Clear();
                 OnGameStart();
                 Console.WriteLine("AI Bust");
+                game.EndMinigame();
             }
 
             if (sumAI < 17) return;
@@ -72,18 +74,21 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts.Rami.BlackJack
                 cards.Clear();
                 OnGameStart();
                 Console.WriteLine("TIE");
+                game.EndMinigame();
             }
             else if (sumPlayer > sumAI)
             {
                 cards.Clear();
                 OnGameStart();
                 Console.WriteLine("Player WIN");
+                game.EndMinigame();
             }
             else
             {
                 cards.Clear();
                 OnGameStart();
                 Console.WriteLine("AI WIN");
+                game.EndMinigame();
             }
         }
 
