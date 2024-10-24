@@ -219,7 +219,7 @@
     ],
     "DialogueOptions": [
       {
-        "Next": "start"
+        "Next": "Chapter3"
       }
     ]
   },

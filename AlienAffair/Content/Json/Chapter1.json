@@ -4,21 +4,36 @@
     "Text": [
       {
         "Line": "(Should I run?)",
-        "RgbValues": [71, 135, 234, 255]
+        "RgbValues": [
+          71,
+          135,
+          234,
+          255
+        ]
       },
       {
         "Line": "It's pointless, human. I'm going to make all humans disappear in their sleep"
       },
       {
         "Line": "(Why?)",
-        "RgbValues": [71, 135, 234, 255]
+        "RgbValues": [
+          71,
+          135,
+          234,
+          255
+        ]
       },
       {
         "Line": "Humanity causes more harm than good: you use each other, destroy the world, and leave little room for each other."
       },
       {
         "Line": "(That's not true, and I can prove it.)",
-        "RgbValues": [71, 135, 234, 255]
+        "RgbValues": [
+          71,
+          135,
+          234,
+          255
+        ]
       },
       {
         "Line": "Alright, if you're sure, I'll teleport us to three places where humanity shows its worst."
@@ -40,7 +55,17 @@
     "Text": [
       {
         "Line": "(Zorg teleports you to the next location.)",
-        "RgbValues": [71, 135, 234, 255]
+        "RgbValues": [
+          71,
+          135,
+          234,
+          255
+        ]
+      }
+    ],
+    "DialogueOptions": [
+      {
+        "Next": "Chapter2"
       }
     ]
   },
@@ -52,7 +77,25 @@
       },
       {
         "Line": "Zorg decides to make humanity disappear.",
-        "RgbValues": [255, 0, 0, 255]
+        "RgbValues": [
+          255,
+          0,
+          0,
+          255
+        ]
+      }
+    ]
+  },
+  "Chapter2": {
+    "CurrentEmotion": 6,
+    "Text": [
+      {
+        "Line": "We're here"
+      }
+    ],
+    "DialogueOptions": [
+      {
+        "Next": "Chapter2"
       }
     ]
   }

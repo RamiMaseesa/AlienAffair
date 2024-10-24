@@ -3,10 +3,6 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AlienAffair.Sprints.Sprint4.GamePlayScripts.Rami.BlackJack
 {
@@ -16,14 +12,12 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts.Rami.BlackJack
         private string[] paths;
         private SpriteFont cardFont;
         public int value;
-        private List<CardBase> cards;
-        public CardBase(Vector2 pPosition, string[] pPathToImage, List<CardBase> cards) : base(pPosition, pPathToImage[0])
+        public CardBase(Vector2 pPosition, string[] pPathToImage) : base(pPosition, pPathToImage[0])
         {
             position = pPosition;
             rectangle = new Rectangle(0, 0, 80, 120);
             paths = pPathToImage;
             scale = 2.5f;
-            this.cards = cards;
         }
 
         public override void LoadSprite(ContentManager pContent)
