@@ -47,7 +47,6 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts.Elliot.LevelSelector
 
         public override void Update(GameTime pGameTime)
         {
-            base.Update(pGameTime);
             UpdateState(pGameTime);
         }
 
@@ -93,6 +92,9 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts.Elliot.LevelSelector
         {
             switch (currentState)
             {
+                case DisplayTutorialTextState.Buttons:
+                    base.Update(pGameTime);
+                    break;
                 case DisplayTutorialTextState.VisualNovel:
                     backButton.Update(pGameTime);
                     break;
