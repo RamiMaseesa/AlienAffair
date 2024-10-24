@@ -38,7 +38,7 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts.Rami.BlackJack
             Random rnd = new Random();
 
             texture2D = sprites[rnd.Next(0, paths.Length)];
-            value = rnd.Next(1, 11); ;
+            value = rnd.Next(2, 11); ;
 
             cardFont = pContent.Load<SpriteFont>("Fonts\\File");
         }

@@ -232,7 +232,7 @@
     ],
     "DialogueOptions": [
       {
-        "Next": "Chapter3"
+        "Next": "Poker"
       }
     ]
   },
@@ -245,20 +245,14 @@
     ],
     "DialogueOptions": [
       {
-        "Next": "Chapter3"
+        "Next": "start"
       }
     ]
   },
-  "Chapter3": {
-    "CurrentEmotion": 6,
+  "Poker": {
     "Text": [
       {
-        "Line": "We're here"
-      }
-    ],
-    "DialogueOptions": [
-      {
-        "Next": "Chapter3"
+        "Line": "Lets go gambling, I want to see why humans like it"
       }
     ]
   }

@@ -21,8 +21,6 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts.Elliot.Dodge
         private float timeLeft = 30f;
         private float speedUpTimer = 10f;
 
-        private Color playerDebugColor = Color.White;
-
         float baseSpeed = 178f;
 
         private List<Obstacle> obstaclesInScene = new List<Obstacle>();
@@ -47,7 +45,7 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts.Elliot.Dodge
             lanePos[1] = game.Window.ClientBounds.Height * 0.5f;
             lanePos[2] = game.Window.ClientBounds.Height * 0.7f;
 
-            player = new Player(new Vector2(900, lanePos[1]), "Sprites\\RunningManSpriteSheet", playerDebugColor, lanePos);
+            player = new Player(new Vector2(900, lanePos[1]), "Sprites\\RunningManSpriteSheet", Color.White, lanePos);
             jaguar = new Jaguar(new Vector2(450, lanePos[1]), "Sprites\\JaguarSpriteSheet", Color.White, player);
 
             sceneContent.Add(jaguar);
@@ -82,7 +80,7 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts.Elliot.Dodge
 
                 if (jaguar.hitBox.Contains(player.hitBox))
                 {
-                    game.ChangeScene(GameStates.textWriterScene);
+                    game.EndMinigame();
                 }
             }
         }
@@ -122,8 +120,6 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts.Elliot.Dodge
                 if (obstaclesInScene[i].hitBox.Intersects(player.hitBox))
                 {
                     hitObject = obstaclesInScene[i];
-                    Console.WriteLine("Hit Object");
-                    player.color = Color.Red;
                     gameOver = true;
                 }
             }
@@ -131,7 +127,6 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts.Elliot.Dodge
             if (hitObject != null && !hitObject.hitBox.Intersects(player.hitBox))
             {
                 hitObject = null;
-                player.color = Color.White;
             }
         }
 
@@ -142,7 +137,7 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts.Elliot.Dodge
 
             if (timeLeft <= 0)
             {
-                game.ChangeScene(GameStates.textWriterScene);
+                game.EndMinigame();
             }
 
             if (speedUpTimer <= 0)

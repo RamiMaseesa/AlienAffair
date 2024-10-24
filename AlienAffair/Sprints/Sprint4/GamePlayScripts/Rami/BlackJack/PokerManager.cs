@@ -67,7 +67,7 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts.Rami.BlackJack
                 Console.WriteLine("AI Bust");
             }
 
-
+            if (sumAI < 17) return;
 
             if (sumPlayer == sumAI)
             {
@@ -117,6 +117,8 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts.Rami.BlackJack
             PlayerCard card;
             cards.Add(card = new PlayerCard(new Vector2(400 + amountOfPlayerCards * 250, PlayerCardHeight), new string[] { "Sprites\\PokerClover", "Sprites\\PokerClubs", "Sprites\\PokerDiamand", "Sprites\\PokerHart" }, cards));
             card.LoadSprite(content);
+
+            WinCheck();
         }
 
         public void OnStand()
@@ -148,6 +150,8 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts.Rami.BlackJack
                     if (cardBase is AICard) sum += cardBase.value;
                 }
             } while (sum < 17);
+
+            WinCheck();
         }
     }
 }
