@@ -248,5 +248,12 @@
         "Next": "start"
       }
     ]
+  },
+  "DodgeMinigame": {
+    "Text": [
+      {
+        "Line": "Lets play a game"
+      }
+    ]
   }
 }

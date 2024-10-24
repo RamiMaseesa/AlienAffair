@@ -248,5 +248,12 @@
         "Next": "start"
       }
     ]
+  },
+  "Poker": {
+    "Text": [
+      {
+        "Line": "Lets go gambling, I want to see why humans like it"
+      }
+    ]
   }
 }

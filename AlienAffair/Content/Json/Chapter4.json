@@ -242,5 +242,12 @@
         "Next": "start"
       }
     ]
+  },
+  "WantedMinigame": {
+    "Text": [
+      {
+        "Line": "Lets play a game"
+      }
+    ]
   }
 }
