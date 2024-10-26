@@ -245,11 +245,16 @@
     ],
     "DialogueOptions": [
       {
-        "Next": "start"
+        "Next": "Chapter3"
       }
     ]
   },
   "Poker": {
+    "Text": [
+      {
+        "Line": ""
+      }
+    ],
     "DialogueOptions": [
       {
         "Next": "Chapter3"
@@ -260,6 +265,11 @@
     ]
   },
   "Chapter3": {
+    "Text": [
+      {
+        "Line": ""
+      }
+    ],
     "DialogueOptions": [
       {
         "Next": "Chapter3"

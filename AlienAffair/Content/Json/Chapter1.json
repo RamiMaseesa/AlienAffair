@@ -47,10 +47,6 @@
       {
         "AnswerText": "Uh, I'd rather continue my walk.",
         "Next": "EndScene"
-      },
-      {
-        "AnswerText": "Poker",
-        "Next": "Poker"
       }
     ]
   },
@@ -87,18 +83,6 @@
           0,
           255
         ]
-      }
-    ]
-  },
-  "Poker": {
-    "Text": [
-      {
-        "Line": "That was fun"
-      }
-    ],
-    "DialogueOptions": [
-      {
-        "Next": "Chapter2"
       }
     ]
   },

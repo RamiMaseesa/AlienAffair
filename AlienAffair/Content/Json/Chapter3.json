@@ -70,7 +70,7 @@
     "CurrentEmotion": 10,
     "Text": [
       {
-        "Line": "All the animals that are now losing their homes or going extinct did nothing wrong. /nWhy do these animals deserve to disappear, but humanity does not?"
+        "Line": "All the animals that are now losing their homes or going extinct did nothing wrong. \nWhy do these animals deserve to disappear, but humanity does not?"
       }
     ],
     "DialogueOptions": [
@@ -245,7 +245,7 @@
     ],
     "DialogueOptions": [
       {
-        "Next": "start"
+        "Next": "Chapter4"
       }
     ]
   },
@@ -253,6 +253,19 @@
     "Text": [
       {
         "Line": "Lets play a game"
+      }
+    ],
+    "DialogueOptions": [
+      {
+        "Next": "Chapter4"
+      }
+    ]
+  },
+  "Chapter4": {
+    "CurrentEmotion": 13,
+    "Text": [
+      {
+        "Line": "That's a good start."
       }
     ]
   }

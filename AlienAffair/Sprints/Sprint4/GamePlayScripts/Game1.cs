@@ -38,6 +38,7 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts
                     _previousScene = _currentScene;
                     System.Console.WriteLine("PreviousScene: " + _previousScene);
                     _currentScene = value;
+                    _currentScene.OnSceneEnter();
                 }
             }
         }
@@ -122,15 +123,15 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts
             switch(textWriterScene.GetDialogueManager().DialogueKey)
             {
                 case "Poker":
-                    CurrentScene.OnSceneEnter();
+                    //CurrentScene.OnSceneEnter();
                     CurrentScene = ramiGame1Poker;
                     break;
                 case "DodgeMinigame":
-                    CurrentScene.OnSceneEnter();
+                    //CurrentScene.OnSceneEnter();
                     CurrentScene = dodgeMinigame;
                     break;
                 case "WantedMinigame":
-                    CurrentScene.OnSceneEnter();
+                    //CurrentScene.OnSceneEnter();
                     CurrentScene = wantedMiniGame;
                     break;
                 case "Chapter1":
@@ -171,7 +172,7 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts
         {
             CurrentScene = scenes[(int)pState];
             currentState = pState;
-            _currentScene.OnSceneEnter();
+            //_currentScene.OnSceneEnter();
         }
 
         private void ResetScenes()

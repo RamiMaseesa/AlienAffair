@@ -13,7 +13,8 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts.Elliot.LevelSelector
 
         public EndScene(Game1 pGame1, int pEmotionPoints) : base(pGame1)
         {
-            PickEnding(pEmotionPoints);
+            Random rnd = new Random();
+            PickEnding(rnd.Next(0, 21));
         }
 
         private void PickEnding(int pEmotionPoints)
