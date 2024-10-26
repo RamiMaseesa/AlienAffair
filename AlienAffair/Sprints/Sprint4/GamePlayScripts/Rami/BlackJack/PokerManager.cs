@@ -39,6 +39,7 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts.Rami.BlackJack
             {
                 card.LoadSprite(content); 
             }
+
         }
 
         public void WinCheck()
@@ -52,31 +53,21 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts.Rami.BlackJack
                 if (cardBase is PlayerCard) sumPlayer += cardBase.value;
             }
 
-            if (sumPlayer > 21)
-            {
-                cards.Clear();
-                Console.WriteLine("Player Bust");
-                game.EndMinigame();
-            }
-            else if (sumAI > 21) 
-            {
-                cards.Clear();
-                Console.WriteLine("AI Bust");
-                game.EndMinigame();
-            }
-            else if (sumPlayer == sumAI && sumAI < 17)
+
+
+            if (sumPlayer == sumAI)
             {
                 cards.Clear();
                 Console.WriteLine("TIE");
                 game.EndMinigame();
             }
-            else if (sumPlayer > sumAI && sumAI < 17)
+            else if (sumPlayer > sumAI)
             {
                 cards.Clear();
                 Console.WriteLine("Player WIN");
                 game.EndMinigame();
             }
-            else if (sumPlayer < sumAI && sumAI < 17)
+            else if (sumPlayer < sumAI)
             {
                 cards.Clear();
                 Console.WriteLine("AI WIN");
@@ -113,18 +104,29 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts.Rami.BlackJack
             cards.Add(card = new PlayerCard(new Vector2(400 + amountOfPlayerCards * 250, PlayerCardHeight), new string[] { "Sprites\\PokerClover", "Sprites\\PokerClubs", "Sprites\\PokerDiamond", "Sprites\\PokerHeart" }));
             card.LoadSprite(content);
 
-            WinCheck();
+            sum += card.value;
+            // player loses if he has more than 21 points
+            if (sum > 21)
+            {
+                cards.Clear();
+                Console.WriteLine("Player Bust");
+                game.EndMinigame();
+            }
+
+            if (sum >= 17) WinCheck();
         }
 
         public void OnStand()
         {
+           
+
             int sum = 0;
 
             foreach (CardBase cardBase in cards)
             {
                 if (cardBase is AICard) sum += cardBase.value;
             }
-
+            if (sum >= 17) WinCheck();
             if (sum >= 17) return;
 
             do {
@@ -144,9 +146,16 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts.Rami.BlackJack
                 {
                     if (cardBase is AICard) sum += cardBase.value;
                 }
+
+                if (sum > 21)
+                {
+                    cards.Clear();
+                    Console.WriteLine("AI Bust");
+                    game.EndMinigame();
+                }
             } while (sum < 17);
 
-            WinCheck();
+            if (sum >= 17) WinCheck();
         }
     }
 }
