@@ -101,7 +101,7 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts.Elliot.Wanted
             playerCircle.DetectWanted(wantedPerson, pGameTime);
             CheckWallCollision();
 
-            if (timesWon >= 1)
+            if (timesWon >= 5)
             {
                 game.EndMinigame();
             }

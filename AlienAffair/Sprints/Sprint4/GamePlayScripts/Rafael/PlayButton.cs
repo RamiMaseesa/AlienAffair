@@ -1,5 +1,6 @@
 using System;
 using AlienAffair.Sprints.Sprint4.FrameWorkScripts;
+using AlienAffair.Sprints.Sprint4.GamePlayScripts.Elliot;
 using Microsoft.Xna.Framework;
 
 namespace AlienAffair.Sprints.Sprint4.GamePlayScripts.Rafael;
@@ -20,8 +21,7 @@ public class PlayButton : ButtonBase
     public override void ButtonBehaviour()
     {
         base.ButtonBehaviour();
+        game.backgroundManager.ChangeBackground(backgrounds.Park);
         game.ChangeScene(GameStates.textWriterScene);
     }
-
-
 }

@@ -226,7 +226,7 @@
     ],
     "DialogueOptions": [
       {
-        "Next": "start"
+        "Next": "WantedMinigame"
       }
     ]
   },
@@ -239,7 +239,7 @@
     ],
     "DialogueOptions": [
       {
-        "Next": "start"
+        "Next": "WantedMinigame"
       }
     ]
   },
@@ -247,6 +247,11 @@
     "Text": [
       {
         "Line": "Lets play a game"
+      }
+    ],
+    "DialogueOptions": [
+      {
+        "Next": "EndScene"
       }
     ]
   }

@@ -122,25 +122,34 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts
             switch(textWriterScene.GetDialogueManager().DialogueKey)
             {
                 case "Poker":
+                    CurrentScene.OnSceneEnter();
                     CurrentScene = ramiGame1Poker;
                     break;
                 case "DodgeMinigame":
+                    CurrentScene.OnSceneEnter();
                     CurrentScene = dodgeMinigame;
                     break;
                 case "WantedMinigame":
+                    CurrentScene.OnSceneEnter();
                     CurrentScene = wantedMiniGame;
                     break;
                 case "Chapter1":
                     textWriterScene.GetDialogueManager().ChangeJsonPath("Content/Json/Chapter1.json");
                     break;
                 case "Chapter2":
+                    backgroundManager.ChangeBackground(backgrounds.Casino);
                     textWriterScene.GetDialogueManager().ChangeJsonPath("Content/Json/Chapter2.json");
                     break;
                 case "Chapter3":
+                    backgroundManager.ChangeBackground(backgrounds.Deforestation);
                     textWriterScene.GetDialogueManager().ChangeJsonPath("Content/Json/Chapter3.json");
                     break;
                  case "Chapter4":
+                    backgroundManager.ChangeBackground(backgrounds.City);
                     textWriterScene.GetDialogueManager().ChangeJsonPath("Content/Json/Chapter4.json");
+                    break;
+                case "EndScene":
+                    CurrentScene = endScene;
                     break;
             }
         }

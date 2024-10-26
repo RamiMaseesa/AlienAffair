@@ -4,6 +4,9 @@
     {
         Wanted,
         Carpet,
+        Casino,
+        City,
+        Deforestation,
         Forest,
         Park,
         Stars,
