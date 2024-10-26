@@ -75,7 +75,7 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts.Elliot.LevelSelector
                     backButton.DrawText(pSpriteBatch, game.gameFont);
 
                     pSpriteBatch.DrawString(game.gameFont, "Move the circle around with W,A,S,D, hover over the wanted sprite for 3 seconds to select it", new Vector2(game.Window.ClientBounds.Width / 2, 500f), Color.Yellow, 0f, game.gameFont.MeasureString("Move the circle around with W,A,S,D, hover over the wanted sprite for 3 seconds to select it") / 2, 1f, SpriteEffects.None, 1f);
-                    pSpriteBatch.DrawString(game.gameFont, "Change speed with space bar", new Vector2(game.Window.ClientBounds.Width / 2, 600f), Color.Yellow, 0f, game.gameFont.MeasureString("Change speed with space bar") / 2, 1f, SpriteEffects.None, 1f);
+                    pSpriteBatch.DrawString(game.gameFont, "Change speed with space bar, find the wanted person 5 times to win", new Vector2(game.Window.ClientBounds.Width / 2, 600f), Color.Yellow, 0f, game.gameFont.MeasureString("Change speed with space bar") / 2, 1f, SpriteEffects.None, 1f);
                     break;
                 case DisplayTutorialTextState.Dodge:
                     backButton.Draw(pSpriteBatch);
