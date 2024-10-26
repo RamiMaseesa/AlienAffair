@@ -95,11 +95,6 @@ public class Dialogue : UiObject
                 DialogueOptions[i].Update(pGameTime);
             }
         }
-        else if (DialogueOptions.Length == 1 && _typingFinished)
-        {
-            dialogueManager.ChangeDialogueData(DialogueOptions[0].Next);
-            _typingFinished = false;
-        }
     }
 
     public override void Draw(SpriteBatch pSpriteBatch, SpriteFont pGameFont)
@@ -114,7 +109,17 @@ public class Dialogue : UiObject
                 _yOffset += Text[i].GetPrintedTextSize(pGameFont).Y * Text[i].TextSize;
             }
         }
+        
         DisplayOptions(pSpriteBatch);
+        
+        if (DialogueOptions != null)
+        {
+            if (DialogueOptions.Length == 1 && _typingFinished)
+            {
+                dialogueManager.AdvanceDialogue();
+                //.AdvanceDialogue();
+            }
+        }
     }
 
     /// <summary>
