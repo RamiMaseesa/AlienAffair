@@ -17,7 +17,7 @@ public class Dialogue : UiObject
         happy,
         neutral,
         anrgy,
-        stinky, 
+        stinky,
         flirty,
         pointing,
         distracted,
@@ -55,9 +55,10 @@ public class Dialogue : UiObject
 
     public override void Update(GameTime pGameTime)
     {
+
+
         //temporary
         kstate = Keyboard.GetState();
-        // Text[0]._isvisible = true;
         if (!_typingFinished)
         {
             for (int i = Text.Length - 1; i >= 0; i--)
@@ -93,6 +94,11 @@ public class Dialogue : UiObject
             {
                 DialogueOptions[i].Update(pGameTime);
             }
+        }
+        else if (DialogueOptions.Length == 1 && _typingFinished)
+        {
+            dialogueManager.ChangeDialogueData(DialogueOptions[0].Next);
+            _typingFinished = false;
         }
     }
 
@@ -200,10 +206,6 @@ public class Dialogue : UiObject
                 DialogueOptions[i].SetDialogueManager(dialogueManager);
                 DialogueOptions[i].Draw(pSpriteBatch, gameFont);
             }
-        }
-        else if(DialogueOptions.Length == 1 && _typingFinished)
-        {
-            dialogueManager.ChangeDialogueData(DialogueOptions[0].Next);
         }
     }
 

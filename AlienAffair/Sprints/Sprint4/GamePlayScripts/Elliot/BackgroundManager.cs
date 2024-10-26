@@ -23,7 +23,7 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts.Elliot
 
         private void Initialize()
         {
-            files = Directory.GetFiles("Content\\Sprites\\Backgrounds");
+            files = Directory.GetFiles("Content/Sprites/Backgrounds");
             foreach (string file in files)
             {
                 string path = file.Remove(0, 8);
@@ -34,12 +34,10 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts.Elliot
         public void Draw(SpriteBatch pSpriteBatch)
         {
             pSpriteBatch.Draw(background, new Vector2(0, 0), Color.White);
-            Console.WriteLine(background);
         }
 
         public void ChangeBackground(backgrounds pState)
         {
-            Console.WriteLine(backgroundPaths[(int)pState]);
             background = game1.Content.Load<Texture2D>(backgroundPaths[(int)pState]);
         }
     }

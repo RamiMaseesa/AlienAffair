@@ -101,7 +101,7 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts.Elliot.Wanted
             playerCircle.DetectWanted(wantedPerson, pGameTime);
             CheckWallCollision();
 
-            if (timesWon >= 5)
+            if (timesWon >= 1)
             {
                 game.EndMinigame();
             }
@@ -139,18 +139,6 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts.Elliot.Wanted
                 {
                     alien.FlipDirectionX();
                 }
-            }
-        }
-
-        private void EndGame()
-        {
-            if (game.GetPreviousScene() is TextWriterScene)
-            {
-                game.ChangeScene(GameStates.textWriterScene);
-            }
-            else
-            {
-                game.LoadGame1();
             }
         }
     }

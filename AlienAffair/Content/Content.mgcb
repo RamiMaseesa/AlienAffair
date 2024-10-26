@@ -63,6 +63,18 @@
 /processorParam:TextureFormat=Color
 /build:Sprites/Backgrounds/Background_Wanted.png
 
+#begin Sprites/Backgrounds/CarpetBackground.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sprites/Backgrounds/CarpetBackground.png
+
 #begin Sprites/Backgrounds/ForestBackground.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -279,7 +291,7 @@
 /processorParam:TextureFormat=Color
 /build:Sprites/PokerClubs.png
 
-#begin Sprites/PokerDiamand.png
+#begin Sprites/PokerDiamond.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -289,9 +301,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Sprites/PokerDiamand.png
+/build:Sprites/PokerDiamond.png
 
-#begin Sprites/PokerHart.png
+#begin Sprites/PokerHeart.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -301,7 +313,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Sprites/PokerHart.png
+/build:Sprites/PokerHeart.png
 
 #begin Sprites/RunningManSpriteSheet.png
 /importer:TextureImporter
@@ -315,7 +327,7 @@
 /processorParam:TextureFormat=Color
 /build:Sprites/RunningManSpriteSheet.png
 
-#begin Sprites/tafel.png
+#begin Sprites/Table.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -325,19 +337,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Sprites/tafel.png
-
-#begin Sprites/tapijt.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Sprites/tapijt.png
+/build:Sprites/Table.png
 
 #begin Sprites/White_Block.png
 /importer:TextureImporter

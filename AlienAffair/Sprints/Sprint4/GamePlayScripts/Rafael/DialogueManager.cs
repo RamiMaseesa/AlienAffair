@@ -23,7 +23,6 @@ public class DialogueManager
             _json = value;
             _allDialogue = JsonSerializer.Deserialize<Dictionary<string, Dialogue>>(Json);
             ChangeDialogueData("start");
-            ChangeDialogueData("start");
         }
     }
 
@@ -46,5 +45,18 @@ public class DialogueManager
     public void ChangeJsonPath(string pJsonFilePath)
     {
         Json = File.ReadAllText(pJsonFilePath);
+    }
+    
+    public void AdvanceDialogue()
+    {
+        if (dialogueData.DialogueOptions != null && dialogueData.DialogueOptions.Length > 0)
+        {
+            string nextKey = dialogueData.DialogueOptions[0].Next;
+            ChangeDialogueData(nextKey);
+        }
+        else
+        {
+            Console.WriteLine("No further dialogue options to advance.");
+        }
     }
 }
