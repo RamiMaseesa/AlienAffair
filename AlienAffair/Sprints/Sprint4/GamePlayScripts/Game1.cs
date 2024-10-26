@@ -199,7 +199,7 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts
             wantedMiniGame = new WantedMiniGame(Content, game1Refference);
             dodgeMinigame = new DodgeMinigame(Content, game1Refference);
             ramiGame1Poker = new RamiGame1Poker(game1Refference);
-
+            
             currentState = GameStates.TitleScreen;
             _currentScene = titleScreen;
             _currentScene.OnSceneEnter();
