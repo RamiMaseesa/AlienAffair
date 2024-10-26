@@ -63,6 +63,18 @@
 /processorParam:TextureFormat=Color
 /build:Sprites/Backgrounds/Background_Wanted.png
 
+#begin Sprites/Backgrounds/Background_Wanted.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sprites/Backgrounds/Background_Wanted.png
+
 #begin Sprites/Backgrounds/ForestBackground.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -74,6 +86,30 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Sprites/Backgrounds/ForestBackground.png
+
+#begin Sprites/Backgrounds/ForestBackground.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sprites/Backgrounds/ForestBackground.png
+
+#begin Sprites/Backgrounds/ParkBackground.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sprites/Backgrounds/ParkBackground.png
 
 #begin Sprites/Backgrounds/ParkBackground.png
 /importer:TextureImporter
@@ -99,6 +135,18 @@
 /processorParam:TextureFormat=Color
 /build:Sprites/Backgrounds/StarsBackground.png
 
+#begin Sprites/Backgrounds/StarsBackground.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sprites/Backgrounds/StarsBackground.png
+
 #begin Sprites/Backgrounds/TitleScreenDark.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -110,6 +158,30 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Sprites/Backgrounds/TitleScreenDark.png
+
+#begin Sprites/Backgrounds/TitleScreenDark.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sprites/Backgrounds/TitleScreenDark.png
+
+#begin Sprites/Backgrounds/TitleScreenLight.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sprites/Backgrounds/TitleScreenLight.png
 
 #begin Sprites/Backgrounds/TitleScreenLight.png
 /importer:TextureImporter
@@ -147,6 +219,30 @@
 /processorParam:TextureFormat=Color
 /build:Sprites/EndScenes/BadEnding.png
 
+#begin Sprites/EndScenes/BadEnding.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sprites/EndScenes/BadEnding.png
+
+#begin Sprites/EndScenes/GoodEnding.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sprites/EndScenes/GoodEnding.png
+
 #begin Sprites/EndScenes/GoodEnding.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -170,6 +266,30 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Sprites/EndScenes/HalfBadEnding.png
+
+#begin Sprites/EndScenes/HalfBadEnding.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sprites/EndScenes/HalfBadEnding.png
+
+#begin Sprites/EndScenes/HalfGoodEnding.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sprites/EndScenes/HalfGoodEnding.png
 
 #begin Sprites/EndScenes/HalfGoodEnding.png
 /importer:TextureImporter

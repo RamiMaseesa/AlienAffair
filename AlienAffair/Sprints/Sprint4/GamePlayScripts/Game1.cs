@@ -8,6 +8,7 @@ using AlienAffair.Sprints.Sprint4.GamePlayScripts.Rami.BlackJack;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System;
 using System.Collections.Generic;
 
 namespace AlienAffair.Sprints.Sprint4.GamePlayScripts
@@ -117,17 +118,17 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts
             menuButton.Update(gameTime);
 
             _currentScene.Update(gameTime);
-
+            Console.WriteLine("CurrentDialogueKey " + textWriterScene.GetDialogueManager().DialogueKey);
             switch(textWriterScene.GetDialogueManager().DialogueKey)
             {
                 case "Poker":
-                    _currentScene = ramiGame1Poker;
+                    CurrentScene = ramiGame1Poker;
                     break;
                 case "DodgeMinigame":
-                    _currentScene = dodgeMinigame;
+                    CurrentScene = dodgeMinigame;
                     break;
                 case "WantedMinigame":
-                    _currentScene = wantedMiniGame;
+                    CurrentScene = wantedMiniGame;
                     break;
                 case "Chapter1":
                     textWriterScene.GetDialogueManager().ChangeJsonPath("Content/Json/Chapter1.json");
@@ -159,7 +160,7 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts
 
         public virtual void ChangeScene(GameStates pState)
         {
-            _currentScene = scenes[(int)pState];
+            CurrentScene = scenes[(int)pState];
             currentState = pState;
             _currentScene.OnSceneEnter();
         }
@@ -227,8 +228,10 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts
         public void EndMinigame()
         {
             if (GetPreviousScene() is TextWriterScene)
-            {
+            {  
+
                 ChangeScene(GameStates.textWriterScene);
+                textWriterScene.GetDialogueManager().AdvanceDialogue();
             }
             else
             {

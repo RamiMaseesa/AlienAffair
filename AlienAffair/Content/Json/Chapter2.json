@@ -250,9 +250,19 @@
     ]
   },
   "Poker": {
-    "Text": [
+    "DialogueOptions": [
       {
-        "Line": "Lets go gambling, I want to see why humans like it"
+        "Next": "Chapter3"
+      },
+      {
+        "Next": "Chapter3"
+      }
+    ]
+  },
+  "Chapter3": {
+    "DialogueOptions": [
+      {
+        "Next": "Chapter3"
       }
     ]
   }
