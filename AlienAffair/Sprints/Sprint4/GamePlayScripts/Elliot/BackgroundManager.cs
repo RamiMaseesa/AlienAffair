@@ -23,7 +23,7 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts.Elliot
 
         private void Initialize()
         {
-            files = Directory.GetFiles("Content\\Sprites\\Backgrounds");
+            files = Directory.GetFiles("Content/Sprites/Backgrounds");
             foreach (string file in files)
             {
                 string path = file.Remove(0, 8);

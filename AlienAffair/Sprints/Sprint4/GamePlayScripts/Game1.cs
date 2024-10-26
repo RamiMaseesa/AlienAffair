@@ -8,6 +8,7 @@ using AlienAffair.Sprints.Sprint4.GamePlayScripts.Rami.BlackJack;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System;
 using System.Collections.Generic;
 
 namespace AlienAffair.Sprints.Sprint4.GamePlayScripts
@@ -25,7 +26,6 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts
 
         public BackgroundManager backgroundManager;
 
-        bool canSetPreviousScene = true;
         SceneBase _previousScene;
         SceneBase _currentScene;
         public SceneBase CurrentScene
@@ -55,7 +55,7 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts
         Tutorial tutorial;
         MenuButton menuButton;
         EndScene endScene;
-
+        
 
         public Game1()
         {
@@ -118,32 +118,28 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts
             menuButton.Update(gameTime);
 
             _currentScene.Update(gameTime);
-
-            switch (textWriterScene.GetDialogueManager().DialogueKey)
+            Console.WriteLine("CurrentDialogueKey " + textWriterScene.GetDialogueManager().DialogueKey);
+            switch(textWriterScene.GetDialogueManager().DialogueKey)
             {
                 case "Poker":
-                    _currentScene = ramiGame1Poker;
+                    CurrentScene = ramiGame1Poker;
                     break;
                 case "DodgeMinigame":
-                    _currentScene = dodgeMinigame;
+                    CurrentScene = dodgeMinigame;
                     break;
                 case "WantedMinigame":
-                    _currentScene = wantedMiniGame;
+                    CurrentScene = wantedMiniGame;
                     break;
                 case "Chapter1":
-                    backgroundManager.ChangeBackground(backgrounds.Forest);
-                    System.Console.WriteLine("hallo?");
                     textWriterScene.GetDialogueManager().ChangeJsonPath("Content/Json/Chapter1.json");
                     break;
                 case "Chapter2":
-                    backgroundManager.ChangeBackground(backgrounds.Forest);
-                    System.Console.WriteLine("hallo?");
                     textWriterScene.GetDialogueManager().ChangeJsonPath("Content/Json/Chapter2.json");
                     break;
                 case "Chapter3":
                     textWriterScene.GetDialogueManager().ChangeJsonPath("Content/Json/Chapter3.json");
                     break;
-                case "Chapter4":
+                 case "Chapter4":
                     textWriterScene.GetDialogueManager().ChangeJsonPath("Content/Json/Chapter4.json");
                     break;
             }
@@ -195,7 +191,7 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts
             ramiGame1Poker = new RamiGame1Poker(game1Refference);
 
             currentState = GameStates.TitleScreen;
-            CurrentScene = titleScreen;
+            _currentScene = titleScreen;
             _currentScene.OnSceneEnter();
 
             for (int i = scenes.Count - 1; i >= 0; i--)
@@ -216,7 +212,7 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts
         {
             LoadContent();
             currentState = GameStates.MenuScene;
-            CurrentScene = menuScene;
+            _currentScene = menuScene;
         }
 
         public GameStates GetCurrentScene()
@@ -229,22 +225,13 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts
             return _previousScene;
         }
 
-        //private void SetPreviousScene()
-        //{
-        //    if (canSetPreviousScene == true)
-        //    {
-        //        _previousScene = _currentScene;
-        //        canSetPreviousScene = false;
-        //    }
-        //}
-
         public void EndMinigame()
         {
-            canSetPreviousScene = true;
-            System.Console.WriteLine("vorige scene: " + _previousScene);
             if (GetPreviousScene() is TextWriterScene)
-            {
+            {  
+
                 ChangeScene(GameStates.textWriterScene);
+                textWriterScene.GetDialogueManager().AdvanceDialogue();
             }
             else
             {

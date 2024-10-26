@@ -227,12 +227,12 @@
     "CurrentEmotion": 12,
     "Text": [
       {
-        "Line": ""
+        "Line": "Your honesty is appreciated."
       }
     ],
     "DialogueOptions": [
       {
-        "Next": "WantedMinigame"
+        "Next": "Poker"
       }
     ]
   },
@@ -249,24 +249,17 @@
       }
     ]
   },
-  "WantedMinigame": {
-    "Text": [
-      {
-        "Line": "skibidi dop dop"
-      }
-    ],
+  "Poker": {
     "DialogueOptions": [
+      {
+        "Next": "Chapter3"
+      },
       {
         "Next": "Chapter3"
       }
     ]
   },
   "Chapter3": {
-    "Text": [
-      {
-        "Line": "skibidi dop dop"
-      }
-    ],
     "DialogueOptions": [
       {
         "Next": "Chapter3"
