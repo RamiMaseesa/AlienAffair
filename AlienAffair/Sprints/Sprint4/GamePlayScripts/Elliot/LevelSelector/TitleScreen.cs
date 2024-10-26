@@ -64,6 +64,7 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts.Elliot.LevelSelector
             if (Keyboard.GetState().IsKeyDown(Keys.Enter) || Keyboard.GetState().IsKeyDown(Keys.Space))
             {
                 game.ChangeScene(GameStates.MenuScene);
+               // game.backgroundManager.ChangeBackground(backgrounds.TitleLight);
             }
         }
     }

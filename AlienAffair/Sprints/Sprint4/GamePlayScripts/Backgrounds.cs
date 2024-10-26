@@ -3,6 +3,7 @@
     public enum backgrounds
     {
         Wanted,
+        Carpet,
         Forest,
         Park,
         Stars,
