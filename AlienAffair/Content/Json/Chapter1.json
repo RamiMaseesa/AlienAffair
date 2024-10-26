@@ -66,6 +66,11 @@
           255
         ]
       }
+    ],
+    "DialogueOptions": [
+      {
+        "Next": "Chapter2"
+      }
     ]
   },
   "EndScene": {

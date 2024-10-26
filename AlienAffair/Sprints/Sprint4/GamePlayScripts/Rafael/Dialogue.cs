@@ -98,7 +98,6 @@ public class Dialogue : UiObject
         else if (DialogueOptions.Length == 1 && _typingFinished)
         {
             dialogueManager.ChangeDialogueData(DialogueOptions[0].Next);
-            _typingFinished = false;
         }
     }
 

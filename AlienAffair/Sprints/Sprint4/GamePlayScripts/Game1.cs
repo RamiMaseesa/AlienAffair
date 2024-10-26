@@ -229,7 +229,6 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts
         {
             if (GetPreviousScene() is TextWriterScene)
             {  
-
                 ChangeScene(GameStates.textWriterScene);
                 textWriterScene.GetDialogueManager().AdvanceDialogue();
             }
