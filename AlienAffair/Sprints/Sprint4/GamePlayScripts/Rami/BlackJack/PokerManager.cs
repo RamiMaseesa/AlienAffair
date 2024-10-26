@@ -55,38 +55,30 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts.Rami.BlackJack
             if (sumPlayer > 21)
             {
                 cards.Clear();
-                OnGameStart();
                 Console.WriteLine("Player Bust");
                 game.EndMinigame();
             }
             else if (sumAI > 21) 
             {
                 cards.Clear();
-                OnGameStart();
                 Console.WriteLine("AI Bust");
                 game.EndMinigame();
             }
-
-            if (sumAI < 17) return;
-
-            if (sumPlayer == sumAI)
+            else if (sumPlayer == sumAI && sumAI < 17)
             {
                 cards.Clear();
-                OnGameStart();
                 Console.WriteLine("TIE");
                 game.EndMinigame();
             }
-            else if (sumPlayer > sumAI)
+            else if (sumPlayer > sumAI && sumAI < 17)
             {
                 cards.Clear();
-                OnGameStart();
                 Console.WriteLine("Player WIN");
                 game.EndMinigame();
             }
-            else
+            else if (sumPlayer < sumAI && sumAI < 17)
             {
                 cards.Clear();
-                OnGameStart();
                 Console.WriteLine("AI WIN");
                 game.EndMinigame();
             }
