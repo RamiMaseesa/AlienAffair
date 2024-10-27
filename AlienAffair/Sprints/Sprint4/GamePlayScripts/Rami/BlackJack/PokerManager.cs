@@ -54,8 +54,15 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts.Rami.BlackJack
             }
 
 
-
-            if (sumPlayer == sumAI)
+            if (sumPlayer > 21)
+            {
+                game.EndMinigame();
+            }
+            else if (sumAI > 21)
+            {
+                game.EndMinigame();
+            }
+            else if (sumPlayer == sumAI)
             {
                 cards.Clear();
                 Console.WriteLine("TIE");
@@ -106,12 +113,6 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts.Rami.BlackJack
 
             sum += card.value;
             // player loses if he has more than 21 points
-            if (sum > 21)
-            {
-                cards.Clear();
-                Console.WriteLine("Player Bust");
-                game.EndMinigame();
-            }
 
             if (sum >= 17) WinCheck();
         }
@@ -147,12 +148,7 @@ namespace AlienAffair.Sprints.Sprint4.GamePlayScripts.Rami.BlackJack
                     if (cardBase is AICard) sum += cardBase.value;
                 }
 
-                if (sum > 21)
-                {
-                    cards.Clear();
-                    Console.WriteLine("AI Bust");
-                    game.EndMinigame();
-                }
+
             } while (sum < 17);
 
             if (sum >= 17) WinCheck();

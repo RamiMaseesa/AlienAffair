@@ -1,17 +1,11 @@
 ﻿using AlienAffair.Sprints.Sprint4.FrameWorkScripts;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AlienAffair.Sprints.Sprint4.GamePlayScripts.Rami.BlackJack
 {
     internal class ButtonStand : ButtonBase
     {
-        private string text;
         private PokerManager poker;
 
         public ButtonStand(Vector2 pPosition, Texture2D pSprite, string pButtonText, PokerManager poker) : base(pPosition, pSprite, pButtonText)
